@@ -1,0 +1,501 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arará — Productive development and territorial intelligence · Entre Ríos</title>
+<meta name="description" content="Arará is a consulting firm specialized in productive development, industry, municipalities, financing and territorial intelligence in Entre Ríos, Argentina.">
+<link rel="canonical" href="https://arara.com.ar/index-en.html">
+<link rel="alternate" hreflang="es" href="https://arara.com.ar/">
+<link rel="alternate" hreflang="en" href="https://arara.com.ar/index-en.html">
+<link rel="alternate" hreflang="zh" href="https://arara.com.ar/zh/">
+<link rel="alternate" hreflang="x-default" href="https://arara.com.ar/">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arará">
+<meta property="og:title" content="Arará — Productive development and territorial intelligence">
+<meta property="og:description" content="Consulting firm specialized in productive development, industry, municipalities, financing and territorial intelligence in Entre Ríos.">
+<meta property="og:url" content="https://arara.com.ar/index-en.html">
+<meta property="og:image" content="https://arara.com.ar/og-image.png">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CVC3VZ5WD7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CVC3VZ5WD7');
+</script>
+<style>
+:root{
+  --navy:#0a1628;--blue:#1a3a6b;--blue-mid:#2557a7;--blue-light:#3b7dd8;
+  --gold:#c8a84b;--gold-light:#e8c96a;--red:#c0392b;
+  --white:#ffffff;--off:#f6f8fb;--gray-line:#e4e9f0;--gray-mid:#8a97a8;--gray-text:#46546a;--ink:#0d1b2a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);line-height:1.6;background:var(--white);}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;line-height:1.2;font-weight:700;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+.accent{color:var(--gold);}
+
+/* NAV */
+header{position:sticky;top:0;z-index:50;background:var(--navy);border-bottom:1px solid rgba(200,168,75,.28);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:92px;}
+.brand{display:flex;align-items:center;cursor:pointer;background:#fff;padding:7px 16px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.28);transition:transform .15s;}
+.brand:hover{transform:translateY(-1px);}
+.brand-logo{height:54px;width:auto;display:block;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-size:14.5px;font-weight:500;color:#cdd6e2;transition:color .2s;letter-spacing:.02em;}
+.nav-links a:hover{color:var(--gold-light);}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:10px 20px;border-radius:6px;font-weight:700;font-size:14px;transition:background .2s;}
+.nav-cta:hover{background:var(--gold-light);}
+.nav-social{width:38px;height:38px;border-radius:50%;background:#1877f2;color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .15s,box-shadow .2s;background-color:#1877f2;}
+.nav-social:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(24,119,242,.35);}
+.nav-social svg{width:19px;height:19px;fill:currentColor;display:block;}
+.lang-switch{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(200,168,75,.42);border-radius:999px;padding:4px;background:rgba(255,255,255,.04);}
+.lang-switch a{font-size:12px;font-weight:800;letter-spacing:.08em;color:#cdd6e2;padding:5px 8px;border-radius:999px;line-height:1;}
+.lang-switch a.active{background:var(--gold);color:var(--navy);}
+.lang-switch a:not(.active):hover{color:var(--gold-light);}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px;}
+.burger span{width:24px;height:2px;background:#fff;border-radius:2px;}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,#0a1628 0%,#13294e 55%,#0a1628 100%);color:#fff;padding:82px 0 72px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 90% 80% at 30% 40%,#000 30%,transparent 75%);pointer-events:none;}
+.hero::after{content:'';position:absolute;right:-140px;top:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(37,87,167,.30),transparent 70%);pointer-events:none;}
+.hero-mark{position:absolute;right:-40px;bottom:-70px;width:560px;opacity:.08;pointer-events:none;filter:brightness(4) saturate(0);}
+.hero .wrap{position:relative;z-index:2;}
+.hero-eyebrow{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:14px;}
+.hero-eyebrow::before{content:'';width:44px;height:2px;background:var(--gold);}
+.hero h1{font-size:54px;font-weight:800;max-width:900px;margin-bottom:20px;letter-spacing:-.01em;}
+.hero h1 em{font-style:normal;color:var(--gold-light);}
+.hero p{font-size:18px;color:#c3cedd;max-width:760px;margin-bottom:28px;line-height:1.6;}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-primary{background:var(--gold);color:var(--navy);padding:14px 26px;border-radius:8px;font-weight:700;font-size:15px;transition:transform .15s,background .2s,box-shadow .2s;box-shadow:0 8px 26px rgba(200,168,75,.35);}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 12px 32px rgba(200,168,75,.45);}
+.btn-ghost{border:1px solid rgba(255,255,255,.35);color:#fff;padding:14px 26px;border-radius:8px;font-weight:500;font-size:15px;transition:border-color .2s,background .2s;}
+.btn-ghost:hover{border-color:var(--gold);background:rgba(255,255,255,.05);}
+/* ANIMACIONES (solo entrada del hero) */
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+.hero-eyebrow{animation:fadeUp .7s ease both;}
+.hero h1{animation:fadeUp .7s .12s ease both;}
+.hero p{animation:fadeUp .7s .24s ease both;}
+.hero-actions{animation:fadeUp .7s .36s ease both;}
+
+/* INDICADORES */
+.stats{background:var(--navy);border-top:1px solid rgba(255,255,255,.07);padding:0 0 4px;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);}
+.stat{background:var(--navy);padding:28px 20px;text-align:center;}
+.stat .n{font-family:'Playfair Display',serif;font-size:34px;font-weight:800;color:var(--gold);line-height:1.1;}
+.stat .l{font-size:13.5px;color:#aeb9c8;margin-top:8px;}
+
+/* SECTIONS */
+section{padding:84px 0;scroll-margin-top:74px;}
+.sec-head{max-width:720px;margin-bottom:48px;}
+.sec-eyebrow{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-mid);margin-bottom:14px;}
+.sec-head h2{font-size:38px;margin-bottom:16px;}
+.sec-head p{font-size:17px;color:var(--gray-text);}
+
+/* SERVICIOS */
+.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.serv{border:1px solid var(--gray-line);border-radius:12px;padding:30px 26px;transition:box-shadow .2s,transform .2s,border-color .2s;background:#fff;position:relative;}
+.serv:hover{box-shadow:0 14px 38px rgba(13,27,42,.10);transform:translateY(-3px);border-color:#d3dceb;}
+.serv-ic{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--blue) 0%,var(--blue-mid) 100%);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:23px;}
+.serv h3{font-size:21px;margin-bottom:10px;}
+.serv p{font-size:15px;color:var(--gray-text);}
+.serv .soon{position:absolute;top:18px;right:18px;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:rgba(200,168,75,.12);padding:4px 9px;border-radius:20px;}
+
+/* OBSERVATORIO */
+.obs{background:linear-gradient(180deg,#f4f7fb 0%,#fff 100%);padding:72px 0;}
+.obs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.obs-card{background:#fff;border:1px solid var(--gray-line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;}
+.obs-card:hover{box-shadow:0 14px 38px rgba(13,27,42,.10);transform:translateY(-3px);}
+.obs-top{height:6px;background:linear-gradient(90deg,var(--gold),var(--red));}
+.obs-body{padding:26px;flex:1;display:flex;flex-direction:column;}
+.obs-tag{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-mid);margin-bottom:12px;}
+.obs-card h3{font-size:19px;margin-bottom:10px;}
+.obs-card p{font-size:14.5px;color:var(--gray-text);flex:1;}
+.obs-card .meta{font-family:'Inter',sans-serif;font-size:12px;color:var(--gray-mid);margin-top:16px;}
+.obs-note{margin-top:34px;font-size:14px;color:var(--gray-mid);font-style:italic;text-align:center;}
+.obs-link-card{color:inherit;text-decoration:none;}
+.obs-link-card:focus-visible{outline:3px solid rgba(37,87,167,.35);outline-offset:4px;border-radius:12px;}
+.obs-feature{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:28px;align-items:stretch;background:#fff;border:1px solid var(--gray-line);border-radius:12px;overflow:hidden;box-shadow:0 14px 38px rgba(13,27,42,.08);transition:box-shadow .2s,transform .2s;}
+.obs-feature:hover{box-shadow:0 18px 44px rgba(13,27,42,.13);transform:translateY(-2px);}
+.obs-feature-note{grid-template-columns:minmax(0,1fr) minmax(280px,360px);gap:0;margin-bottom:22px;border-top:6px solid var(--gold);}
+.obs-feature .obs-body{padding:30px;}
+.obs-feature h3{font-size:28px;margin-bottom:12px;}
+.obs-feature p{font-size:16px;color:var(--gray-text);max-width:760px;}
+.obs-feature .meta{font-family:'Inter',sans-serif;font-size:13px;color:var(--gray-mid);margin-top:18px;}
+.obs-feature-note .obs-body{background:linear-gradient(135deg,#fff 0%,#f8fafc 100%);border-left:4px solid var(--blue-mid);}
+.obs-feature-media{min-height:315px;background:#d9e0e8;}
+.obs-feature-media img{width:100%;height:100%;object-fit:cover;display:block;}
+.obs-feature-side{background:linear-gradient(160deg,var(--navy),var(--blue-mid));color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:26px;}
+.obs-feature-side .label{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);}
+.obs-feature-side .arrow{font-size:34px;line-height:1;color:var(--gold-light);align-self:flex-end;}
+.obs-cta{display:inline-flex;align-items:center;color:var(--blue-mid);font-weight:800;font-size:14px;margin-top:22px;}
+.obs-mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px;}
+.obs-mini{background:#fff;border:1px solid var(--gray-line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-height:210px;transition:box-shadow .2s,transform .2s,border-color .2s;}
+.obs-mini:hover{box-shadow:0 14px 34px rgba(13,27,42,.10);transform:translateY(-2px);border-color:#d3dceb;}
+.obs-mini .obs-body{padding:22px;flex:1;}
+.obs-mini h3{font-size:19px;margin-bottom:10px;}
+.obs-mini p{font-size:14px;color:var(--gray-text);}
+.obs-mini .meta{font-family:'Inter',sans-serif;font-size:12px;color:var(--gray-mid);margin-top:16px;}
+.obs-section-action{display:flex;justify-content:center;margin-top:30px;}
+.obs-link{display:inline-flex;align-items:center;justify-content:center;background:var(--blue-mid);color:#fff;padding:13px 20px;border-radius:8px;font-weight:700;font-size:14px;transition:background .2s,transform .15s;white-space:nowrap;}
+.obs-link:hover{background:var(--blue);transform:translateY(-1px);}
+
+/* NOSOTROS */
+.nos-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:start;}
+.nos p{font-size:16.5px;color:var(--gray-text);margin-bottom:18px;}
+.nos .ph{border:1px dashed #c2cede;border-radius:10px;padding:22px;background:var(--off);color:var(--gray-mid);font-size:14px;}
+.dif-list{list-style:none;}
+.dif-list li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--gray-line);font-size:15.5px;color:var(--ink);}
+.dif-list li:last-child{border-bottom:0;}
+.dif-list .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);margin-top:8px;flex-shrink:0;}
+.socios{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px;}
+.socio{border:1px solid var(--gray-line);border-radius:12px;padding:20px;display:flex;gap:14px;align-items:center;background:#fff;transition:box-shadow .2s;}
+.socio:hover{box-shadow:0 10px 26px rgba(13,27,42,.09);}
+.socio .avi{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--blue-mid));color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:17px;flex-shrink:0;}
+.socio h4{font-size:17.5px;margin-bottom:3px;}
+.socio .rol{font-family:'Inter',sans-serif;font-size:13px;color:var(--gray-mid);}
+@media(max-width:860px){.socios{grid-template-columns:1fr;}}
+
+/* CONTACTO */
+.contact{background:linear-gradient(160deg,#0a1628,#12274a);color:#fff;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start;}
+.contact h2{font-size:36px;margin-bottom:16px;}
+.contact .lead{font-size:17px;color:#c3cedd;margin-bottom:28px;}
+.contact-item{display:flex;gap:14px;align-items:center;margin-bottom:16px;font-size:15.5px;color:#dde5ef;}
+.contact-item .ci{width:38px;height:38px;border-radius:8px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.contact-item a{color:#fff;border-bottom:1px solid rgba(200,168,75,.5);}
+.form{background:#fff;border-radius:14px;padding:32px;}
+.form label{display:block;font-size:13px;font-weight:600;color:var(--gray-text);margin-bottom:6px;}
+.form input,.form textarea{width:100%;border:1px solid var(--gray-line);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:15px;margin-bottom:18px;color:var(--ink);}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--blue-mid);}
+.form textarea{min-height:110px;resize:vertical;}
+.form button{width:100%;background:var(--gold);color:var(--navy);border:0;padding:14px;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;transition:background .2s;font-family:inherit;}
+.form button:hover{background:var(--gold-light);}
+.form .ph-note{font-size:12px;color:var(--gray-mid);margin-top:-8px;}
+
+/* FOOTER */
+footer{background:#060f1d;color:#aeb9c8;padding:54px 0 28px;font-size:14px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:36px;}
+.foot-brand .brand-name{font-size:22px;margin-bottom:12px;}
+.foot-brand p{max-width:340px;color:#8a97a8;}
+.foot-col h5{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:14px;font-weight:700;}
+.foot-col a{display:block;padding:5px 0;color:#aeb9c8;transition:color .2s;}
+.foot-col a:hover{color:var(--gold);}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#6b7889;font-size:13px;}
+
+@media(max-width:860px){
+  .nav-links{display:none;}
+  .burger{display:flex;}
+  .nav{height:74px;}
+  .brand-logo{height:54px;}
+  .hero{padding:44px 0 46px;}
+  .hero h1{font-size:32px;}
+  .hero p{font-size:16px;}
+  .hero-mark{width:340px;right:-60px;bottom:-40px;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .stat{padding:20px 12px;min-width:0;}
+  .stat .n{font-size:25px;}
+  .stat .l{font-size:12.5px;}
+  .serv-grid,.obs-grid{grid-template-columns:1fr;}
+  .obs-feature{grid-template-columns:1fr;gap:0;}
+  .obs-feature-note{grid-template-columns:1fr;}
+  .obs-feature-note .obs-body{border-left:0;border-top:4px solid var(--blue-mid);}
+  .obs-feature-media{min-height:260px;order:-1;}
+  .obs-feature h3{font-size:24px;}
+  .obs-feature-side{padding:18px 30px;gap:14px;}
+  .obs-feature-side .arrow{align-self:flex-start;}
+  .obs-mini-grid{grid-template-columns:1fr;}
+  .obs-link{width:100%;}
+  .nos-grid,.contact-grid,.foot-grid{grid-template-columns:1fr;gap:32px;}
+  .sec-head h2{font-size:30px;}
+}
+</style>
+<script src="language-router.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand" onclick="location.href='#top'">
+      <img src="logo-header.png" alt="Arará — Consulting" class="brand-logo">
+    </div>
+    <nav class="nav-links">
+      <a href="#servicios">Services</a>
+      <a href="observatorio-en.html">Observatory</a>
+      <a href="#nosotros">About</a>
+      <a href="#contacto" class="nav-cta">Contact</a>
+      <a href="https://www.facebook.com/profile.php?id=61590969711155" class="nav-social" target="_blank" rel="noopener" aria-label="Arará on Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.675 0h-21.35C.593 0 0 .593 0 1.326v21.348C0 23.407.593 24 1.326 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.587l-.467 3.622h-3.12V24h6.114C23.407 24 24 23.407 24 22.674V1.326C24 .593 23.407 0 22.675 0z"/></svg>
+      </a>
+      <span class="lang-switch" aria-label="Language">
+        <a href="/" lang="es" onclick="localStorage.setItem('arara_lang','es')">ES</a>
+        <a href="index-en.html" class="active" lang="en" aria-current="page" onclick="localStorage.setItem('arara_lang','en')">EN</a>
+      <a href="/zh/" lang="zh-Hans" onclick="localStorage.setItem('arara_lang','zh')">中文</a></span>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <img src="arara-mark.png" alt="" class="hero-mark" aria-hidden="true">
+  <div class="wrap">
+    <div class="hero-eyebrow">Consulting · Entre Ríos</div>
+    <h1>Productive development and <em>territorial intelligence</em> for better decisions</h1>
+    <p>Arará supports decisions in productive development, industry, municipalities and financing through proprietary data, territorial insight and management experience.</p>
+    <div class="hero-actions">
+      <a href="#contacto" class="btn-primary">Let's discuss your project</a>
+      <a href="#servicios" class="btn-ghost">View services</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat"><div class="n">17</div><div class="l">Entre Ríos departments under analysis</div></div>
+      <div class="stat"><div class="n">Data</div><div class="l">proprietary industrial and territorial databases</div></div>
+      <div class="stat"><div class="n">Public<br>+ Private</div><div class="l">we assist both sectors</div></div>
+      <div class="stat"><div class="n">Management</div><div class="l">hands-on project execution experience</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">What we do</div>
+      <h2>Services</h2>
+      <p>We support every stage: from territorial diagnosis to project design, financing management and implementation.</p>
+    </div>
+    <div class="serv-grid">
+      <div class="serv">
+        <div class="serv-ic">🌱</div>
+        <h3>Productive Development</h3>
+        <p>Value chain diagnosis, competitiveness strategies and development plans for productive sectors across the province.</p>
+      </div>
+      <div class="serv">
+        <div class="serv-ic">🏛️</div>
+        <h3>Municipalities</h3>
+        <p>Technical assistance for local governments: planning, program management, institutional strengthening and investment projects.</p>
+      </div>
+      <div class="serv">
+        <div class="serv-ic">🏭</div>
+        <h3>Industry</h3>
+        <p>Analysis of Entre Ríos' industrial base, business location, industrial parks and support for company growth.</p>
+      </div>
+      <div class="serv">
+        <div class="serv-ic">💼</div>
+        <h3>Financing</h3>
+        <p>Identification of funding lines and calls for proposals, plus project design and management to access available resources.</p>
+      </div>
+      <div class="serv">
+        <div class="serv-ic">🗺️</div>
+        <h3>Territorial Intelligence</h3>
+        <p>Data, maps and indicators to understand the territory: where opportunities are and how the provincial economy moves.</p>
+      </div>
+      <div class="serv">
+        <span class="soon">Coming soon</span>
+        <div class="serv-ic">🤖</div>
+        <h3>Operational Auditing and AI</h3>
+        <p>Process optimization and management dashboards assisted by artificial intelligence. A new line under development.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBSERVATORIO -->
+<section id="observatorio" class="obs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Knowledge center</div>
+      <h2>Recent notes and reports</h2>
+      <p>A selection of articles, maps and applied reports on productive development in Entre Ríos. Each piece can be opened from the homepage and expanded in the Observatory.</p>
+    </div>
+    <a class="obs-feature obs-feature-note obs-link-card" href="nodal-public-works-viability-modeling-en.html">
+      <div class="obs-body">
+        <div class="obs-tag">Infrastructure &middot; Technical measurement</div>
+        <h3>Viability Modeling and Strategic Management of Nodal Public Works</h3>
+        <p>A tool to measure productive impact, economic viability and logistics risk in nodal public works.</p>
+        <div class="meta">New Observatory report</div>
+        <span class="obs-cta">Read report</span>
+      </div>
+      <div class="obs-feature-media">
+        <img src="modelado-viabilidad-obra-publica-nodal.jpeg" alt="Consulting tool for measuring and managing nodal public works">
+      </div>
+    </a>
+    <div class="obs-mini-grid" aria-label="Recent reports from the Observatory">
+      <a class="obs-mini obs-link-card" href="alianzas-con-valor-en.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">Value chains &middot; Applied experience</div>
+          <h3>Alliances with Value</h3>
+          <p>Strengthening suppliers and value chains in Entre R&iacute;os.</p>
+          <div class="meta">By Cristian Kaehler</div>
+        </div>
+      </a>
+      <a class="obs-mini obs-link-card" href="micra-crespo-en.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">Productive monitor &middot; Map</div>
+          <h3>MiCra: Crespo Productive Monitor</h3>
+          <p>Map and indicators on areas, roads and productive structure.</p>
+          <div class="meta">New interactive monitor</div>
+        </div>
+      </a>
+      <a class="obs-mini obs-link-card" href="caminos-gualeguaychu-en.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">Rural infrastructure &middot; Map</div>
+          <h3>Rural road valuation in Gualeguaych&uacute;</h3>
+          <p>Economic reading of roads, accessibility constraints and productive activity.</p>
+          <div class="meta">New report</div>
+        </div>
+      </a>
+      <a class="obs-mini obs-link-card" href="mapa-gualeguay-en.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">Territorial intelligence · Map</div>
+          <h3>Productive map of Gualeguay</h3>
+          <p>A territorial reading and an interactive layer to explore productive activity.</p>
+          <div class="meta">Interactive map</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="obs-section-action">
+      <a href="observatorio-en.html" class="obs-link">View all reports</a>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Who we are</div>
+      <h2>About Arará</h2>
+    </div>
+    <div class="nos-grid">
+      <div class="nos">
+        <p>Arará brings together a rare combination of <strong>public management experience</strong>, <strong>knowledge of Entre Ríos' productive structure</strong> and <strong>execution capacity</strong> for real projects.</p>
+        <p>We do more than consulting: we provide proprietary industrial and territorial databases, project design and financing management capacity, and economic-territorial analysis so every decision is backed by solid information.</p>
+        <div class="socios">
+          <div class="socio">
+            <div class="avi">CK</div>
+            <div>
+              <h4>Cristian R. Kaehler</h4>
+              <div class="rol">Founding partner</div>
+            </div>
+          </div>
+          <div class="socio">
+            <div class="avi">MM</div>
+            <div>
+              <h4>Matías Martínez</h4>
+              <div class="rol">Founding partner · Economist</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <ul class="dif-list">
+          <li><span class="dot"></span>Knowledge of Entre Ríos' productive structure</li>
+          <li><span class="dot"></span>Proprietary industrial and territorial databases</li>
+          <li><span class="dot"></span>Public management experience</li>
+          <li><span class="dot"></span>Productive development experience</li>
+          <li><span class="dot"></span>Project design and financing management</li>
+          <li><span class="dot"></span>Economic and territorial analysis</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2>Let's discuss your project</h2>
+        <p class="lead">Tell us what you need and we will prepare a proposal. We respond quickly.</p>
+        <div class="contact-item"><span class="ci">📱</span><span>Cristian Kaehler: <a href="https://wa.me/5493436212809?text=Hello%2C%20I%20would%20like%20to%20contact%20Arar%C3%A1" target="_blank" rel="noopener">+54 9 343 621-2809</a></span></div>
+        <div class="contact-item"><span class="ci">📱</span><span>Matías Martínez: <a href="https://wa.me/5493435442533?text=Hello%2C%20I%20would%20like%20to%20contact%20Arar%C3%A1" target="_blank" rel="noopener">+54 9 343 544-2533</a></span></div>
+        <div class="contact-item"><span class="ci">✉️</span><span>Email: <a href="mailto:contacto@arara.com.ar">contacto@arara.com.ar</a></span></div>
+        <div class="contact-item"><span class="ci">f</span><span>Facebook: <a href="https://www.facebook.com/profile.php?id=61590969711155" target="_blank" rel="noopener">Arará Consulting</a></span></div>
+        <div class="contact-item"><span class="ci">📍</span><span>Entre Ríos, Argentina</span></div>
+      </div>
+      <form class="form" onsubmit="return enviarWA();">
+        <label>Name</label>
+        <input type="text" id="f-nombre" placeholder="Your name or organization">
+        <label>Email or phone</label>
+        <input type="text" id="f-contacto" placeholder="How we can contact you">
+        <label>Your inquiry</label>
+        <textarea id="f-msj" placeholder="Briefly tell us about your project or need"></textarea>
+        <button type="submit">Send inquiry via WhatsApp</button>
+        <p class="ph-note">When you submit, WhatsApp opens with your message ready to send.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand-name" style="color:#fff;">Arar<b style="color:var(--gold);">á</b></div>
+        <p>Consulting firm in productive development, industry, municipalities, financing and territorial intelligence in Entre Ríos.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Services</h5>
+        <a href="#servicios">Productive Development</a>
+        <a href="#servicios">Municipalities</a>
+        <a href="#servicios">Industry</a>
+        <a href="#servicios">Financing</a>
+        <a href="#servicios">Territorial Intelligence</a>
+      </div>
+      <div class="foot-col">
+        <h5>Arará</h5>
+        <a href="observatorio-en.html">Productive Observatory</a>
+        <a href="#nosotros">About</a>
+        <a href="#contacto">Contact</a>
+        <a href="https://www.facebook.com/profile.php?id=61590969711155" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Arará · Entre Ríos, Argentina</span>
+      <span>Productive development · Strategy · Territory</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function enviarWA(){
+  var n = document.getElementById('f-nombre').value.trim();
+  var c = document.getElementById('f-contacto').value.trim();
+  var m = document.getElementById('f-msj').value.trim();
+  var txt = 'Hello, I would like to contact Arará.' + (n ? '\nName: ' + n : '') + (m ? '\nInquiry: ' + m : '') + (c ? '\nContact: ' + c : '');
+  window.open('https://wa.me/5493436212809?text=' + encodeURIComponent(txt), '_blank');
+  return false;
+}
+document.getElementById('burger').addEventListener('click',function(){
+  var n=document.querySelector('.nav-links');
+  n.style.display = (n.style.display==='flex')?'none':'flex';
+  n.style.flexDirection='column';n.style.position='absolute';n.style.top='74px';n.style.right='0';
+  n.style.background='#0a1628';n.style.padding='18px 24px';n.style.gap='16px';n.style.width='100%';
+  n.style.borderTop='1px solid rgba(200,168,75,.25)';n.style.boxShadow='0 14px 28px rgba(0,0,0,.35)';
+});
+</script>
+</body>
+</html>
+
+
+

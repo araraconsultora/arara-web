@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modelado de Viabilidad y Gestión Estratégica de Obra Pública Nodal — Arará</title>
+<meta name="description" content="Herramienta consultora para medir la viabilidad económica, financiera y productiva de obras públicas nodales en Entre Ríos.">
+<link rel="canonical" href="https://arara.com.ar/modelado-viabilidad-obra-publica-nodal.html">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Arará">
+<meta property="og:title" content="Modelado de Viabilidad y Gestión Estratégica de Obra Pública Nodal — Arará">
+<meta property="og:description" content="Medición técnica para convertir obra pública en certidumbre productiva, priorización de inversiones y gestión estratégica territorial.">
+<meta property="og:url" content="https://arara.com.ar/modelado-viabilidad-obra-publica-nodal.html">
+<meta property="og:image" content="https://arara.com.ar/modelado-viabilidad-obra-publica-nodal.jpeg">
+<meta property="og:locale" content="es_AR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CVC3VZ5WD7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CVC3VZ5WD7');
+</script>
+<style>
+:root{
+  --navy:#0a1628;--blue:#1a3a6b;--blue-mid:#2557a7;--gold:#c8a84b;--gold-light:#e8c96a;
+  --white:#fff;--off:#f6f8fb;--gray-line:#e4e9f0;--gray-mid:#8a97a8;--gray-text:#46546a;--ink:#0d1b2a;--green:#2d7a4d;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);line-height:1.65;background:var(--white);}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.2;font-weight:700;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+header{position:sticky;top:0;z-index:50;background:var(--navy);border-bottom:1px solid rgba(200,168,75,.28);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:92px;}
+.brand{display:flex;align-items:center;cursor:pointer;background:#fff;padding:7px 16px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.28);transition:transform .15s;}
+.brand:hover{transform:translateY(-1px);}
+.brand-logo{height:54px;width:auto;display:block;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-size:14.5px;font-weight:500;color:#cdd6e2;transition:color .2s;letter-spacing:.02em;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-light);}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:10px 20px;border-radius:6px;font-weight:700;font-size:14px;transition:background .2s;}
+.nav-cta:hover{background:var(--gold-light);}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px;}
+.burger span{width:24px;height:2px;background:#fff;border-radius:2px;}
+.hero{background:linear-gradient(160deg,#071322 0%,#12315a 62%,#0a1628 100%);color:#fff;padding:70px 0 64px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 92% 80% at 24% 36%,#000 28%,transparent 76%);pointer-events:none;}
+.hero .wrap{position:relative;z-index:2;}
+.breadcrumb{font-size:13px;color:#aeb9c8;margin-bottom:22px;}
+.breadcrumb a{color:var(--gold-light);border-bottom:1px solid rgba(200,168,75,.45);}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:18px;display:flex;align-items:center;gap:14px;}
+.eyebrow::before{content:'';width:44px;height:2px;background:var(--gold);}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,470px);gap:42px;align-items:center;}
+.hero h1{font-size:49px;font-weight:800;margin-bottom:18px;letter-spacing:-.01em;max-width:900px;}
+.hero p{font-size:18px;color:#d3dcea;max-width:760px;line-height:1.65;}
+.article-meta{margin-top:22px;font-size:14px;color:#aeb9c8;}
+.article-meta strong{color:var(--gold-light);}
+.hero-card{background:#fff;border:1px solid rgba(200,168,75,.32);border-radius:14px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,.22);}
+.hero-card img{width:100%;display:block;}
+.hero-card figcaption{font-size:12px;line-height:1.4;color:#6b7889;padding:13px 15px;background:#fff;}
+.metric-strip{margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.hero-metric{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:14px 12px;min-height:82px;}
+.hero-metric b{display:block;font-size:22px;color:#fff;line-height:1.1;margin-bottom:4px;font-family:'Playfair Display',Georgia,serif;}
+.hero-metric span{display:block;font-size:12px;color:#c3cedd;line-height:1.35;}
+.page{background:var(--off);padding:58px 0 82px;}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;align-items:start;}
+.article{background:#fff;border:1px solid var(--gray-line);border-radius:12px;padding:38px;}
+.article h2{font-size:30px;margin:34px 0 14px;color:var(--navy);}
+.article h2:first-child{margin-top:0;}
+.article h3{font-size:22px;margin:24px 0 10px;color:var(--blue);}
+.article p{font-size:16px;color:var(--gray-text);margin-bottom:18px;}
+.lead{font-size:18px!important;color:#26364d!important;line-height:1.75;}
+.callout{border-left:4px solid var(--gold);background:#fbfaf4;padding:18px 20px;margin:28px 0;color:#26364d;font-size:17px;}
+.article ul{margin:0 0 22px 20px;color:var(--gray-text);}
+.article li{margin-bottom:8px;}
+.check-list{list-style:none;margin-left:0!important;}
+.check-list li{position:relative;padding-left:30px;}
+.check-list li::before{content:'✓';position:absolute;left:0;top:0;color:var(--green);font-weight:800;}
+.side{display:grid;gap:16px;}
+.panel{background:#fff;border:1px solid var(--gray-line);border-radius:12px;padding:24px;}
+.panel h3{font-size:22px;margin-bottom:14px;color:var(--navy);}
+.metric{padding:14px 0;border-top:1px solid var(--gray-line);}
+.metric:first-of-type{border-top:0;padding-top:0;}
+.metric b{display:block;font-size:26px;color:var(--blue-mid);line-height:1.1;font-family:'Playfair Display',Georgia,serif;}
+.metric span{font-size:13px;color:var(--gray-text);}
+.tag-list{display:flex;flex-wrap:wrap;gap:8px;}
+.tag{font-size:12px;font-weight:700;color:var(--blue-mid);background:#edf3fb;border:1px solid #d8e4f2;border-radius:999px;padding:6px 10px;}
+.cta{background:var(--navy);color:#fff;border-color:rgba(200,168,75,.35);}
+.cta p{color:#c3cedd;font-size:14px;margin-bottom:16px;}
+.cta a{display:inline-flex;background:var(--gold);color:var(--navy);padding:11px 15px;border-radius:8px;font-weight:800;font-size:13px;}
+footer{background:#060f1d;color:#aeb9c8;padding:54px 0 28px;font-size:14px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:36px;}
+.foot-brand .brand-name{font-size:22px;margin-bottom:12px;}
+.foot-brand p{max-width:340px;color:#8a97a8;}
+.foot-col h5{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:14px;font-weight:700;}
+.foot-col a{display:block;padding:5px 0;color:#aeb9c8;transition:color .2s;}
+.foot-col a:hover{color:var(--gold);}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#6b7889;font-size:13px;}
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .burger{display:flex;}
+  .nav{height:74px;}
+  .brand-logo{height:54px;}
+  .hero{padding:50px 0 46px;}
+  .hero-grid{grid-template-columns:1fr;gap:28px;}
+  .hero h1{font-size:34px;}
+  .hero p{font-size:16px;}
+  .metric-strip{grid-template-columns:1fr 1fr;}
+  .layout{grid-template-columns:1fr;}
+  .article{padding:28px;}
+  .foot-grid{grid-template-columns:1fr;gap:32px;}
+}
+@media(max-width:520px){
+  .metric-strip{grid-template-columns:1fr;}
+  .hero h1{font-size:31px;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand" onclick="location.href='index.html'">
+      <img src="logo-header.png" alt="Arará — Consultoría" class="brand-logo">
+    </div>
+    <nav class="nav-links">
+      <a href="index.html#servicios">Servicios</a>
+      <a href="observatorio.html" class="active">Observatorio</a>
+      <a href="index.html#nosotros">Nosotros</a>
+      <a href="index.html#contacto" class="nav-cta">Contacto</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> / <a href="observatorio.html">Observatorio</a> / Obra pública nodal</div>
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Infraestructura · Medición técnica</div>
+        <h1>Modelado de Viabilidad y Gestión Estratégica de Obra Pública Nodal</h1>
+        <p>Una herramienta consultora para medir el impacto económico, financiero y productivo de obras públicas nodales, superando la evaluación vial tradicional.</p>
+        <div class="article-meta">Informe del <strong>Observatorio Productivo de Arará</strong> · Gestión estratégica territorial</div>
+      </div>
+      <figure class="hero-card">
+        <img src="modelado-viabilidad-obra-publica-nodal.jpeg" alt="Herramienta consultora para medición y gestión de obra pública nodal" loading="eager">
+        <figcaption>Modelo aplicado sobre infraestructura nodal: medición de stock productivo, impactos incrementales, viabilidad económica y mitigación de riesgos logísticos.</figcaption>
+      </figure>
+    </div>
+    <div class="metric-strip" aria-label="Indicadores del modelo">
+      <div class="hero-metric"><b>USD 121,1 M</b><span>stock productivo preexistente analizado.</span></div>
+      <div class="hero-metric"><b>USD 16,5 M</b><span>valor actual neto económico estimado.</span></div>
+      <div class="hero-metric"><b>84,3%</b><span>tasa interna de retorno económico.</span></div>
+      <div class="hero-metric"><b>9,07</b><span>relación beneficio/costo proyectada.</span></div>
+    </div>
+  </div>
+</section>
+
+<main class="page">
+  <div class="wrap layout">
+    <article class="article">
+      <h2>La necesidad: superar la evaluación vial tradicional</h2>
+      <p class="lead">La mayoría de los proyectos de infraestructura pública en municipios y departamentos de Entre Ríos se evalúan únicamente bajo criterios de costo-beneficio tradicionales, como el ahorro individual de combustible o la reducción de tiempos de viaje.</p>
+      <p>Ese enfoque es limitado. Ignora el impacto sistémico y el valor que la obra genera para los sectores productivos adyacentes. Un cuello de botella estructural, como un puente obsoleto, actúa como un impuesto oculto a la logística, desincentivando la inversión privada y frenando el desarrollo regional.</p>
+
+      <h2>El producto logrado: un modelo integral de medición de impacto</h2>
+      <p>Arará desarrolló una herramienta de modelado integral que redefine la evaluación de la obra pública. Tomando como base el análisis técnico del proyecto del puente sobre el Arroyo Curupí, en la Ruta Provincial N° 20, el modelo cuantifica matemáticamente cómo la inversión pública puede operar como dinamizador directo de la rentabilidad privada.</p>
+
+      <h3>Identificación y delimitación geoespacial</h3>
+      <p>No se evalúa el tráfico en abstracto: se mide el impacto sobre unidades productivas reales. Para eso se utilizan sistemas de información geográfica y criterios técnicos de delimitación territorial, como buffers de influencia directa sobre el corredor intervenido.</p>
+
+      <h3>Inventario y valorización de stock preexistente</h3>
+      <p>El modelo cuantifica la capacidad de generación de valor instalada dentro de la zona de influencia. Identifica establecimientos productivos, los estratifica por actividad económica final y tamaño, y permite estimar el volumen económico atrapado por la deficiencia logística.</p>
+
+      <h3>Modelado de beneficios incrementales por sector</h3>
+      <p>En ganadería se calcula el excedente asociado a la supresión de mermas productivas, comercialización forzada e imposibilidad de despacho con camiones de mayor porte. En avicultura se modela la incertidumbre productiva y el efecto que la precariedad logística genera sobre la inversión privada automatizada.</p>
+
+      <h3>Análisis de viabilidad financiera y económica</h3>
+      <p>El modelo computa indicadores dolarizados bajo horizontes temporales acotados y parámetros de prudencia contable, incluyendo curvas de adopción gradual y tasas de descuento de referencia. El resultado es una medición rigurosa de indicadores de decisión como VANE, TIRE y relación beneficio/costo.</p>
+
+      <div class="callout">La herramienta permite pasar de una evaluación vial centrada en tránsito a una evaluación productiva centrada en generación de valor, mitigación de riesgos y captura de inversión inducida.</div>
+
+      <h2>El valor: convertir obra pública en certidumbre productiva</h2>
+      <p>El producto logrado no es solo un informe técnico: es una herramienta de gestión para el decisor político y para el inversor privado.</p>
+      <ul>
+        <li><strong>Priorización macroeconómica:</strong> permite jerarquizar obras según su capacidad real de dinamización económica y generación de valor agregado provincial.</li>
+        <li><strong>Mitigación del riesgo:</strong> transforma la obra pública en un catalizador directo de la rentabilidad privada al reducir el riesgo logístico estructural.</li>
+        <li><strong>Atracción de inversión inducida:</strong> cuantifica el desincentivo geográfico preexistente y proporciona base técnica para radicar capital privado en zonas rezagadas.</li>
+        <li><strong>Autofinanciamiento del préstamo:</strong> demuestra cuándo una inversión nodal puede repagarse rápidamente con la producción adicional generada.</li>
+      </ul>
+
+      <h2>Replicabilidad: una herramienta para Entre Ríos</h2>
+      <p>La herramienta de medición no es exclusiva para puentes. Está diseñada para evaluar cualquier infraestructura nodal que afecte corredores productivos y decisiones de inversión territorial.</p>
+      <ul>
+        <li><strong>Puntos de conexión rurales:</strong> evaluación de pasos sobre arroyos y ríos que limitan el acceso de camiones pesados en áreas agrícolas y ganaderas.</li>
+        <li><strong>Accesos a centros de faena:</strong> modelado de la certidumbre logística indispensable para industrias altamente integradas, como avicultura o producción porcina.</li>
+        <li><strong>Corredores viales nodales:</strong> análisis de tramos específicos que funcionan como barreras para el flujo entre centros productivos y mercados.</li>
+      </ul>
+
+      <h2>Potenciar la próxima obra</h2>
+      <p>No se trata de ejecutar obra pública a ciegas. La medición técnica y la gestión estratégica permiten estimar retorno productivo, ordenar prioridades y reducir incertidumbre antes de invertir.</p>
+      <ul class="check-list">
+        <li>Generar certidumbre para la inversión privada.</li>
+        <li>Expandir la rentabilidad general de una jurisdicción.</li>
+        <li>Priorizar la próxima obra nodal con rigor técnico.</li>
+      </ul>
+    </article>
+
+    <aside class="side" aria-label="Síntesis del modelo">
+      <section class="panel">
+        <h3>Modelo aplicado</h3>
+        <div class="metric"><b>SIG</b><span>delimitación geoespacial de áreas de influencia.</span></div>
+        <div class="metric"><b>Stock</b><span>valorización productiva preexistente.</span></div>
+        <div class="metric"><b>VANE</b><span>medición económica del retorno social-productivo.</span></div>
+        <div class="metric"><b>TIRE</b><span>indicador de rentabilidad económica.</span></div>
+      </section>
+
+      <section class="panel">
+        <h3>Aplicaciones</h3>
+        <div class="tag-list">
+          <span class="tag">Puentes rurales</span>
+          <span class="tag">Corredores productivos</span>
+          <span class="tag">Accesos industriales</span>
+          <span class="tag">Logística agroindustrial</span>
+          <span class="tag">Financiamiento público</span>
+          <span class="tag">Inversión inducida</span>
+        </div>
+      </section>
+
+      <section class="panel cta">
+        <h3>Gestión de proyectos</h3>
+        <p>Arará acompaña a municipios, instituciones y actores productivos en la formulación, medición y priorización de infraestructura con impacto territorial.</p>
+        <a href="index.html#contacto">Consultar</a>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand-name" style="color:#fff;">Arar<b style="color:var(--gold);">á</b></div>
+        <p>Consultora especializada en desarrollo productivo, industria, municipios, financiamiento e inteligencia territorial.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Servicios</h5>
+        <a href="index.html#servicios">Desarrollo productivo</a>
+        <a href="index.html#servicios">Municipios</a>
+        <a href="index.html#servicios">Industria</a>
+        <a href="index.html#servicios">Financiamiento</a>
+      </div>
+      <div class="foot-col">
+        <h5>Arará</h5>
+        <a href="observatorio.html">Observatorio Productivo</a>
+        <a href="index.html#nosotros">Nosotros</a>
+        <a href="index.html#contacto">Contacto</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Arará · Entre Ríos, Argentina</span>
+      <span>Desarrollo productivo · Estrategia · Territorio</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('burger').addEventListener('click',function(){
+  var n=document.querySelector('.nav-links');
+  n.style.display = (n.style.display==='flex')?'none':'flex';
+  n.style.flexDirection='column';n.style.position='absolute';n.style.top='74px';n.style.right='0';
+  n.style.background='#0a1628';n.style.padding='18px 24px';n.style.gap='16px';n.style.width='100%';
+  n.style.borderTop='1px solid rgba(200,168,75,.25)';n.style.boxShadow='0 14px 28px rgba(0,0,0,.35)';
+});
+</script>
+</body>
+</html>

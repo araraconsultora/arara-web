@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gualeguaych&uacute;农村道路价值评估 - Arar&aacute;</title>
+<meta name="description" content="Arar&aacute;生产观察站关于Gualeguaych&uacute;农村道路经济价值、通行中断损失和区域分析的报告。">
+<link rel="canonical" href="https://arara.com.ar/zh/caminos-gualeguaychu.html">
+<link rel="alternate" hreflang="es" href="https://arara.com.ar/caminos-gualeguaychu.html">
+<link rel="alternate" hreflang="en" href="https://arara.com.ar/caminos-gualeguaychu-en.html">
+<link rel="alternate" hreflang="zh" href="https://arara.com.ar/zh/caminos-gualeguaychu.html">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Arar&aacute;">
+<meta property="og:title" content="Gualeguaych&uacute;农村道路价值评估 - Arar&aacute;">
+<meta property="og:description" content="关于Gualeguaych&uacute;农村道路、经济活动和通行中断损失的地图与报告。">
+<meta property="og:url" content="https://arara.com.ar/zh/caminos-gualeguaychu.html">
+<meta property="og:image" content="https://arara.com.ar/og-caminos-gualeguaychu.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arara.com.ar/og-caminos-gualeguaychu.png">
+<meta property="og:locale" content="zh_CN">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CVC3VZ5WD7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CVC3VZ5WD7');
+</script>
+<style>
+:root{
+  --navy:#0a1628;--blue:#1a3a6b;--blue-mid:#2557a7;--gold:#c8a84b;--gold-light:#e8c96a;
+  --red:#c0392b;--white:#ffffff;--off:#f6f8fb;--gray-line:#e4e9f0;--gray-mid:#8a97a8;--gray-text:#46546a;--ink:#0d1b2a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans SC','Inter',system-ui,sans-serif;color:var(--ink);line-height:1.6;background:var(--white);}
+h1,h2,h3{font-family:'Noto Sans SC','Playfair Display',Georgia,serif;line-height:1.2;font-weight:700;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+header{position:sticky;top:0;z-index:50;background:var(--navy);border-bottom:1px solid rgba(200,168,75,.28);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:92px;}
+.brand{display:flex;align-items:center;cursor:pointer;background:#fff;padding:7px 16px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.28);transition:transform .15s;}
+.brand:hover{transform:translateY(-1px);}
+.brand-logo{height:54px;width:auto;display:block;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-size:14.5px;font-weight:500;color:#cdd6e2;transition:color .2s;letter-spacing:.02em;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-light);}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:10px 20px;border-radius:6px;font-weight:700;font-size:14px;transition:background .2s;}
+.nav-cta:hover{background:var(--gold-light);}
+.nav-social{width:38px;height:38px;border-radius:50%;background:#1877f2;color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .15s,box-shadow .2s;background-color:#1877f2;}
+.nav-social:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(24,119,242,.35);}
+.nav-social svg{width:19px;height:19px;fill:currentColor;display:block;}
+.lang-switch{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(200,168,75,.42);border-radius:999px;padding:4px;background:rgba(255,255,255,.04);}
+.lang-switch a{font-size:12px;font-weight:800;letter-spacing:.08em;color:#cdd6e2;padding:5px 8px;border-radius:999px;line-height:1;}
+.lang-switch a.active{background:var(--gold);color:var(--navy);}
+.lang-switch a:not(.active):hover{color:var(--gold-light);}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px;}
+.burger span{width:24px;height:2px;background:#fff;border-radius:2px;}
+.article-hero{background:linear-gradient(160deg,#0a1628 0%,#13294e 60%,#0a1628 100%);color:#fff;padding:72px 0 64px;position:relative;overflow:hidden;}
+.article-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 90% 80% at 30% 40%,#000 30%,transparent 75%);pointer-events:none;}
+.article-hero .wrap{position:relative;z-index:2;}
+.breadcrumb{font-size:13px;color:#8a97a8;margin-bottom:22px;}
+.breadcrumb a{color:var(--gold);border-bottom:1px solid rgba(200,168,75,.4);}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:14px;}
+.eyebrow::before{content:'';width:44px;height:2px;background:var(--gold);}
+.article-hero h1{font-size:48px;font-weight:800;margin-bottom:18px;letter-spacing:0;max-width:900px;}
+.article-hero p{font-size:18px;color:#c3cedd;max-width:780px;line-height:1.65;}
+.article-meta{margin-top:18px;font-size:14px;color:#e2e8f0;}
+.article-meta strong{color:var(--gold-light);font-weight:700;}
+.article-page{background:var(--off);padding:58px 0 80px;}
+.reading{background:#fff;border:1px solid var(--gray-line);border-radius:12px;padding:34px;margin-bottom:28px;}
+.reading h2{font-size:30px;margin-bottom:16px;color:var(--navy);}
+.reading p{font-size:16px;color:var(--gray-text);max-width:920px;margin-bottom:16px;}
+.reading p:last-child{margin-bottom:0;}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px;}
+.kpi{background:var(--off);border:1px solid var(--gray-line);border-radius:10px;padding:18px;min-height:116px;}
+.kpi b{display:block;font-family:'Noto Sans SC','Playfair Display',Georgia,serif;font-size:27px;color:var(--blue-mid);line-height:1.1;margin-bottom:6px;}
+.kpi span{font-size:13px;color:var(--gray-text);}
+.analysis-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;margin-bottom:28px;}
+.panel{background:#fff;border:1px solid var(--gray-line);border-radius:12px;padding:28px;}
+.panel h2{font-size:28px;color:var(--navy);margin-bottom:14px;}
+.panel p{font-size:15.5px;color:var(--gray-text);margin-bottom:12px;}
+.panel ul{padding-left:18px;color:var(--gray-text);font-size:15px;}
+.panel li{margin-bottom:9px;}
+.rank-table{width:100%;border-collapse:collapse;font-size:13.5px;}
+.rank-table th{text-align:left;color:var(--blue-mid);font-size:11px;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--gray-line);padding:10px 8px;}
+.rank-table td{border-bottom:1px solid var(--gray-line);padding:11px 8px;color:var(--gray-text);}
+.rank-table td:first-child{font-weight:700;color:var(--ink);}
+.map-card{background:#fff;border:1px solid var(--gray-line);border-radius:12px;overflow:hidden;}
+.map-head{padding:26px 26px 18px;display:flex;justify-content:space-between;gap:18px;align-items:flex-end;}
+.map-head h2{font-size:30px;margin-bottom:8px;color:var(--navy);}
+.map-head p{font-size:15px;color:var(--gray-text);max-width:820px;}
+.legend{font-size:12px;color:var(--gray-text);background:var(--off);border:1px solid var(--gray-line);border-radius:8px;padding:10px 12px;min-width:210px;}
+.legend-row{display:flex;align-items:center;gap:8px;margin-top:6px;}
+.swatch{width:22px;height:4px;border-radius:99px;background:var(--red);}
+.swatch.poly{height:14px;background:rgba(37,87,167,.24);border:1px solid var(--blue-mid);}
+#roads-map{height:620px;width:100%;background:#e8eef5;}
+.map-foot{padding:14px 26px 22px;font-size:13px;color:var(--gray-mid);}
+.leaflet-popup-content{font-family:'Noto Sans SC','Inter',system-ui,sans-serif;font-size:13px;line-height:1.45;}
+.popup-title{font-weight:800;color:#0a1628;margin-bottom:6px;}
+.popup-grid{display:grid;grid-template-columns:auto auto;gap:4px 12px;}
+.popup-grid span:nth-child(odd){color:#6b7889;}
+.popup-grid span:nth-child(even){font-weight:700;color:#0d1b2a;text-align:right;}
+footer{background:#060f1d;color:#aeb9c8;padding:54px 0 28px;font-size:14px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:36px;}
+.foot-brand .brand-name{font-size:22px;margin-bottom:12px;}
+.foot-brand p{max-width:340px;color:#8a97a8;}
+.foot-col h5{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:14px;font-weight:700;}
+.foot-col a{display:block;padding:5px 0;color:#aeb9c8;transition:color .2s;}
+.foot-col a:hover{color:var(--gold);}
+.wechat-box{margin-top:16px;display:inline-flex;flex-direction:column;gap:10px;align-items:flex-start;}
+.wechat-qr{width:122px;height:122px;border-radius:10px;border:1px solid rgba(200,168,75,.45);background:#fff;object-fit:cover;padding:6px;}
+.wechat-caption{font-size:12px;line-height:1.45;color:#8a97a8;max-width:180px;}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#6b7889;font-size:13px;}
+@media(max-width:960px){
+  .kpi-grid,.analysis-grid{grid-template-columns:1fr 1fr;}
+  .map-head{display:block;}
+  .legend{margin-top:14px;}
+}
+@media(max-width:860px){
+  .nav-links{display:none;}
+  .burger{display:flex;}
+  .nav{height:74px;}
+  .brand-logo{height:54px;}
+  .article-hero{padding:54px 0 48px;}
+  .article-hero h1{font-size:32px;}
+  .article-hero p{font-size:16px;}
+  .reading,.panel{padding:24px;}
+  .reading h2,.panel h2,.map-head h2{font-size:25px;}
+  .kpi-grid,.analysis-grid{grid-template-columns:1fr;}
+  #roads-map{height:520px;}
+  .foot-grid{grid-template-columns:1fr;gap:32px;}
+}
+</style>
+<script src="/language-router.js" defer></script>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand" onclick="location.href='index.html'">
+      <img src="/logo-header.png" alt="Arar&aacute;" class="brand-logo">
+    </div>
+    <nav class="nav-links">
+      <a href="/zh/#servicios">服务</a>
+      <a href="/zh/observatorio.html" class="active">观察站</a>
+      <a href="/zh/#nosotros">关于我们</a>
+      <a href="/zh/#contacto" class="nav-cta">联系我们</a>
+      <a href="https://www.facebook.com/profile.php?id=61590969711155" class="nav-social" target="_blank" rel="noopener" aria-label="Arar&aacute; Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.675 0h-21.35C.593 0 0 .593 0 1.326v21.348C0 23.407.593 24 1.326 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.587l-.467 3.622h-3.12V24h6.114C23.407 24 24 23.407 24 22.674V1.326C24 .593 23.407 0 22.675 0z"/></svg>
+      </a>
+      <span class="lang-switch" aria-label="Language">
+        <a href="/caminos-gualeguaychu.html" lang="es">ES</a>
+        <a href="/caminos-gualeguaychu-en.html" lang="en">EN</a>
+      <a href="/zh/caminos-gualeguaychu.html" class="active" lang="zh-Hans" onclick="localStorage.setItem('arara_lang','zh')" aria-current="page">中文</a></span>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="article-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="/zh/">首页</a> / <a href="/zh/observatorio.html">观察站</a> / 农村道路</div>
+    <div class="eyebrow">农村基础设施 · 区域智能</div>
+    <h1>Gualeguaych&uacute;农村道路价值评估</h1>
+    <p>对农村道路网络的经济和区域解读：有多少生产价值通过这些道路流动，道路无法通行时会损失什么，以及干预优先级在哪里出现。</p>
+    <div class="article-meta">作者：<strong>Mat&iacute;as Mart&iacute;nez</strong>，经济学家</div>
+  </div>
+</section>
+
+<main class="article-page">
+  <div class="wrap">
+    <article class="reading">
+      <h2>初步解读</h2>
+      <p>农村通达性不仅是区域的物理条件，也是一项经济变量。本次生产观察站研究估算了Gualeguaych&uacute;道路和地区相关的生产能力，纳入经济活动、总收入、玉米消费以及通行中断造成的损失。</p>
+      <p>该数据库采用一项重要的方法假设：不计算玉米、大豆或小麦等初级活动，以避免这些投入随后转化为禽肉、猪肉、畜牧或同一道路上的其他活动时发生重复计算。通行中断损失按年均60天计算。</p>
+      <div class="kpi-grid">
+        <div class="kpi"><b>149</b><span>区域图层中调查的道路。</span></div>
+        <div class="kpi"><b>1,529 km</b><span>分析道路的近似总长度。</span></div>
+        <div class="kpi"><b>US$ 522.4 M</b><span>与调查网络相关的估算年价值。</span></div>
+        <div class="kpi"><b>US$ 74.7 M</b><span>通行中断造成的估算年损失。</span></div>
+      </div>
+    </article>
+
+    <div class="analysis-grid">
+      <section class="panel">
+        <h2>地图展示内容</h2>
+        <p>地图将信息分为两层：道路和地区。用户可查看每段道路产生的经济价值、通行中断估算损失、相关玉米消费，以及由这些资源可融资建设的沥青或碎石道路等效公里数。</p>
+        <ul>
+          <li>它将关于农村道路的一般讨论转化为带有位置、规模和优先级的对话。</li>
+          <li>它使农村连通性中断的经济成本变得可见。</li>
+          <li>它可作为市政府、道路联合体、生产者和需要规划工程或管理融资的机构的决策输入。</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>估算损失最高的道路</h2>
+        <table class="rank-table" aria-label="按估算损失排序的道路">
+          <thead><tr><th>道路</th><th>Km</th><th>损失</th></tr></thead>
+          <tbody>
+            <tr><td>Ruta 16 este</td><td>59</td><td>US$ 8,5 M</td></tr>
+            <tr><td>151号乡间道路</td><td>3</td><td>US$ 3,9 M</td></tr>
+            <tr><td>Ruta 14</td><td>58</td><td>US$ 3,3 M</td></tr>
+            <tr><td>Ruta 20 este</td><td>38</td><td>US$ 2,7 M</td></tr>
+            <tr><td>92号乡间道路</td><td>22</td><td>US$ 2,7 M</td></tr>
+            <tr><td>Ruta 20 norte</td><td>19</td><td>US$ 2,4 M</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <section class="map-card" aria-labelledby="mapa-title">
+      <div class="map-head">
+        <div>
+          <h2 id="mapa-title">互动地图</h2>
+          <p>放大地图、打开或关闭图层，并点击每条道路或地区查看经济数据。颜色越深的道路表示通行中断造成的估算损失越高。</p>
+        </div>
+        <div class="legend" aria-label="地图图例">
+          <strong>图例</strong>
+          <div class="legend-row"><span class="swatch"></span><span>农村道路</span></div>
+          <div class="legend-row"><span class="swatch poly"></span><span>地区</span></div>
+        </div>
+      </div>
+      <div id="roads-map"></div>
+      <div class="map-foot">来源：由Arar&aacute;生产观察站处理的Gualeguaych&uacute;道路价值评估KML图层。</div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand-name" style="color:#fff;">Arar<b style="color:var(--gold);">&aacute;</b></div>
+        <p>专注于恩特雷里奥斯省产业发展、工业、市政、融资和区域智能的咨询公司。</p>
+      </div>
+      <div class="foot-col">
+        <h5>服务</h5>
+        <a href="/zh/#servicios">产业发展</a>
+        <a href="/zh/#servicios">市政服务</a>
+        <a href="/zh/#servicios">工业</a>
+        <a href="/zh/#servicios">融资</a>
+        <a href="/zh/#servicios">区域智能</a>
+      </div>
+      <div class="foot-col">
+        <h5>Arar&aacute;</h5>
+        <a href="/zh/observatorio.html">生产观察站</a>
+        <a href="/zh/#nosotros">关于我们</a>
+        <a href="/zh/#contacto">联系我们</a>
+        <a href="https://www.facebook.com/profile.php?id=61590969711155" target="_blank" rel="noopener">Facebook</a>
+        <div class="wechat-box">
+          <img class="wechat-qr" src="/wechat-cristian-kaehler-qr.jpeg" alt="Cristian Kaehler微信二维码" loading="lazy">
+          <div class="wechat-caption">扫描二维码添加好友。</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Arar&aacute; · Entre R&iacute;os, Argentina</span>
+      <span>产业发展 · 战略 · 区域</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+document.getElementById('burger').addEventListener('click',function(){
+  var n=document.querySelector('.nav-links');
+  n.style.display = (n.style.display==='flex')?'none':'flex';
+  n.style.flexDirection='column';n.style.position='absolute';n.style.top='74px';n.style.right='0';
+  n.style.background='#0a1628';n.style.padding='18px 24px';n.style.gap='16px';n.style.width='100%';
+  n.style.borderTop='1px solid rgba(200,168,75,.25)';n.style.boxShadow='0 14px 28px rgba(0,0,0,.35)';
+});
+
+function parseNumber(value){
+  if(!value) return 0;
+  var text = String(value).replace(/[^0-9,.]/g,'');
+  if(/^\d{1,3}(\.\d{3})+(,\d+)?$/.test(text)) text = text.replace(/\./g,'').replace(',','.');
+  else if(/^\d+,\d+$/.test(text)) text = text.replace(',','.');
+  return Number(text) || 0;
+}
+function moneyShort(value){
+  var n = parseNumber(value);
+  if(!n) return '-';
+  if(n >= 1000000) return 'US$ ' + (n/1000000).toLocaleString('es-AR',{maximumFractionDigits:1}) + ' M';
+  return 'US$ ' + n.toLocaleString('es-AR',{maximumFractionDigits:0});
+}
+function roadColor(feature){
+  var loss = parseNumber(feature.properties['perdida por intransitabilidad']);
+  if(loss > 3000000) return '#8f1d1d';
+  if(loss > 1500000) return '#c0392b';
+  if(loss > 700000) return '#d9822b';
+  if(loss > 250000) return '#c8a84b';
+  return '#6f7f91';
+}
+function popup(feature){
+  var p = feature.properties;
+  if(p.layer === 'Distritos'){
+    return '<div class="popup-title">'+p.name+'</div><div class="popup-grid">' +
+      '<span>Perdida anual</span><span>'+moneyShort(p.description.match(/U\\$S [0-9.]+/)?.[0])+'</span>' +
+      '<span>Capa</span><span>Distrito</span></div>';
+  }
+  return '<div class="popup-title">'+p.name+'</div><div class="popup-grid">' +
+    '<span>Valor asociado</span><span>'+moneyShort(p.dolares)+'</span>' +
+    '<span>Ingresos Brutos</span><span>'+moneyShort(p.ingresos_brutos)+'</span>' +
+    '<span>损失</span><span>'+moneyShort(p['perdida por intransitabilidad'])+'</span>' +
+    '<span>Longitud</span><span>'+(p.longitud || '-')+' km</span>' +
+    '<span>Maiz</span><span>'+(p['consumo maiz (tn)'] || '-')+' tn</span>' +
+    '</div>';
+}
+var map = L.map('roads-map', {scrollWheelZoom:false});
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+
+fetch('/caminos-gualeguaychu.geojson')
+  .then(function(response){ return response.json(); })
+  .then(function(data){
+    var caminos = L.geoJSON(data, {
+      filter:function(feature){ return feature.properties.layer === 'Caminos'; },
+      style:function(feature){ return {color:roadColor(feature), weight:3.2, opacity:.9}; },
+      onEachFeature:function(feature, layer){ layer.bindPopup(popup(feature)); }
+    });
+    var distritos = L.geoJSON(data, {
+      filter:function(feature){ return feature.properties.layer === 'Distritos'; },
+      style:function(){ return {color:'#2557a7', weight:1.4, fillColor:'#2557a7', fillOpacity:.14, opacity:.75}; },
+      onEachFeature:function(feature, layer){ layer.bindPopup(popup(feature)); }
+    });
+    distritos.addTo(map);
+    caminos.addTo(map);
+    L.control.layers(null, {'道路':caminos, '地区':distritos}, {collapsed:false}).addTo(map);
+    map.fitBounds(caminos.getBounds().pad(.08));
+  })
+  .catch(function(){
+    document.getElementById('roads-map').innerHTML = '<div style="padding:28px;color:#46546a">无法加载地理图层。</div>';
+  });
+</script>
+</body>
+</html>
+
+
+
+
+
+

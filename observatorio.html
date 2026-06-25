@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Observatorio Productivo — Arará · Entre Ríos</title>
+<meta name="description" content="Informes, indicadores, mapas y análisis sobre la economía productiva de Entre Ríos. Conocimiento aplicado para entender el territorio.">
+<link rel="canonical" href="https://arara.com.ar/observatorio.html">
+<link rel="alternate" hreflang="es" href="https://arara.com.ar/observatorio.html">
+<link rel="alternate" hreflang="en" href="https://arara.com.ar/observatorio-en.html">
+<link rel="alternate" hreflang="zh" href="https://arara.com.ar/zh/">
+<link rel="alternate" hreflang="x-default" href="https://arara.com.ar/observatorio.html">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arará">
+<meta property="og:title" content="Observatorio Productivo — Arará">
+<meta property="og:description" content="Informes, indicadores, mapas y análisis sobre la economía productiva de Entre Ríos.">
+<meta property="og:url" content="https://arara.com.ar/observatorio.html">
+<meta property="og:image" content="https://arara.com.ar/og-image.png">
+<meta property="og:locale" content="es_AR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CVC3VZ5WD7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CVC3VZ5WD7');
+</script>
+<style>
+:root{
+  --navy:#0a1628;--blue:#1a3a6b;--blue-mid:#2557a7;--blue-light:#3b7dd8;
+  --gold:#c8a84b;--gold-light:#e8c96a;--red:#c0392b;
+  --white:#ffffff;--off:#f6f8fb;--gray-line:#e4e9f0;--gray-mid:#8a97a8;--gray-text:#46546a;--ink:#0d1b2a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);line-height:1.6;background:var(--white);}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;line-height:1.2;font-weight:700;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+/* NAV */
+header{position:sticky;top:0;z-index:50;background:var(--navy);border-bottom:1px solid rgba(200,168,75,.28);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:92px;}
+.brand{display:flex;align-items:center;cursor:pointer;background:#fff;padding:7px 16px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.28);transition:transform .15s;}
+.brand:hover{transform:translateY(-1px);}
+.brand-logo{height:54px;width:auto;display:block;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-size:14.5px;font-weight:500;color:#cdd6e2;transition:color .2s;letter-spacing:.02em;}
+.nav-links a:hover{color:var(--gold-light);}
+.nav-links a.active{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:10px 20px;border-radius:6px;font-weight:700;font-size:14px;transition:background .2s;}
+.nav-cta:hover{background:var(--gold-light);}
+.nav-social{width:38px;height:38px;border-radius:50%;background:#1877f2;color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .15s,box-shadow .2s;background-color:#1877f2;}
+.nav-social:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(24,119,242,.35);}
+.nav-social svg{width:19px;height:19px;fill:currentColor;display:block;}
+.lang-switch{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(200,168,75,.42);border-radius:999px;padding:4px;background:rgba(255,255,255,.04);}
+.lang-switch a{font-size:12px;font-weight:800;letter-spacing:.08em;color:#cdd6e2;padding:5px 8px;border-radius:999px;line-height:1;}
+.lang-switch a.active{background:var(--gold);color:var(--navy);}
+.lang-switch a:not(.active):hover{color:var(--gold-light);}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px;}
+.burger span{width:24px;height:2px;background:#fff;border-radius:2px;}
+
+/* MINI-HERO OBSERVATORIO */
+.obs-hero{background:linear-gradient(160deg,#0a1628 0%,#13294e 60%,#0a1628 100%);color:#fff;padding:72px 0 64px;position:relative;overflow:hidden;}
+.obs-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 90% 80% at 30% 40%,#000 30%,transparent 75%);pointer-events:none;}
+.obs-hero .wrap{position:relative;z-index:2;}
+.obs-hero-eyebrow{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:14px;}
+.obs-hero-eyebrow::before{content:'';width:44px;height:2px;background:var(--gold);}
+.obs-hero h1{font-size:48px;font-weight:800;margin-bottom:18px;letter-spacing:-.01em;}
+.obs-hero p{font-size:18px;color:#c3cedd;max-width:680px;line-height:1.65;}
+.obs-hero-breadcrumb{font-size:13px;color:#8a97a8;margin-bottom:22px;}
+.obs-hero-breadcrumb a{color:var(--gold);border-bottom:1px solid rgba(200,168,75,.4);}
+.obs-hero-breadcrumb a:hover{color:var(--gold-light);}
+
+/* CONTENIDO */
+.obs-page{background:var(--off);padding:64px 0 80px;}
+
+/* OBSERVATORIO */
+.obs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.obs-card{background:#fff;border:1px solid var(--gray-line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;}
+.obs-card:hover{box-shadow:0 14px 38px rgba(13,27,42,.10);transform:translateY(-3px);}
+.obs-top{height:6px;background:linear-gradient(90deg,var(--gold),var(--red));}
+.obs-body{padding:26px;flex:1;display:flex;flex-direction:column;}
+.obs-tag{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-mid);margin-bottom:12px;}
+.obs-card h3{font-size:22px;margin-bottom:10px;}
+.obs-card p{font-size:14.5px;color:var(--gray-text);flex:1;}
+.obs-card .meta{font-family:'Inter',sans-serif;font-size:12px;color:var(--gray-mid);margin-top:16px;}
+.obs-note{margin-top:34px;font-size:14px;color:var(--gray-mid);font-style:italic;text-align:center;}
+.obs-card .obs-link{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;background:var(--blue-mid);color:#fff;padding:11px 16px;border-radius:8px;font-weight:700;font-size:13px;transition:background .2s,transform .15s;align-self:flex-start;}
+.obs-card .obs-link:hover{background:var(--blue);transform:translateY(-1px);}
+.obs-card-link{color:inherit;text-decoration:none;}
+.obs-card-link:focus-visible{outline:3px solid rgba(37,87,167,.35);outline-offset:4px;border-radius:12px;}
+
+/* FOOTER */
+footer{background:#060f1d;color:#aeb9c8;padding:54px 0 28px;font-size:14px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:36px;}
+.foot-brand .brand-name{font-size:22px;margin-bottom:12px;}
+.foot-brand p{max-width:340px;color:#8a97a8;}
+.foot-col h5{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:14px;font-weight:700;}
+.foot-col a{display:block;padding:5px 0;color:#aeb9c8;transition:color .2s;}
+.foot-col a:hover{color:var(--gold);}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#6b7889;font-size:13px;}
+
+@media(max-width:860px){
+  .nav-links{display:none;}
+  .burger{display:flex;}
+  .nav{height:74px;}
+  .brand-logo{height:54px;}
+  .obs-hero{padding:54px 0 48px;}
+  .obs-hero h1{font-size:32px;}
+  .obs-hero p{font-size:16px;}
+  .obs-grid{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr;gap:32px;}
+}
+</style>
+<script src="language-router.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand" onclick="location.href='index.html'">
+      <img src="logo-header.png" alt="Arará — Consultoría" class="brand-logo">
+    </div>
+    <nav class="nav-links">
+      <a href="index.html#servicios">Servicios</a>
+      <a href="observatorio.html" class="active">Observatorio</a>
+      <a href="index.html#nosotros">Nosotros</a>
+      <a href="index.html#contacto" class="nav-cta">Contacto</a>
+      <a href="https://www.facebook.com/profile.php?id=61590969711155" class="nav-social" target="_blank" rel="noopener" aria-label="Facebook de Arará">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.675 0h-21.35C.593 0 0 .593 0 1.326v21.348C0 23.407.593 24 1.326 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.587l-.467 3.622h-3.12V24h6.114C23.407 24 24 23.407 24 22.674V1.326C24 .593 23.407 0 22.675 0z"/></svg>
+      </a>
+      <span class="lang-switch" aria-label="Idioma">
+        <a href="observatorio.html" class="active" lang="es" aria-current="page">ES</a>
+        <a href="observatorio-en.html" lang="en">EN</a>
+      <a href="/zh/" lang="zh-Hans" onclick="localStorage.setItem('arara_lang','zh')">中文</a></span>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- MINI-HERO -->
+<section class="obs-hero">
+  <div class="wrap">
+    <div class="obs-hero-breadcrumb"><a href="index.html">Inicio</a> › Observatorio Productivo</div>
+    <div class="obs-hero-eyebrow">Centro de conocimiento</div>
+    <h1>Observatorio Productivo</h1>
+    <p>Informes, indicadores, mapas y análisis sobre la economía productiva de Entre Ríos. No es un noticiero: es conocimiento aplicado que demuestra cómo leemos el territorio.</p>
+  </div>
+</section>
+
+<!-- CONTENIDO -->
+<section class="obs-page">
+  <div class="wrap">
+
+    <div class="obs-grid">
+      <a class="obs-card obs-card-link" href="modelado-viabilidad-obra-publica-nodal.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">Infraestructura &middot; Medici&oacute;n t&eacute;cnica</div>
+          <h3>Modelado de Viabilidad y Gesti&oacute;n Estrat&eacute;gica de Obra P&uacute;blica Nodal</h3>
+          <p>Herramienta consultora para medir impacto productivo, viabilidad econ&oacute;mica y gesti&oacute;n estrat&eacute;gica de obras p&uacute;blicas nodales.</p>
+          <div class="meta">Nuevo informe del Observatorio</div>
+        </div>
+      </a>
+
+      <a class="obs-card obs-card-link" href="alianzas-con-valor.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">Cadenas de valor &middot; Experiencia aplicada</div>
+          <h3>Alianzas con Valor</h3>
+          <p>Experiencia de vinculaci&oacute;n entre frigor&iacute;ficos, proveedores entrerrianos e instituciones para fortalecer cadenas de valor provinciales.</p>
+          <div class="meta">Por Cristian Kaehler</div>
+        </div>
+      </a>
+
+      <a class="obs-card obs-card-link" href="micra-crespo.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">Monitor productivo &middot; Mapa interactivo</div>
+          <h3>MiCra: Monitor Productivo Crespo</h3>
+          <p>Mapa e indicadores para leer la estructura productiva de la microrregi&oacute;n Crespo: zonas, caminos, actividades y escala econ&oacute;mica.</p>
+          <div class="meta">Nuevo monitor interactivo</div>
+        </div>
+      </a>
+
+      <a class="obs-card obs-card-link" href="caminos-gualeguaychu.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">Infraestructura rural &middot; Mapa interactivo</div>
+          <h3>Valoraci&oacute;n de caminos rurales de Gualeguaych&uacute;</h3>
+          <p>Mapa e informe sobre valor productivo, ingresos brutos y p&eacute;rdidas por intransitabilidad en la red vial rural de Gualeguaych&uacute;.</p>
+          <div class="meta">Nuevo informe del Observatorio</div>
+        </div>
+      </a>
+
+      <a class="obs-card obs-card-link" href="mapa-gualeguay.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">Inteligencia Territorial · Mapa interactivo</div>
+          <h3>Mapa productivo de Gualeguay</h3>
+          <p>Primera capa georreferenciada del Observatorio: una base territorial del departamento de Gualeguay para ubicar y analizar la actividad productiva.</p>
+          <div class="meta">Mapa interactivo de Arará</div>
+        </div>
+      </a>
+
+      <article class="obs-card">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">Industria · Indicadores</div>
+          <h3>Mapa industrial de Entre Ríos</h3>
+          <p>Distribución de la actividad industrial por departamento y sector: dónde se concentra el empleo y el valor agregado provincial.</p>
+          <div class="meta">Informe en preparación</div>
+        </div>
+      </article>
+
+      <article class="obs-card">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">Municipios · Territorio</div>
+          <h3>Indicadores municipales comparados</h3>
+          <p>Tablero con variables productivas, demográficas y de gestión de los gobiernos locales entrerrianos.</p>
+          <div class="meta">Informe en preparación</div>
+        </div>
+      </article>
+      </div>
+    <p class="obs-note">El Observatorio se irá poblando con estudios e indicadores propios. ¿Te interesa un análisis sectorial específico? <a href="index.html#contacto" style="color:var(--blue-mid);border-bottom:1px solid rgba(37,87,167,.35);">Escribinos</a>.</p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand-name" style="color:#fff;">Arar<b style="color:var(--gold);">á</b></div>
+        <p>Consultora en desarrollo productivo, industria, municipios, financiamiento e inteligencia territorial de Entre Ríos.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Servicios</h5>
+        <a href="index.html#servicios">Desarrollo Productivo</a>
+        <a href="index.html#servicios">Municipios</a>
+        <a href="index.html#servicios">Industria</a>
+        <a href="index.html#servicios">Financiamiento</a>
+        <a href="index.html#servicios">Inteligencia Territorial</a>
+      </div>
+      <div class="foot-col">
+        <h5>Arará</h5>
+        <a href="observatorio.html">Observatorio Productivo</a>
+        <a href="index.html#nosotros">Nosotros</a>
+        <a href="index.html#contacto">Contacto</a>
+        <a href="https://www.facebook.com/profile.php?id=61590969711155" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Arará · Entre Ríos, Argentina</span>
+      <span>Desarrollo productivo · Estrategia · Territorio</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('burger').addEventListener('click',function(){
+  var n=document.querySelector('.nav-links');
+  n.style.display = (n.style.display==='flex')?'none':'flex';
+  n.style.flexDirection='column';n.style.position='absolute';n.style.top='74px';n.style.right='0';
+  n.style.background='#0a1628';n.style.padding='18px 24px';n.style.gap='16px';n.style.width='100%';
+  n.style.borderTop='1px solid rgba(200,168,75,.25)';n.style.boxShadow='0 14px 28px rgba(0,0,0,.35)';
+});
+</script>
+</body>
+</html>
+
+
+

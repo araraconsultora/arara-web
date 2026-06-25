@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiCra: Monitor Productivo Crespo - Arar&aacute;</title>
+<meta name="description" content="MiCra, Monitor Productivo de la microrregi&oacute;n Crespo: mapa interactivo, estructura productiva, caminos, zonas e indicadores territoriales.">
+<link rel="canonical" href="https://arara.com.ar/micra-crespo.html">
+<link rel="alternate" hreflang="es" href="https://arara.com.ar/micra-crespo.html">
+<link rel="alternate" hreflang="en" href="https://arara.com.ar/micra-crespo-en.html">
+<link rel="alternate" hreflang="zh" href="https://arara.com.ar/zh/">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Arar&aacute;">
+<meta property="og:title" content="MiCra: Monitor Productivo Crespo - Arar&aacute;">
+<meta property="og:description" content="Mapa e indicadores para leer la estructura productiva de la microrregi&oacute;n Crespo.">
+<meta property="og:url" content="https://arara.com.ar/micra-crespo.html">
+<meta property="og:image" content="https://arara.com.ar/og-image.png">
+<meta property="og:locale" content="es_AR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CVC3VZ5WD7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CVC3VZ5WD7');
+</script>
+<style>
+:root{
+  --navy:#0a1628;--blue:#1a3a6b;--blue-mid:#2557a7;--gold:#c8a84b;--gold-light:#e8c96a;
+  --white:#ffffff;--off:#f6f8fb;--gray-line:#e4e9f0;--gray-mid:#8a97a8;--gray-text:#46546a;--ink:#0d1b2a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);line-height:1.6;background:var(--white);}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.2;font-weight:700;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+header.site-header{position:sticky;top:0;z-index:50;background:var(--navy);border-bottom:1px solid rgba(200,168,75,.28);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:92px;}
+.brand{display:flex;align-items:center;cursor:pointer;background:#fff;padding:7px 16px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.28);transition:transform .15s;}
+.brand:hover{transform:translateY(-1px);}
+.brand-logo{height:54px;width:auto;display:block;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-size:14.5px;font-weight:500;color:#cdd6e2;transition:color .2s;letter-spacing:.02em;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-light);}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:10px 20px;border-radius:6px;font-weight:700;font-size:14px;transition:background .2s;}
+.nav-cta:hover{background:var(--gold-light);}
+.nav-social{width:38px;height:38px;border-radius:50%;background:#1877f2;color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .15s,box-shadow .2s;background-color:#1877f2;}
+.nav-social:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(24,119,242,.35);}
+.nav-social svg{width:19px;height:19px;fill:currentColor;display:block;}
+.lang-switch{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(200,168,75,.42);border-radius:999px;padding:4px;background:rgba(255,255,255,.04);}
+.lang-switch a{font-size:12px;font-weight:800;letter-spacing:.08em;color:#cdd6e2;padding:5px 8px;border-radius:999px;line-height:1;}
+.lang-switch a.active{background:var(--gold);color:var(--navy);}
+.lang-switch a:not(.active):hover{color:var(--gold-light);}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px;}
+.burger span{width:24px;height:2px;background:#fff;border-radius:2px;}
+.article-hero{background:linear-gradient(160deg,#0a1628 0%,#13294e 60%,#0a1628 100%);color:#fff;padding:72px 0 64px;position:relative;overflow:hidden;}
+.article-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 90% 80% at 30% 40%,#000 30%,transparent 75%);pointer-events:none;}
+.article-hero .wrap{position:relative;z-index:2;}
+.breadcrumb{font-size:13px;color:#8a97a8;margin-bottom:22px;}
+.breadcrumb a{color:var(--gold);border-bottom:1px solid rgba(200,168,75,.4);}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:14px;}
+.eyebrow::before{content:'';width:44px;height:2px;background:var(--gold);}
+.article-hero h1{font-size:48px;font-weight:800;margin-bottom:18px;letter-spacing:0;max-width:900px;}
+.article-hero p{font-size:18px;color:#c3cedd;max-width:780px;line-height:1.65;}
+.article-meta{margin-top:18px;font-size:14px;color:#e2e8f0;}
+.article-meta strong{color:var(--gold-light);font-weight:700;}
+.article-page{background:var(--off);padding:58px 0 80px;}
+.reading{background:#fff;border:1px solid var(--gray-line);border-radius:12px;padding:34px;margin-bottom:28px;}
+.reading h2{font-size:30px;margin-bottom:16px;color:var(--navy);}
+.reading p{font-size:16px;color:var(--gray-text);max-width:940px;margin-bottom:16px;}
+.reading p:last-child{margin-bottom:0;}
+.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:24px;}
+.kpi{background:var(--off);border:1px solid var(--gray-line);border-radius:10px;padding:18px;min-height:112px;}
+.kpi b{display:block;font-family:'Playfair Display',Georgia,serif;font-size:25px;color:var(--blue-mid);line-height:1.1;margin-bottom:6px;}
+.kpi span{font-size:13px;color:var(--gray-text);}
+.monitor-card{background:#fff;border:1px solid var(--gray-line);border-radius:12px;overflow:hidden;box-shadow:0 18px 48px rgba(13,27,42,.10);}
+.monitor-head{padding:24px 26px 18px;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;}
+.monitor-head h2{font-size:30px;color:var(--navy);margin-bottom:8px;}
+.monitor-head p{font-size:15px;color:var(--gray-text);max-width:800px;}
+.open-link{display:inline-flex;align-items:center;justify-content:center;background:var(--blue-mid);color:#fff;padding:11px 16px;border-radius:8px;font-weight:700;font-size:13px;transition:background .2s,transform .15s;white-space:nowrap;}
+.open-link:hover{background:var(--blue);transform:translateY(-1px);}
+.monitor-frame-wrap{height:min(780px,calc(100vh - 120px));min-height:620px;background:#0d1117;border-top:1px solid var(--gray-line);}
+.monitor-frame{display:block;width:100%;height:100%;border:0;background:#0d1117;}
+.monitor-foot{padding:14px 26px 22px;font-size:13px;color:var(--gray-mid);}
+footer{background:#060f1d;color:#aeb9c8;padding:54px 0 28px;font-size:14px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:36px;}
+.foot-brand .brand-name{font-size:22px;margin-bottom:12px;}
+.foot-brand p{max-width:340px;color:#8a97a8;}
+.foot-col h5{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:14px;font-weight:700;}
+.foot-col a{display:block;padding:5px 0;color:#aeb9c8;transition:color .2s;}
+.foot-col a:hover{color:var(--gold);}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#6b7889;font-size:13px;}
+@media(max-width:960px){
+  .kpi-grid{grid-template-columns:repeat(2,1fr);}
+  .monitor-head{display:block;}
+  .open-link{margin-top:16px;}
+}
+@media(max-width:860px){
+  .nav-links{display:none;}
+  .burger{display:flex;}
+  .nav{height:74px;}
+  .brand-logo{height:54px;}
+  .article-hero{padding:54px 0 48px;}
+  .article-hero h1{font-size:32px;}
+  .article-hero p{font-size:16px;}
+  .reading{padding:24px;}
+  .reading h2,.monitor-head h2{font-size:25px;}
+  .kpi-grid{grid-template-columns:1fr;}
+  .monitor-frame-wrap{height:720px;min-height:620px;}
+  .foot-grid{grid-template-columns:1fr;gap:32px;}
+}
+</style>
+<script src="language-router.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav">
+    <div class="brand" onclick="location.href='index.html'">
+      <img src="logo-header.png" alt="Arar&aacute; - Consultor&iacute;a" class="brand-logo">
+    </div>
+    <nav class="nav-links">
+      <a href="index.html#servicios">Servicios</a>
+      <a href="observatorio.html" class="active">Observatorio</a>
+      <a href="index.html#nosotros">Nosotros</a>
+      <a href="index.html#contacto" class="nav-cta">Contacto</a>
+      <a href="https://www.facebook.com/profile.php?id=61590969711155" class="nav-social" target="_blank" rel="noopener" aria-label="Facebook de Arar&aacute;">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.675 0h-21.35C.593 0 0 .593 0 1.326v21.348C0 23.407.593 24 1.326 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.587l-.467 3.622h-3.12V24h6.114C23.407 24 24 23.407 24 22.674V1.326C24 .593 23.407 0 22.675 0z"/></svg>
+      </a>
+      <span class="lang-switch" aria-label="Idioma">
+        <a href="micra-crespo.html" class="active" lang="es" aria-current="page">ES</a>
+        <a href="micra-crespo-en.html" lang="en">EN</a>
+      <a href="/zh/" lang="zh-Hans" onclick="localStorage.setItem('arara_lang','zh')">中文</a></span>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="article-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> / <a href="observatorio.html">Observatorio</a> / MiCra Crespo</div>
+    <div class="eyebrow">Monitor productivo · Microrregi&oacute;n Crespo</div>
+    <h1>MiCra: Monitor Productivo Crespo</h1>
+    <p>Una herramienta interactiva para leer estructura productiva, caminos, zonas e indicadores econ&oacute;micos de la microrregi&oacute;n Crespo.</p>
+    <div class="article-meta">Por <strong>Mat&iacute;as Mart&iacute;nez</strong>, economista</div>
+  </div>
+</section>
+
+<main class="article-page">
+  <div class="wrap">
+    <article class="reading">
+      <h2>Lectura inicial</h2>
+      <p>MiCra organiza informaci&oacute;n productiva y territorial de la microrregi&oacute;n Crespo en una experiencia navegable. El monitor permite recorrer zonas, caminos e indicadores para observar d&oacute;nde se localizan las actividades, cu&aacute;l es su escala y qu&eacute; tensiones log&iacute;sticas aparecen en el territorio.</p>
+      <p>La herramienta est&aacute; pensada para facilitar conversaciones de planificaci&oacute;n entre municipios, instituciones y actores productivos: convierte datos dispersos en una lectura com&uacute;n sobre infraestructura, actividad econ&oacute;mica y oportunidades de intervenci&oacute;n.</p>
+      <div class="kpi-grid">
+        <div class="kpi"><b>US$ 257,1 M</b><span>Capacidad productiva estimada.</span></div>
+        <div class="kpi"><b>US$ 27,6 M</b><span>P&eacute;rdida log&iacute;stica estimada.</span></div>
+        <div class="kpi"><b>US$ 32,1 M</b><span>Ingresos brutos generados.</span></div>
+        <div class="kpi"><b>1.080k tn</b><span>Ma&iacute;z asociado a actividad av&iacute;cola.</span></div>
+        <div class="kpi"><b>595</b><span>Establecimientos productivos en 13 zonas.</span></div>
+      </div>
+    </article>
+
+    <section class="monitor-card" aria-labelledby="monitor-title">
+      <div class="monitor-head">
+        <div>
+          <h2 id="monitor-title">Monitor interactivo</h2>
+          <p>Us&aacute; las pesta&ntilde;as internas para alternar entre mapa y descripci&oacute;n productiva. En el mapa, hac&eacute; clic sobre zonas o caminos para abrir el desglose lateral.</p>
+        </div>
+        <a class="open-link" href="micra-crespo-monitor.html" target="_blank" rel="noopener">Abrir en pantalla completa</a>
+      </div>
+      <div class="monitor-frame-wrap">
+        <iframe class="monitor-frame" src="micra-crespo-monitor.html" title="MiCra - Monitor Productivo Crespo" loading="lazy"></iframe>
+      </div>
+      <div class="monitor-foot">Monitor interactivo integrado al Observatorio Productivo de Arar&aacute;.</div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand-name" style="color:#fff;">Arar<b style="color:var(--gold);">&aacute;</b></div>
+        <p>Consultora en desarrollo productivo, industria, municipios, financiamiento e inteligencia territorial de Entre R&iacute;os.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Servicios</h5>
+        <a href="index.html#servicios">Desarrollo Productivo</a>
+        <a href="index.html#servicios">Municipios</a>
+        <a href="index.html#servicios">Industria</a>
+        <a href="index.html#servicios">Financiamiento</a>
+        <a href="index.html#servicios">Inteligencia Territorial</a>
+      </div>
+      <div class="foot-col">
+        <h5>Arar&aacute;</h5>
+        <a href="observatorio.html">Observatorio Productivo</a>
+        <a href="index.html#nosotros">Nosotros</a>
+        <a href="index.html#contacto">Contacto</a>
+        <a href="https://www.facebook.com/profile.php?id=61590969711155" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Arar&aacute; · Entre R&iacute;os, Argentina</span>
+      <span>Desarrollo productivo · Estrategia · Territorio</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('burger').addEventListener('click',function(){
+  var n=document.querySelector('.nav-links');
+  n.style.display = (n.style.display==='flex')?'none':'flex';
+  n.style.flexDirection='column';n.style.position='absolute';n.style.top='74px';n.style.right='0';
+  n.style.background='#0a1628';n.style.padding='18px 24px';n.style.gap='16px';n.style.width='100%';
+  n.style.borderTop='1px solid rgba(200,168,75,.25)';n.style.boxShadow='0 14px 28px rgba(0,0,0,.35)';
+});
+</script>
+</body>
+</html>
+
+
+

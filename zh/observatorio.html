@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生产观察站 — Arará · 恩特雷里奥斯省</title>
+<meta name="description" content="关于恩特雷里奥斯省生产经济的报告、指标、地图和分析。以应用知识理解区域。">
+<meta name="baidu-site-verification" content="[PENDIENTE]">
+<link rel="canonical" href="https://arara.com.ar/zh/observatorio.html">
+<link rel="alternate" hreflang="es" href="https://arara.com.ar/observatorio.html">
+<link rel="alternate" hreflang="en" href="https://arara.com.ar/observatorio-en.html">
+<link rel="alternate" hreflang="zh" href="https://arara.com.ar/zh/observatorio.html">
+<link rel="alternate" hreflang="x-default" href="https://arara.com.ar/observatorio.html">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arará">
+<meta property="og:title" content="生产观察站 — Arará">
+<meta property="og:description" content="关于恩特雷里奥斯省生产经济的报告、指标、地图和分析。">
+<meta property="og:url" content="https://arara.com.ar/zh/observatorio.html">
+<meta property="og:image" content="https://arara.com.ar/og-image.png">
+<meta property="og:locale" content="zh_CN">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CVC3VZ5WD7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CVC3VZ5WD7');
+</script>
+<style>
+:root{
+  --navy:#0a1628;--blue:#1a3a6b;--blue-mid:#2557a7;--blue-light:#3b7dd8;
+  --gold:#c8a84b;--gold-light:#e8c96a;--red:#c0392b;
+  --white:#ffffff;--off:#f6f8fb;--gray-line:#e4e9f0;--gray-mid:#8a97a8;--gray-text:#46546a;--ink:#0d1b2a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans SC','Inter',system-ui,sans-serif;color:var(--ink);line-height:1.75;background:var(--white);}
+h1,h2,h3,h4{font-family:'Noto Sans SC','Playfair Display',Georgia,serif;line-height:1.22;font-weight:800;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+/* NAV */
+header{position:sticky;top:0;z-index:50;background:var(--navy);border-bottom:1px solid rgba(200,168,75,.28);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:92px;}
+.brand{display:flex;align-items:center;cursor:pointer;background:#fff;padding:7px 16px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.28);transition:transform .15s;}
+.brand:hover{transform:translateY(-1px);}
+.brand-logo{height:54px;width:auto;display:block;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-size:14.5px;font-weight:500;color:#cdd6e2;transition:color .2s;letter-spacing:.02em;}
+.nav-links a:hover{color:var(--gold-light);}
+.nav-links a.active{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:10px 20px;border-radius:6px;font-weight:700;font-size:14px;transition:background .2s;}
+.nav-cta:hover{background:var(--gold-light);}
+.nav-social{width:38px;height:38px;border-radius:50%;background:#1877f2;color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .15s,box-shadow .2s;background-color:#1877f2;}
+.nav-social:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(24,119,242,.35);}
+.nav-social svg{width:19px;height:19px;fill:currentColor;display:block;}
+.lang-switch{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(200,168,75,.42);border-radius:999px;padding:4px;background:rgba(255,255,255,.04);}
+.lang-switch a{font-size:12px;font-weight:800;letter-spacing:.08em;color:#cdd6e2;padding:5px 8px;border-radius:999px;line-height:1;}
+.lang-switch a.active{background:var(--gold);color:var(--navy);}
+.lang-switch a:not(.active):hover{color:var(--gold-light);}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px;}
+.burger span{width:24px;height:2px;background:#fff;border-radius:2px;}
+
+/* MINI-HERO OBSERVATORIO */
+.obs-hero{background:linear-gradient(160deg,#0a1628 0%,#13294e 60%,#0a1628 100%);color:#fff;padding:72px 0 64px;position:relative;overflow:hidden;}
+.obs-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 90% 80% at 30% 40%,#000 30%,transparent 75%);pointer-events:none;}
+.obs-hero .wrap{position:relative;z-index:2;}
+.obs-hero-eyebrow{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:14px;}
+.obs-hero-eyebrow::before{content:'';width:44px;height:2px;background:var(--gold);}
+.obs-hero h1{font-size:48px;font-weight:800;margin-bottom:18px;letter-spacing:-.01em;}
+.obs-hero p{font-size:18px;color:#c3cedd;max-width:680px;line-height:1.65;}
+.obs-hero-breadcrumb{font-size:13px;color:#8a97a8;margin-bottom:22px;}
+.obs-hero-breadcrumb a{color:var(--gold);border-bottom:1px solid rgba(200,168,75,.4);}
+.obs-hero-breadcrumb a:hover{color:var(--gold-light);}
+
+/* CONTENIDO */
+.obs-page{background:var(--off);padding:64px 0 80px;}
+
+/* OBSERVATORIO */
+.obs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.obs-card{background:#fff;border:1px solid var(--gray-line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;}
+.obs-card:hover{box-shadow:0 14px 38px rgba(13,27,42,.10);transform:translateY(-3px);}
+.obs-top{height:6px;background:linear-gradient(90deg,var(--gold),var(--red));}
+.obs-body{padding:26px;flex:1;display:flex;flex-direction:column;}
+.obs-tag{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-mid);margin-bottom:12px;}
+.obs-card h3{font-size:22px;margin-bottom:10px;}
+.obs-card p{font-size:14.5px;color:var(--gray-text);flex:1;}
+.obs-card .meta{font-family:'Inter',sans-serif;font-size:12px;color:var(--gray-mid);margin-top:16px;}
+.obs-note{margin-top:34px;font-size:14px;color:var(--gray-mid);font-style:italic;text-align:center;}
+.obs-card .obs-link{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;background:var(--blue-mid);color:#fff;padding:11px 16px;border-radius:8px;font-weight:700;font-size:13px;transition:background .2s,transform .15s;align-self:flex-start;}
+.obs-card .obs-link:hover{background:var(--blue);transform:translateY(-1px);}
+.obs-card-link{color:inherit;text-decoration:none;}
+.obs-card-link:focus-visible{outline:3px solid rgba(37,87,167,.35);outline-offset:4px;border-radius:12px;}
+
+/* FOOTER */
+footer{background:#060f1d;color:#aeb9c8;padding:54px 0 28px;font-size:14px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:36px;}
+.foot-brand .brand-name{font-size:22px;margin-bottom:12px;}
+.foot-brand p{max-width:340px;color:#8a97a8;}
+.foot-col h5{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:14px;font-weight:700;}
+.foot-col a{display:block;padding:5px 0;color:#aeb9c8;transition:color .2s;}
+.foot-col a:hover{color:var(--gold);}
+.wechat-box{margin-top:16px;display:inline-flex;flex-direction:column;gap:10px;align-items:flex-start;}
+.wechat-qr{width:122px;height:122px;border-radius:10px;border:1px solid rgba(200,168,75,.45);background:#fff;object-fit:cover;padding:6px;}
+.wechat-caption{font-size:12px;line-height:1.45;color:#8a97a8;max-width:180px;}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#6b7889;font-size:13px;}
+
+@media(max-width:860px){
+  .nav-links{display:none;}
+  .burger{display:flex;}
+  .nav{height:74px;}
+  .brand-logo{height:54px;}
+  .obs-hero{padding:54px 0 48px;}
+  .obs-hero h1{font-size:32px;}
+  .obs-hero p{font-size:16px;}
+  .obs-grid{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr;gap:32px;}
+}
+</style>
+<script src="/language-router.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand" onclick="location.href='/zh/'">
+      <img src="/logo-header.png" alt="Arará" class="brand-logo">
+    </div>
+    <nav class="nav-links">
+      <a href="/zh/#servicios">服务</a>
+      <a href="/zh/observatorio.html" class="active">观察站</a>
+      <a href="/zh/#nosotros">关于我们</a>
+      <a href="/zh/#contacto" class="nav-cta">联系我们</a>
+      <a href="https://www.facebook.com/profile.php?id=61590969711155" class="nav-social" target="_blank" rel="noopener" aria-label="Arará on Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.675 0h-21.35C.593 0 0 .593 0 1.326v21.348C0 23.407.593 24 1.326 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.587l-.467 3.622h-3.12V24h6.114C23.407 24 24 23.407 24 22.674V1.326C24 .593 23.407 0 22.675 0z"/></svg>
+      </a>
+      <span class="lang-switch" aria-label="Language">
+        <a href="/observatorio.html" lang="es" onclick="localStorage.setItem('arara_lang','es')">ES</a>
+        <a href="/observatorio-en.html" lang="en" onclick="localStorage.setItem('arara_lang','en')">EN</a>
+        <a href="/zh/observatorio.html" class="active" lang="zh-Hans" onclick="localStorage.setItem('arara_lang','zh')" aria-current="page">中文</a>
+      </span>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- MINI-HERO -->
+<section class="obs-hero">
+  <div class="wrap">
+    <div class="obs-hero-breadcrumb"><a href="/zh/">首页</a> › 生产观察站</div>
+    <div class="obs-hero-eyebrow">知识中心</div>
+    <h1>生产观察站</h1>
+    <p>关于恩特雷里奥斯省生产经济的报告、指标、地图和分析。不是新闻，而是展示我们如何解读区域的应用知识。</p>
+  </div>
+</section>
+
+<!-- CONTENIDO -->
+<section class="obs-page">
+  <div class="wrap">
+
+    <div class="obs-grid">
+      <a class="obs-card obs-card-link" href="/zh/modelado-viabilidad-obra-publica-nodal.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">基础设施 · 技术测算</div>
+          <h3>节点型公共工程的可行性建模与战略管理</h3>
+          <p>用于衡量节点型公共工程的生产影响、经济可行性和战略管理价值的咨询工具。</p>
+          <div class="meta">观察站新报告</div>
+        </div>
+      </a>
+
+      <a class="obs-card obs-card-link" href="/zh/alianzas-con-valor.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">价值链 · 实践经验</div>
+          <h3>价值联盟</h3>
+          <p>连接肉类加工企业、本省供应商和机构的实践经验，用于加强恩特雷里奥斯省价值链。</p>
+          <div class="meta">作者：Cristian Kaehler</div>
+        </div>
+      </a>
+
+      <a class="obs-card obs-card-link" href="/zh/micra-crespo.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">生产监测 &middot; 互动地图</div>
+          <h3>MiCra：Crespo生产监测</h3>
+          <p>用于解读Crespo微区域生产结构的地图和指标：区域、道路、活动和经济规模。</p>
+          <div class="meta">新互动监测工具</div>
+        </div>
+      </a>
+
+      <a class="obs-card obs-card-link" href="/zh/caminos-gualeguaychu.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">农村基础设施 &middot; 互动地图</div>
+          <h3>Gualeguaych&uacute;农村道路价值评估</h3>
+          <p>关于Gualeguaych&uacute;农村道路网络的生产价值、总收入和道路不通造成损失的地图与报告。</p>
+          <div class="meta">观察站新报告</div>
+        </div>
+      </a>
+
+      <a class="obs-card obs-card-link" href="/zh/mapa-gualeguay.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">区域智能 · 互动地图</div>
+          <h3>Gualeguay生产地图</h3>
+          <p>观察站的第一层地理参考数据：用于定位和分析Gualeguay县生产活动的区域基础。</p>
+          <div class="meta">Arará互动地图</div>
+        </div>
+      </a>
+
+      <article class="obs-card">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">工业 · 指标</div>
+          <h3>恩特雷里奥斯省工业地图</h3>
+          <p>按县和行业展示工业活动分布：就业和省级附加值集中在哪里。</p>
+          <div class="meta">报告准备中</div>
+        </div>
+      </article>
+
+      <article class="obs-card">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">市政 · 区域</div>
+          <h3>市政指标比较</h3>
+          <p>包含恩特雷里奥斯省地方政府生产、人口和管理变量的仪表盘。</p>
+          <div class="meta">报告准备中</div>
+        </div>
+      </article>
+      </div>
+    <p class="obs-note">观察站将持续加入自有研究和指标。是否需要特定行业分析？ <a href="/zh/#contacto" style="color:var(--blue-mid);border-bottom:1px solid rgba(37,87,167,.35);">联系我们</a>.</p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand-name" style="color:#fff;">Arar<b style="color:var(--gold);">á</b></div>
+        <p>专注于恩特雷里奥斯省产业发展、工业、市政、融资和区域智能的咨询公司。</p>
+      </div>
+      <div class="foot-col">
+        <h5>服务</h5>
+        <a href="/zh/#servicios">产业发展</a>
+        <a href="/zh/#servicios">市政服务</a>
+        <a href="/zh/#servicios">工业</a>
+        <a href="/zh/#servicios">融资</a>
+        <a href="/zh/#servicios">区域智能</a>
+      </div>
+      <div class="foot-col">
+        <h5>Arará</h5>
+        <a href="/zh/observatorio.html">生产观察站</a>
+        <a href="/zh/#nosotros">关于我们</a>
+        <a href="/zh/#contacto">联系我们</a>
+        <a href="https://www.facebook.com/profile.php?id=61590969711155" target="_blank" rel="noopener">Facebook</a>
+        <div class="wechat-box">
+          <img class="wechat-qr" src="/wechat-cristian-kaehler-qr.jpeg" alt="Cristian Kaehler微信二维码" loading="lazy">
+          <div class="wechat-caption">扫描二维码添加好友。</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Arará · Entre Ríos, Argentina</span>
+      <span>产业发展 · 战略 · 区域</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('burger').addEventListener('click',function(){
+  var n=document.querySelector('.nav-links');
+  n.style.display = (n.style.display==='flex')?'none':'flex';
+  n.style.flexDirection='column';n.style.position='absolute';n.style.top='74px';n.style.right='0';
+  n.style.background='#0a1628';n.style.padding='18px 24px';n.style.gap='16px';n.style.width='100%';
+  n.style.borderTop='1px solid rgba(200,168,75,.25)';n.style.boxShadow='0 14px 28px rgba(0,0,0,.35)';
+});
+</script>
+</body>
+</html>
+
+
+
+
