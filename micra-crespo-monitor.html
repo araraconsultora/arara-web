@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>MiCra Â· Monitor Productivo Crespo</title>
+<title>MiCra · Monitor Productivo Crespo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
@@ -31,7 +31,7 @@ header{padding:9px 18px;background:var(--surf);border-bottom:1px solid var(--bor
 .panel{display:none;flex:1;overflow:hidden}
 .panel.active{display:flex}
 
-/* â”€â”€ TAB MAPA â”€â”€ */
+/* ── TAB MAPA ── */
 #tab-mapa{flex-direction:column}
 .map-controls{padding:7px 14px;background:var(--surf);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;flex-shrink:0}
 .layer-btn{padding:3px 12px;border-radius:20px;border:1px solid var(--border);background:var(--surf2);cursor:pointer;font-size:11px;color:var(--muted);font-family:'Sora',sans-serif;transition:.15s}
@@ -79,7 +79,7 @@ header{padding:9px 18px;background:var(--surf);border-bottom:1px solid var(--bor
 .cam-info{font-size:11px;padding:5px 0;border-bottom:1px solid var(--border)}
 .cam-info span{color:var(--text)}
 
-/* â”€â”€ TAB ESTRUCTURA â”€â”€ */
+/* ── TAB ESTRUCTURA ── */
 #tab-estructura{flex-direction:column;overflow-y:auto}
 #tab-estructura::-webkit-scrollbar{width:4px}
 #tab-estructura::-webkit-scrollbar-thumb{background:var(--border)}
@@ -116,38 +116,38 @@ header{padding:9px 18px;background:var(--surf);border-bottom:1px solid var(--bor
 
 <header>
   <div>
-    <div class="logo">MiCra Â· Entre RÃ­os</div>
-    <div class="title">Monitor Productivo â€” MicrorregiÃ³n Crespo</div>
+    <div class="logo">MiCra · Entre Ríos</div>
+    <div class="title">Monitor Productivo — Microrregión Crespo</div>
   </div>
   <div class="hdr-kpis">
     <div class="hk"><div class="hk-v" style="color:var(--green)">USD 257.1M</div><div class="hk-l">Capacidad Productiva</div></div>
-    <div class="hk"><div class="hk-v" style="color:var(--red)">USD 27.6M</div><div class="hk-l">PÃ©rdida logÃ­stica</div></div>
+    <div class="hk"><div class="hk-v" style="color:var(--red)">USD 27.6M</div><div class="hk-l">Pérdida logística</div></div>
     <div class="hk"><div class="hk-v" style="color:var(--yellow)">USD 32.1M</div><div class="hk-l">IIBB generado</div></div>
-    <div class="hk"><div class="hk-v" style="color:var(--purple)">1080k tn</div><div class="hk-l">MaÃ­z avÃ­cola</div></div>
-    <div class="hk"><div class="hk-v">595</div><div class="hk-l">EPs Â· 13 zonas</div></div>
+    <div class="hk"><div class="hk-v" style="color:var(--purple)">1080k tn</div><div class="hk-l">Maíz avícola</div></div>
+    <div class="hk"><div class="hk-v">595</div><div class="hk-l">EPs · 13 zonas</div></div>
   </div>
 </header>
 
 <div class="tabs">
-  <div class="tab active" onclick="switchTab('mapa')">ðŸ—º Mapa</div>
-  <div class="tab" onclick="switchTab('estructura')">ðŸ“Š DescripciÃ³n productiva</div>
+  <div class="tab active" onclick="switchTab('mapa')">🗺 Mapa</div>
+  <div class="tab" onclick="switchTab('estructura')">📊 Descripción productiva</div>
 </div>
 
 <!-- TAB MAPA -->
 <div id="tab-mapa" class="panel active">
   <div class="map-controls">
-    <button class="layer-btn on" id="btn-zonas"       onclick="setLayer('zonas',this)">ðŸ“ Por zona</button>
-    <button class="layer-btn"   id="btn-caminos"      onclick="setLayer('caminos',this)">ðŸ›£ Zona + camino</button>
-    <button class="layer-btn"   id="btn-indicadores"  onclick="setLayer('indicadores',this)">ðŸ“ˆ Indicadores</button>
-    <span class="map-hint">Clic en zona o camino â†’ ver desglose</span>
+    <button class="layer-btn on" id="btn-zonas"       onclick="setLayer('zonas',this)">📍 Por zona</button>
+    <button class="layer-btn"   id="btn-caminos"      onclick="setLayer('caminos',this)">🛣 Zona + camino</button>
+    <button class="layer-btn"   id="btn-indicadores"  onclick="setLayer('indicadores',this)">📈 Indicadores</button>
+    <span class="map-hint">Clic en zona o camino → ver desglose</span>
   </div>
   <div class="map-body">
     <div id="map"></div>
     <div id="side-panel">
       <div class="sp-header">
         <div class="sp-dot" id="sp-dot"></div>
-        <div class="sp-name" id="sp-name">â€”</div>
-        <button class="sp-close" onclick="closeSide()">âœ•</button>
+        <div class="sp-name" id="sp-name">—</div>
+        <button class="sp-close" onclick="closeSide()">✕</button>
       </div>
       <div class="sp-body" id="sp-body"></div>
     </div>
@@ -159,15 +159,15 @@ header{padding:9px 18px;background:var(--surf);border-bottom:1px solid var(--bor
   <div class="est-body">
     <div class="global-kpis" id="tam-kpis"></div>
     <div class="card">
-      <div class="card-title">EPs por actividad y tamaÃ±o de predio (sup_predio)</div>
+      <div class="card-title">EPs por actividad y tamaño de predio (sup_predio)</div>
       <div style="overflow-x:auto">
         <table class="tam-table">
           <thead><tr>
             <th>Actividad</th><th>Total</th>
             <th class="bc">Chico &lt;1.5ha</th>
-            <th class="bm">Mediano 1.5â€“4ha</th>
-            <th class="bg">Grande 4â€“8ha</th>
-            <th class="bmg">Muy grande â‰¥8ha</th>
+            <th class="bm">Mediano 1.5–4ha</th>
+            <th class="bg">Grande 4–8ha</th>
+            <th class="bmg">Muy grande ≥8ha</th>
             <th>Prom. ha</th>
             <th>Cap. Productiva USD</th>
             <th>IIBB USD</th>
@@ -177,24 +177,24 @@ header{padding:9px 18px;background:var(--surf);border-bottom:1px solid var(--bor
       </div>
       <div class="bkt-legend">
         <span><span class="bkt-leg-dot" style="background:#58a6ff"></span>Chico &lt;1.5 ha</span>
-        <span><span class="bkt-leg-dot" style="background:#3fb950"></span>Mediano 1.5â€“4 ha</span>
-        <span><span class="bkt-leg-dot" style="background:#d29922"></span>Grande 4â€“8 ha</span>
-        <span><span class="bkt-leg-dot" style="background:#f85149"></span>Muy grande â‰¥8 ha</span>
-        <span style="color:var(--muted);margin-left:auto;font-size:10px">* AgrÃ­cola: sÃ³lo tamaÃ±o de predio, sin valorizaciÃ³n econÃ³mica</span>
+        <span><span class="bkt-leg-dot" style="background:#3fb950"></span>Mediano 1.5–4 ha</span>
+        <span><span class="bkt-leg-dot" style="background:#d29922"></span>Grande 4–8 ha</span>
+        <span><span class="bkt-leg-dot" style="background:#f85149"></span>Muy grande ≥8 ha</span>
+        <span style="color:var(--muted);margin-left:auto;font-size:10px">* Agrícola: sólo tamaño de predio, sin valorización económica</span>
       </div>
     </div>
     <div class="card">
-      <div class="card-title">EPs por actividad y tamaÃ±o</div>
+      <div class="card-title">EPs por actividad y tamaño</div>
       <div class="chart-wrap"><canvas id="chart-act"></canvas></div>
     </div>
     <div class="card">
-      <div class="card-title">DistribuciÃ³n por zona</div>
+      <div class="card-title">Distribución por zona</div>
       <div style="overflow-x:auto">
         <table class="tam-table">
           <thead><tr>
             <th>Zona</th><th>Total</th>
-            <th>ðŸ” Ave</th><th>ðŸ¥š Huevo</th><th>ðŸ„ Ganad.</th>
-            <th>ðŸ¥› Tambo</th><th>ðŸ· Porc.</th><th>ðŸŒ¿ Agr.</th>
+            <th>🐔 Ave</th><th>🥚 Huevo</th><th>🐄 Ganad.</th>
+            <th>🥛 Tambo</th><th>🐷 Porc.</th><th>🌿 Agr.</th>
             <th class="bc">Chico</th><th class="bm">Mediano</th>
             <th class="bg">Grande</th><th class="bmg">M.Grande</th>
             <th>Prom.ha</th><th>Cap. Cap.Prod. USD</th>
@@ -217,18 +217,18 @@ const ZONAS   = [{"nombre":"Camps","coords":[[-32.088921,-60.22921],[-32.089541,
 const CAMINOS = [{"nombre":"camino 1","coords":[[-32.106026,-60.370593],[-32.0892813,-60.356452],[-32.0737184,-60.3497572],[-32.053812,-60.330938],[-32.048365,-60.326858]],"es_ruta":false},{"nombre":"ruta 131","coords":[[-32.0562615,-60.4118986],[-32.0562615,-60.3835745],[-32.039761,-60.269485]],"es_ruta":true},{"nombre":"camino 2","coords":[[-32.0917696,-60.3586302],[-32.0946055,-60.350648],[-32.094358,-60.348593],[-32.0988591,-60.3391037]],"es_ruta":false},{"nombre":"camino 3","coords":[[-32.0630828,-60.3406421],[-32.068026,-60.333822],[-32.070968,-60.335651],[-32.079872,-60.32534],[-32.0801219,-60.324496]],"es_ruta":false},{"nombre":"camino 4","coords":[[-32.046702,-60.318755],[-32.050508,-60.321431],[-32.057035,-60.313627],[-32.066392,-60.324799],[-32.07314,-60.317415]],"es_ruta":false},{"nombre":"camino 5","coords":[[-32.0428504,-60.2906222],[-32.045122,-60.28655],[-32.058735,-60.296706],[-32.061383,-60.293691],[-32.064552,-60.294747],[-32.066177,-60.291772],[-32.082879,-60.303189],[-32.085361,-60.29866],[-32.1102689,-60.2964587],[-32.1158866,-60.2949659]],"es_ruta":false},{"nombre":"camino 6","coords":[[-32.124254,-60.356025],[-32.110127,-60.29588]],"es_ruta":false},{"nombre":"camino 7","coords":[[-32.09266,-60.297942],[-32.086278,-60.270237],[-32.084753,-60.258881],[-32.073179,-60.246749]],"es_ruta":false},{"nombre":"camino 8","coords":[[-32.107417,-60.296055],[-32.100881,-60.230505]],"es_ruta":false},{"nombre":"camino 9","coords":[[-32.1158866,-60.2949659],[-32.1097352,-60.231301]],"es_ruta":false},{"nombre":"camino 11","coords":[[-32.135573,-60.216712],[-32.139393,-60.222576],[-32.13607,-60.292625],[-32.133235,-60.299872],[-32.137367,-60.309348]],"es_ruta":false},{"nombre":"camono 10","coords":[[-32.133235,-60.299872],[-32.125453,-60.3041],[-32.121534,-60.302088],[-32.112454,-60.305632]],"es_ruta":false},{"nombre":"camino 12","coords":[[-32.137945,-60.251956],[-32.135936,-60.253379],[-32.103562,-60.25777]],"es_ruta":false},{"nombre":"camino 13","coords":[[-32.145965,-60.208641],[-32.138726,-60.213555],[-32.136251,-60.217079],[-32.090713,-60.234585],[-32.061625,-60.25519],[-32.0558281,-60.2602806],[-32.054533,-60.265398]],"es_ruta":false},{"nombre":"camino 14","coords":[[-32.061625,-60.25519],[-32.045536,-60.227514],[-32.040506,-60.228342]],"es_ruta":false},{"nombre":"camino 15","coords":[[-32.023717,-60.290329],[-32.0182351,-60.2821221],[-32.01109,-60.2762],[-32.008934,-60.278481],[-31.9866457,-60.2730241],[-31.9642208,-60.2646127],[-31.9628,-60.263477],[-31.962317,-60.253617]],"es_ruta":false},{"nombre":"camino 16","coords":[[-32.014397,-60.300755],[-32.004202,-60.298775],[-32.002673,-60.301102],[-31.983422,-60.297937],[-31.967905,-60.28405],[-31.964228,-60.288814],[-31.947519,-60.278434],[-31.920971,-60.269688]],"es_ruta":false},{"nombre":"camino Santa Rosa - San Rafael","coords":[[-32.031271,-60.229956],[-32.01599,-60.232497],[-32.016965,-60.240505],[-32.009843,-60.241776],[-32.009664,-60.24369],[-31.971134,-60.250717],[-31.970698,-60.252279],[-31.952758,-60.254797],[-31.92054,-60.249227]],"es_ruta":false},{"nombre":"Ruta 32","coords":[[-32.039761,-60.269485],[-32.034953,-60.26235],[-32.031271,-60.229956],[-32.027596,-60.206961],[-32.019958,-60.180729],[-31.997719,-60.156315]],"es_ruta":true},{"nombre":"camino 18","coords":[[-32.149474,-60.192127],[-32.132768,-60.171542],[-32.106106,-60.119992]],"es_ruta":false},{"nombre":"camino 19","coords":[[-32.1147313,-60.2153514],[-32.112993,-60.197665],[-32.107555,-60.187758],[-32.096004,-60.17742],[-32.098243,-60.170815],[-32.090133,-60.160939],[-32.089768,-60.158442],[-32.074761,-60.131697],[-32.0721934,-60.1233409],[-32.060301,-60.110856]],"es_ruta":false},{"nombre":"camino 20","coords":[[-32.047251,-60.230487],[-32.051008,-60.219685],[-32.059475,-60.21281],[-32.057582,-60.209914],[-32.064031,-60.199446],[-32.063399,-60.197653],[-32.06493,-60.192617],[-32.069147,-60.193204],[-32.075095,-60.196091]],"es_ruta":false},{"nombre":"camino 21","coords":[[-32.0582939,-60.245061],[-32.060854,-60.234523],[-32.069319,-60.224201],[-32.07414,-60.205812],[-32.073428,-60.203782],[-32.075095,-60.196091],[-32.07872,-60.195576],[-32.09133,-60.182602]],"es_ruta":false},{"nombre":"camino 22","coords":[[-32.097997,-60.190178],[-32.093024,-60.185783],[-32.093073,-60.18479],[-32.072023,-60.156854],[-32.06568,-60.14455],[-32.062441,-60.135673],[-32.059594,-60.120845]],"es_ruta":false},{"nombre":"camino 23","coords":[[-32.1010115,-60.1823676],[-32.0939585,-60.2012503],[-32.0894501,-60.1957571],[-32.0823236,-60.1922381]],"es_ruta":false},{"nombre":"camino 25","coords":[[-32.070421,-60.346837],[-32.069301,-60.349132],[-32.069475,-60.36516],[-32.078527,-60.365027],[-32.078751,-60.3927]],"es_ruta":false},{"nombre":"camino 24","coords":[[-32.0692493,-60.3588222],[-32.0526,-60.35914]],"es_ruta":false},{"nombre":"camino 26","coords":[[-32.055299,-60.37832],[-32.043803,-60.378351],[-32.0393729,-60.3609948],[-32.040092,-60.347104],[-32.039949,-60.337153],[-32.0405761,-60.3331657]],"es_ruta":false},{"nombre":"Camino Crespo - Racedo","coords":[[-32.0369951,-60.3248278],[-32.0281181,-60.3363291],[-32.0188763,-60.3429381],[-32.011782,-60.349292],[-32.008663,-60.354182],[-32.0015546,-60.3705756],[-31.9979151,-60.3866259],[-31.997032,-60.390505],[-31.993041,-60.398995],[-31.986302,-60.404762]],"es_ruta":false},{"nombre":"camino 27","coords":[[-32.034603,-60.426094],[-32.031895,-60.43005],[-32.004119,-60.406312],[-31.995104,-60.400972],[-31.99147,-60.403674],[-31.986302,-60.404762]],"es_ruta":false},{"nombre":"camino 28","coords":[[-31.984612,-60.414765],[-32.003067,-60.441151],[-32.009676,-60.442725],[-32.013268,-60.445774]],"es_ruta":false},{"nombre":"camino 17","coords":[[-31.976144,-60.249678],[-31.974156,-60.233897],[-31.973366,-60.233848],[-31.973468,-60.230521],[-31.970736,-60.230682],[-31.969366,-60.227257],[-31.972154,-60.22244],[-31.972917,-60.219542],[-31.973697,-60.219009],[-31.984325,-60.219431],[-31.9844063,-60.2125795],[-31.9917683,-60.2106815],[-31.9977923,-60.2071025],[-32.0052426,-60.2081223],[-32.0149951,-60.2063198],[-32.0212537,-60.2110405],[-32.027596,-60.206961]],"es_ruta":false},{"nombre":"camino 29","coords":[[-31.975453,-60.218915],[-31.975394,-60.215619],[-31.97477,-60.21449],[-31.974749,-60.207858],[-31.977542,-60.20018],[-31.979471,-60.19742]],"es_ruta":false},{"nombre":"camino 30","coords":[[-31.975105,-60.214759],[-31.969261,-60.2153],[-31.945805,-60.207099],[-31.947777,-60.193014],[-31.941374,-60.190649]],"es_ruta":false},{"nombre":"camino 31","coords":[[-31.957642,-60.221217],[-31.944946,-60.217099],[-31.944639,-60.213548],[-31.942675,-60.210391],[-31.932044,-60.206578],[-31.933309,-60.202684],[-31.928882,-60.200666],[-31.930951,-60.194867],[-31.927884,-60.193377],[-31.927237,-60.18572]],"es_ruta":false},{"nombre":"camino 32","coords":[[-31.913332,-60.236238],[-31.9195246,-60.2447514],[-31.920253,-60.245865],[-31.920645,-60.284463],[-31.918358,-60.283578],[-31.910612,-60.293913]],"es_ruta":false},{"nombre":"camino 34","coords":[[-31.947798,-60.343207],[-31.940137,-60.325645],[-31.918109,-60.300286],[-31.910612,-60.293913],[-31.904739,-60.304288],[-31.861379,-60.294253]],"es_ruta":false},{"nombre":"camino 33","coords":[[-31.932044,-60.206578],[-31.923676,-60.230345],[-31.920323,-60.228231],[-31.908619,-60.241376],[-31.899429,-60.234504],[-31.898292,-60.232859],[-31.86723,-60.217179]],"es_ruta":false},{"nombre":"camino 35","coords":[[-31.997547,-60.318684],[-31.971857,-60.314766],[-31.967379,-60.312359],[-31.962973,-60.318023],[-31.9562662,-60.3153764],[-31.955276,-60.315691],[-31.9547376,-60.3174055],[-31.9428606,-60.3312062]],"es_ruta":false},{"nombre":"Ruta 12 Norte","coords":[[-31.906256,-60.38436],[-31.947239,-60.343648],[-31.997547,-60.318684],[-32.0230998,-60.2913696],[-32.0362686,-60.2739482],[-32.0389801,-60.2701783]],"es_ruta":true},{"nombre":"Etchevere - Racedo","coords":[[-31.915873,-60.4532127],[-31.9257085,-60.4393543],[-31.9319731,-60.4312862],[-31.9344497,-60.4283679],[-31.9361979,-60.4254497],[-31.9372176,-60.4254497],[-31.9383831,-60.4216732],[-31.9396941,-60.4204715],[-31.9434815,-60.4189266],[-31.9503276,-60.4173816],[-31.953443,-60.4193707],[-31.966494,-60.414635],[-31.9718822,-60.4100002],[-31.9769788,-60.4086269],[-31.978997,-60.406086]],"es_ruta":false},{"nombre":"camino 36","coords":[[-31.9295535,-60.4346132],[-31.919202,-60.431904],[-31.919435,-60.427673],[-31.908266,-60.425382]],"es_ruta":false},{"nombre":"camino 37","coords":[[-31.931759,-60.426602],[-31.920181,-60.424312],[-31.92158,-60.415802],[-31.910385,-60.4131797]],"es_ruta":false},{"nombre":"camino 38","coords":[[-31.9396941,-60.4204715],[-31.935628,-60.418911],[-31.906256,-60.38436]],"es_ruta":false},{"nombre":"camino 39","coords":[[-31.9434815,-60.4189266],[-31.9430642,-60.4147949],[-31.944235,-60.414268],[-31.913248,-60.377539]],"es_ruta":false},{"nombre":"camino 40","coords":[[-31.934356,-60.402417],[-31.923367,-60.415977],[-31.92158,-60.415802]],"es_ruta":false},{"nombre":"camino 41","coords":[[-31.9686845,-60.4128445],[-31.905887,-60.339042],[-31.9004682,-60.3355933],[-31.8945021,-60.3601241],[-31.8865418,-60.3530522],[-31.885779,-60.3565463],[-31.8770396,-60.3487719]],"es_ruta":false},{"nombre":"camino 42","coords":[[-32.015751,-60.346058],[-31.947798,-60.343207]],"es_ruta":false},{"nombre":"camino 43","coords":[[-32.045584,-60.286943],[-32.048471,-60.283094],[-32.048032,-60.280565],[-32.051753,-60.27752],[-32.053196,-60.27485],[-32.049014,-60.248402],[-32.047249,-60.244589],[-32.045977,-60.239506],[-32.037692,-60.223201],[-32.0349628,-60.2143916],[-32.0314,-60.20827],[-32.02733,-60.205485]],"es_ruta":false},{"nombre":"camino 44","coords":[[-32.049014,-60.248402],[-32.010693,-60.254881],[-32.008036,-60.233706]],"es_ruta":false},{"nombre":"camino 45","coords":[[-31.887207,-60.227481],[-31.882588,-60.255071],[-31.881089,-60.279486],[-31.877944,-60.280161],[-31.876777,-60.297021],[-31.873377,-60.309483],[-31.871465,-60.309857],[-31.868629,-60.316136],[-31.867941,-60.320737],[-31.866092,-60.324417],[-31.865626,-60.328113]],"es_ruta":false},{"nombre":"camino 46","coords":[[-31.86338,-60.279149],[-31.869504,-60.235329],[-31.867689,-60.234191],[-31.868461,-60.230684]],"es_ruta":false},{"nombre":"camino 47","coords":[[-31.848329,-60.270794],[-31.85456,-60.230972],[-31.84868,-60.229313]],"es_ruta":false},{"nombre":"Camino Aldea San Juan","coords":[[-32.0061265,-60.3599955],[-31.9947351,-60.3581502],[-31.9948443,-60.3453185]],"es_ruta":false},{"nombre":"camino 48","coords":[[-32.0164706,-60.2379445],[-32.0087561,-60.2392319]],"es_ruta":false},{"nombre":"camino 49","coords":[[-32.0251525,-60.1988322],[-32.0105249,-60.198403]],"es_ruta":false},{"nombre":"camino 50","coords":[[-32.0227147,-60.1907212],[-32.0100882,-60.1898199],[-32.009979,-60.1913649],[-32.0083778,-60.1910645]],"es_ruta":false},{"nombre":"Ruta 12 este","coords":[[-32.0397622,-60.2688622],[-32.0434727,-60.2559876],[-32.0447822,-60.2526402],[-32.0472558,-60.2503228],[-32.0566696,-60.2451653],[-32.0831878,-60.2320408],[-32.1049292,-60.2213978],[-32.1424373,-60.1975798],[-32.149474,-60.192127]],"es_ruta":true}];
 const TAM     = {"by_act":{"carne de ave":{"chico":35,"mediano":36,"grande":11,"muy_grande":6,"total":88,"avg_ha":2.94,"prod_usd":44450703.0,"iibb_usd":6303110.0},"huevo":{"chico":14,"mediano":36,"grande":5,"muy_grande":2,"total":57,"avg_ha":2.41,"prod_usd":14948239.0,"iibb_usd":2119660.0},"ganaderia":{"chico":133,"mediano":92,"grande":15,"muy_grande":8,"total":248,"avg_ha":2.12,"prod_usd":188779347.0,"iibb_usd":22596888.0},"tambo":{"chico":25,"mediano":56,"grande":10,"muy_grande":12,"total":103,"avg_ha":3.86,"prod_usd":7528021.0,"iibb_usd":901104.0},"porcino":{"chico":19,"mediano":15,"grande":0,"muy_grande":0,"total":34,"avg_ha":1.47,"prod_usd":1388091.0,"iibb_usd":228480.0},"agricola":{"chico":50,"mediano":13,"grande":2,"muy_grande":0,"total":65,"avg_ha":1.25,"prod_usd":0.0,"iibb_usd":0.0}},"by_zona":{"Camps":{"total":64,"avg_ha":4.77,"prod_usd":27543461.0,"perdida_usd":2517064.0,"iibb_usd":3396491.0,"actividades":{"carne de ave":10,"huevo":3,"ganaderia":18,"tambo":23,"porcino":2,"agricola":8},"chico":23,"mediano":21,"grande":8,"muy_grande":12},"Colonia Merou":{"total":52,"avg_ha":1.98,"prod_usd":26742639.0,"perdida_usd":3142306.0,"iibb_usd":3365754.0,"actividades":{"carne de ave":9,"huevo":2,"ganaderia":30,"tambo":3,"porcino":2,"agricola":6},"chico":30,"mediano":16,"grande":5,"muy_grande":1},"Eigenfeld":{"total":55,"avg_ha":1.64,"prod_usd":16152924.0,"perdida_usd":2551687.0,"iibb_usd":2086710.0,"actividades":{"carne de ave":7,"huevo":8,"ganaderia":16,"tambo":3,"porcino":6,"agricola":15},"chico":34,"mediano":19,"grande":2,"muy_grande":0},"Ejido Crespo":{"total":73,"avg_ha":2.11,"prod_usd":28490327.0,"perdida_usd":3380532.0,"iibb_usd":3589490.0,"actividades":{"carne de ave":9,"huevo":7,"ganaderia":31,"tambo":18,"porcino":6,"agricola":2},"chico":28,"mediano":42,"grande":1,"muy_grande":2},"Ejido Santa Rosa":{"total":6,"avg_ha":1.61,"prod_usd":1548132.0,"perdida_usd":208868.0,"iibb_usd":196931.0,"actividades":{"carne de ave":1,"ganaderia":2,"tambo":2,"porcino":1},"chico":3,"mediano":3,"grande":0,"muy_grande":0},"Entre Ejido Crespo y Camps":{"total":13,"avg_ha":2.13,"prod_usd":4927080.0,"perdida_usd":959666.0,"iibb_usd":651386.0,"actividades":{"carne de ave":2,"huevo":4,"ganaderia":4,"tambo":1,"porcino":1,"agricola":1},"chico":4,"mediano":7,"grande":2,"muy_grande":0},"Etchevehere":{"total":24,"avg_ha":1.4,"prod_usd":6872996.0,"perdida_usd":680229.0,"iibb_usd":854167.0,"actividades":{"carne de ave":4,"huevo":2,"ganaderia":12,"tambo":5,"agricola":1},"chico":16,"mediano":7,"grande":1,"muy_grande":0},"Racedo":{"total":29,"avg_ha":2.68,"prod_usd":13770139.0,"perdida_usd":1251118.0,"iibb_usd":1701527.0,"actividades":{"carne de ave":3,"huevo":2,"ganaderia":12,"tambo":9,"porcino":1,"agricola":2},"chico":10,"mediano":14,"grande":4,"muy_grande":1},"San Rafael":{"total":72,"avg_ha":2.17,"prod_usd":37614612.0,"perdida_usd":2697187.0,"iibb_usd":4606809.0,"actividades":{"carne de ave":5,"huevo":6,"ganaderia":38,"tambo":11,"porcino":7,"agricola":5},"chico":37,"mediano":28,"grande":5,"muy_grande":2},"zona oeste":{"total":42,"avg_ha":2.46,"prod_usd":21612560.0,"perdida_usd":1545746.0,"iibb_usd":2640437.0,"actividades":{"carne de ave":5,"huevo":4,"ganaderia":19,"tambo":3,"agricola":11},"chico":19,"mediano":19,"grande":2,"muy_grande":2},"Santa Rosa":{"total":58,"avg_ha":2.14,"prod_usd":22439295.0,"perdida_usd":2879259.0,"iibb_usd":2849105.0,"actividades":{"carne de ave":10,"huevo":4,"ganaderia":23,"tambo":9,"porcino":6,"agricola":6},"chico":21,"mediano":32,"grande":3,"muy_grande":2},"san miguel":{"total":76,"avg_ha":2.56,"prod_usd":29794331.0,"perdida_usd":4168648.0,"iibb_usd":3801337.0,"actividades":{"carne de ave":18,"huevo":15,"ganaderia":21,"tambo":14,"porcino":2,"agricola":6},"chico":33,"mediano":31,"grande":7,"muy_grande":5},"Colonia Reffino":{"total":31,"avg_ha":2.3,"prod_usd":19585905.0,"perdida_usd":1605072.0,"iibb_usd":2409099.0,"actividades":{"carne de ave":5,"ganaderia":22,"tambo":2,"agricola":2},"chico":18,"mediano":9,"grande":3,"muy_grande":1}},"global":{"chico":276,"mediano":248,"grande":43,"muy_grande":28,"avg_ha":2.44,"total_ep":595}};
 
-const fmt  = (n,d=0)=>n==null?'â€”':n.toLocaleString('es-AR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmt  = (n,d=0)=>n==null?'—':n.toLocaleString('es-AR',{minimumFractionDigits:d,maximumFractionDigits:d});
 const fmtM = n=>n>=1e6?'USD '+fmt(n/1e6,1)+'M':n>=1e3?'USD '+fmt(n/1e3,0)+'k':'USD '+fmt(n,0);
 
 const ACT_COLOR={'carne de ave':'#f97316','ganaderia':'#22c55e','tambo':'#3b82f6',
                  'agricola':'#eab308','huevo':'#ec4899','porcino':'#a78bfa'};
-const ACT_EMOJI={'carne de ave':'ðŸ”','huevo':'ðŸ¥š','ganaderia':'ðŸ„','tambo':'ðŸ¥›','porcino':'ðŸ·','agricola':'ðŸŒ¿'};
+const ACT_EMOJI={'carne de ave':'🐔','huevo':'🥚','ganaderia':'🐄','tambo':'🥛','porcino':'🐷','agricola':'🌿'};
 const ACTS=['carne de ave','huevo','ganaderia','tambo','porcino','agricola'];
 const BKTS=['chico','mediano','grande','muy_grande'];
 const BKT_LABELS=['Chico','Mediano','Grande','M.Grande'];
 const BKT_COLORS=['#58a6ff','#3fb950','#d29922','#f85149'];
 
-// â”€â”€ TABS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── TABS ──────────────────────────────────────────────────────────────────
 let estructuraInit=false;
 function switchTab(id){
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',['mapa','estructura'][i]===id));
@@ -238,7 +238,7 @@ function switchTab(id){
   if(id==='estructura'&&!estructuraInit){initEstructura();estructuraInit=true;}
 }
 
-// â”€â”€ MAPA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── MAPA ──────────────────────────────────────────────────────────────────
 let mapInst,mapInited=false,activePoly=null;
 let layerZonas,layerCaminos,layerIndicadores;
 
@@ -259,11 +259,11 @@ function initMap(){
     const p1=L.polygon(z.coords,{color:z.color,weight:1.5,fillColor:z.color,fillOpacity:.22,opacity:.8});
     bindZona(p1,z,popup); layerZonas.addLayer(p1);
 
-    // Capa CAMINOS (polÃ­gonos base)
+    // Capa CAMINOS (polígonos base)
     const p2=L.polygon(z.coords,{color:z.color,weight:1.5,fillColor:z.color,fillOpacity:.18,opacity:.7});
     bindZona(p2,z,popup); layerCaminos.addLayer(p2);
 
-    // Capa INDICADORES (opacidad proporcional a producciÃ³n + labels)
+    // Capa INDICADORES (opacidad proporcional a producción + labels)
     const alpha=0.1+0.55*(z.prod_usd/maxProd);
     const p3=L.polygon(z.coords,{color:z.color,weight:2,fillColor:z.color,fillOpacity:alpha,opacity:.9});
     bindZona(p3,z,popup); layerIndicadores.addLayer(p3);
@@ -273,7 +273,7 @@ function initMap(){
       html:`<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#fff;text-shadow:0 0 3px #000;text-align:center;line-height:1.4;white-space:nowrap">
         <div style="font-weight:700;font-size:11px">${z.nombre}</div>
         <div style="color:#3fb950">${fmtM(z.prod_usd)}</div>
-        <div style="color:#f85149;font-size:9px">âˆ’${fmtM(z.perdida_usd)}</div>
+        <div style="color:#f85149;font-size:9px">−${fmtM(z.perdida_usd)}</div>
       </div>`,
       className:'',iconAnchor:[55,22],iconSize:[110,44]
     });
@@ -318,7 +318,7 @@ function buildZonaPopup(z){
   return`<div class="pop-title" style="color:${z.color}">${z.nombre}</div>
     <div class="pop-row"><span>EPs</span><span>${z.eps}</span></div>
     <div class="pop-row"><span>Cap. Productiva</span><span style="color:#3fb950">${fmtM(z.prod_usd)}</span></div>
-    <div class="pop-row"><span>PÃ©rdida log.</span><span style="color:#f85149">${fmtM(z.perdida_usd)}</span></div>
+    <div class="pop-row"><span>Pérdida log.</span><span style="color:#f85149">${fmtM(z.perdida_usd)}</span></div>
     <div class="pop-row"><span>IIBB</span><span style="color:#d29922">${fmtM(z.iibb_usd)}</span></div>`;
 }
 
@@ -333,7 +333,7 @@ function setLayer(name,btn){
   closeSide();
 }
 
-// â”€â”€ SIDE PANEL ZONA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── SIDE PANEL ZONA ───────────────────────────────────────────────────────
 function openZonaSide(z,poly){
   activePoly=poly;
   document.getElementById('sp-dot').style.background=z.color;
@@ -344,14 +344,14 @@ function openZonaSide(z,poly){
   // KPI strip
   let html=`<div class="kpi-strip">
     <div class="kpi"><div class="kpi-l">Cap. Productiva</div><div class="kpi-v" style="color:var(--green)">${fmtM(z.prod_usd)}</div></div>
-    <div class="kpi"><div class="kpi-l">PÃ©rdida log.</div><div class="kpi-v" style="color:var(--red)">${fmtM(z.perdida_usd)}</div><div class="kpi-s">${pct}% de prod.</div></div>
+    <div class="kpi"><div class="kpi-l">Pérdida log.</div><div class="kpi-v" style="color:var(--red)">${fmtM(z.perdida_usd)}</div><div class="kpi-s">${pct}% de prod.</div></div>
     <div class="kpi"><div class="kpi-l">IIBB generado</div><div class="kpi-v" style="color:var(--yellow)">${fmtM(z.iibb_usd)}</div></div>
-    <div class="kpi"><div class="kpi-l">MaÃ­z avÃ­cola</div><div class="kpi-v" style="color:var(--purple)">${fmt(z.maiz_tn,0)} tn</div></div>
+    <div class="kpi"><div class="kpi-l">Maíz avícola</div><div class="kpi-v" style="color:var(--purple)">${fmt(z.maiz_tn,0)} tn</div></div>
     <div class="kpi"><div class="kpi-l">EPs totales</div><div class="kpi-v">${z.eps}</div></div>
     <div class="kpi"><div class="kpi-l">Tinglados</div><div class="kpi-v">${z.tinglados}</div></div>
   </div>`;
 
-  // Bloques por actividad con desglose de tamaÃ±o
+  // Bloques por actividad con desglose de tamaño
   const ad=z.act_detail||{};
   ACTS.forEach(act=>{
     const d=ad[act]; if(!d) return;
@@ -372,7 +372,7 @@ function openZonaSide(z,poly){
       </div>`;
     }).join('');
 
-    const prodStr=esAgr?'<span style="color:var(--muted);font-size:9px">sin valorizaciÃ³n</span>':fmtM(d.prod_usd);
+    const prodStr=esAgr?'<span style="color:var(--muted);font-size:9px">sin valorización</span>':fmtM(d.prod_usd);
 
     html+=`<div class="act-block">
       <div class="act-block-hdr">
@@ -402,8 +402,8 @@ function openCaminoSide(c){
     <div class="cam-info">Tipo: <span>${c.es_ruta?'Ruta pavimentada':'Camino rural'}</span></div>
     <div class="cam-info">Tramos: <span>${c.coords.length} puntos registrados</span></div>
     <p style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5">${c.es_ruta
-      ?'Ruta pavimentada â€” no se ve afectada por intransitabilidad.'
-      :'Camino de tierra â€” sujeto a pÃ©rdida logÃ­stica por eventos de lluvia.'}</p>`;
+      ?'Ruta pavimentada — no se ve afectada por intransitabilidad.'
+      :'Camino de tierra — sujeto a pérdida logística por eventos de lluvia.'}</p>`;
   document.getElementById('side-panel').classList.add('open');
   setTimeout(()=>mapInst.invalidateSize(),220);
 }
@@ -414,13 +414,13 @@ function closeSide(){
   if(mapInited) setTimeout(()=>mapInst.invalidateSize(),220);
 }
 
-// â”€â”€ ESTRUCTURA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── ESTRUCTURA ────────────────────────────────────────────────────────────
 function initEstructura(){
   const g=TAM.global;
   const kpiEl=document.getElementById('tam-kpis');
   [{v:g.total_ep,l:'Total EPs',c:'var(--text)'},{v:g.chico,l:'Chico <1.5ha',c:'#58a6ff'},
-   {v:g.mediano,l:'Mediano 1.5â€“4ha',c:'#3fb950'},{v:g.grande,l:'Grande 4â€“8ha',c:'#d29922'},
-   {v:g.muy_grande,l:'Muy grande â‰¥8ha',c:'#f85149'},{v:g.avg_ha+' ha',l:'Predio prom.',c:'var(--muted)'}
+   {v:g.mediano,l:'Mediano 1.5–4ha',c:'#3fb950'},{v:g.grande,l:'Grande 4–8ha',c:'#d29922'},
+   {v:g.muy_grande,l:'Muy grande ≥8ha',c:'#f85149'},{v:g.avg_ha+' ha',l:'Predio prom.',c:'var(--muted)'}
   ].forEach(k=>{kpiEl.innerHTML+=`<div class="gkpi"><div class="gkpi-v" style="color:${k.c}">${k.v}</div><div class="gkpi-l">${k.l}</div></div>`;});
 
   // Tabla actividad
@@ -436,10 +436,10 @@ function initEstructura(){
       <td class="bg">${d.grande}</td><td class="bmg">${d.muy_grande}</td>
       <td>${d.avg_ha}</td>
       <td>${esAgr?'<span style="color:var(--muted)">s/val.</span>':fmtM(d.prod_usd)}</td>
-      <td>${esAgr?'<span style="color:var(--muted)">â€”</span>':fmtM(d.iibb_usd)}</td>
+      <td>${esAgr?'<span style="color:var(--muted)">—</span>':fmtM(d.iibb_usd)}</td>
     </tr>`;
   });
-  tb.innerHTML+=`<tr class="total-row"><td>Total</td><td>${tE}</td><td class="bc">${tC}</td><td class="bm">${tM}</td><td class="bg">${tG}</td><td class="bmg">${tMG}</td><td>â€”</td><td>â€”</td><td>â€”</td></tr>`;
+  tb.innerHTML+=`<tr class="total-row"><td>Total</td><td>${tE}</td><td class="bc">${tC}</td><td class="bm">${tM}</td><td class="bg">${tG}</td><td class="bmg">${tMG}</td><td>—</td><td>—</td><td>—</td></tr>`;
 
   // Tabla zonas
   const tb2=document.getElementById('tam-tbody-zona');
@@ -457,7 +457,7 @@ function initEstructura(){
     </tr>`;
   });
 
-  // GrÃ¡fico actividad
+  // Gráfico actividad
   new Chart(document.getElementById('chart-act'),{type:'bar',
     data:{labels:ACTS.map(a=>(ACT_EMOJI[a]||'')+' '+a),
       datasets:BKTS.map((b,i)=>({label:BKT_LABELS[i],
@@ -468,7 +468,7 @@ function initEstructura(){
       scales:{x:{stacked:true,ticks:{color:'#7d8590',font:{size:10}},grid:{color:'#21262d'}},
               y:{stacked:true,ticks:{color:'#7d8590',font:{size:10}},grid:{color:'#21262d'}}}}});
 
-  // GrÃ¡fico cap. productiva por zona
+  // Gráfico cap. productiva por zona
   const zns=Object.keys(TAM.by_zona);
   new Chart(document.getElementById('chart-zona-prod'),{type:'bar',
     data:{labels:zns,datasets:[{label:'Cap. Productiva (USD M)',
