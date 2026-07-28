@@ -8,9 +8,10 @@ desktop.ini
 *.tmp
 *.bak
 *.swp
+tmp-*
+tmp-docx-extract/
 
 # Local tooling
 node_modules/
 .env
 .env.*
-

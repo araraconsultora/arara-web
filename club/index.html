@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Club Náutico El Delta · Demo · Arará Consultora</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a3d62'/%3E%3Ccircle cx='16' cy='9' r='2.6' fill='none' stroke='%23f2c14e' stroke-width='1.6'/%3E%3Cline x1='16' y1='11.5' x2='16' y2='25' stroke='%23f2c14e' stroke-width='1.8'/%3E%3Cline x1='11' y1='15' x2='21' y2='15' stroke='%23f2c14e' stroke-width='1.6'/%3E%3Cpath d='M9 20c0 3.5 2.8 6 7 6.6M23 20c0 3.5-2.8 6-7 6.6' fill='none' stroke='%23f2c14e' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<meta property="og:title" content="Club Náutico El Delta — Sistema de gestión integrado (Demo Arará)">
+<meta property="og:description" content="Portal del socio, panel de gestión para la comisión directiva y asistente de WhatsApp, todo conectado. Demostración de Arará Consultora para clubes náuticos.">
+<meta property="og:image" content="https://www.arara.com.ar/og-image-arara-pitch.png">
+<meta property="og:type" content="website">
+
+<style>
+  :root{
+    --ground:#eaf2f6;
+    --surface:#ffffff;
+    --surface-2:#f2f7fa;
+    --primary:#0a3d62;
+    --primary-d:#062a44;
+    --primary-l:#1f7aa8;
+    --accent:#f2c14e;
+    --wa:#25d366;
+    --wa-d:#128c7e;
+    --ink:#152430;
+    --muted:#5c6c78;
+    --line:#d7e4ea;
+    --info:#2f6f9f;   --info-bg:#e6eff6;
+    --warn:#b26a1f;   --warn-bg:#f7ecdd;
+    --ok:#2e8b57;     --ok-bg:#e4f1ea;
+    --crit:#bd4133;   --crit-bg:#f7e3e1;
+    --radius:14px;
+    --shadow:0 1px 2px rgba(6,42,68,.05),0 6px 20px rgba(6,42,68,.08);
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color-scheme:light;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--font);
+    background:var(--ground);
+    color:var(--ink);
+    line-height:1.55;
+    font-size:15px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .tnum{font-variant-numeric:tabular-nums}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:60;
+    background:var(--primary);
+    color:#fff;
+    border-bottom:3px solid var(--accent);
+  }
+  .topbar-in{
+    max-width:1200px;margin:0 auto;
+    display:flex;align-items:center;gap:14px;
+    padding:12px 20px;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:11px;min-width:0}
+  .crest{width:38px;height:38px;flex-shrink:0}
+  .brand-txt{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+  .brand-txt b{font-size:15px;font-weight:700;letter-spacing:.2px;white-space:nowrap}
+  .brand-txt span{font-size:11px;opacity:.8;text-transform:uppercase;letter-spacing:1px}
+  .demo-chip{
+    background:var(--accent);color:var(--primary-d);
+    font-size:11px;font-weight:800;letter-spacing:1px;
+    padding:3px 9px;border-radius:20px;text-transform:uppercase;
+  }
+  .spacer{flex:1 1 auto}
+  .by{font-size:12px;opacity:.85;white-space:nowrap}
+  .by a{color:var(--accent);text-decoration:none;font-weight:700}
+
+  /* ---------- Tabs ---------- */
+  .tabs{
+    background:var(--primary-d);
+    position:sticky;top:0;z-index:55;
+  }
+  .tabs-in{
+    max-width:1200px;margin:0 auto;display:flex;gap:2px;padding:0 12px;
+    overflow-x:auto;scrollbar-width:none;
+  }
+  .tabs-in::-webkit-scrollbar{display:none}
+  .tab{
+    appearance:none;background:none;border:none;cursor:pointer;
+    color:#cfe0ea;font-family:inherit;font-size:14px;font-weight:600;
+    padding:13px 16px;white-space:nowrap;position:relative;
+    display:flex;align-items:center;gap:8px;transition:color .15s;
+  }
+  .tab:hover{color:#fff}
+  .tab[aria-selected="true"]{color:#fff}
+  .tab[aria-selected="true"]::after{
+    content:"";position:absolute;left:12px;right:12px;bottom:0;height:3px;
+    background:var(--accent);border-radius:3px 3px 0 0;
+  }
+  .tab .dot{
+    background:var(--accent);color:var(--primary-d);
+    font-size:11px;font-weight:800;min-width:18px;height:18px;padding:0 5px;
+    border-radius:10px;display:none;align-items:center;justify-content:center;
+  }
+  .tab .dot.on{display:inline-flex}
+
+  /* ---------- Layout ---------- */
+  main{max-width:1200px;margin:0 auto;padding:20px}
+  .view{display:none;animation:fade .35s ease}
+  .view.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  .eyebrow{
+    font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--primary-l);margin-bottom:6px;
+  }
+  h1.view-title{font-size:24px;font-weight:800;letter-spacing:-.4px;margin-bottom:4px;text-wrap:balance}
+  .view-sub{color:var(--muted);margin-bottom:22px;max-width:60ch}
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+  /* ---------- Portal del socio ---------- */
+  .hero{
+    background:linear-gradient(135deg,var(--primary) 0%,var(--primary-l) 100%);
+    color:#fff;border-radius:var(--radius);padding:34px 30px;position:relative;overflow:hidden;
+    margin-bottom:22px;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;
+    background:radial-gradient(circle,rgba(242,193,78,.28),transparent 70%);
+  }
+  .hero h2{font-size:27px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;position:relative;text-wrap:balance}
+  .hero p{opacity:.92;max-width:46ch;position:relative}
+  .hero .pill24{
+    display:inline-flex;align-items:center;gap:7px;margin-top:16px;position:relative;
+    background:rgba(255,255,255,.15);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600;
+  }
+  .hero .pill24 b{color:var(--accent)}
+
+  .grid-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+  .action{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;cursor:pointer;transition:transform .15s,box-shadow .15s,border-color .15s;
+    display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow);text-align:left;
+    font-family:inherit;
+  }
+  .action:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(6,42,68,.14);border-color:var(--primary-l)}
+  .action .ico{width:42px;height:42px;border-radius:11px;background:var(--surface-2);
+    display:flex;align-items:center;justify-content:center;font-size:22px}
+  .action b{font-size:15.5px;font-weight:700}
+  .action span{font-size:13px;color:var(--muted)}
+
+  .section-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:18px}
+
+  .panel-h{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line)}
+  .panel-h h3{font-size:15px;font-weight:800}
+  .panel-b{padding:18px}
+
+  label.f{display:block;font-size:12.5px;font-weight:700;color:var(--muted);margin:0 0 5px 2px;text-transform:uppercase;letter-spacing:.5px}
+  .field{margin-bottom:14px}
+  input.f,select.f,textarea.f{
+    width:100%;font-family:inherit;font-size:14.5px;color:var(--ink);
+    background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:11px 13px;
+    transition:border-color .15s,box-shadow .15s;
+  }
+  input.f:focus,select.f:focus,textarea.f:focus{outline:none;border-color:var(--primary-l);box-shadow:0 0 0 3px rgba(31,122,168,.15)}
+  textarea.f{resize:vertical;min-height:74px}
+  .btn{
+    appearance:none;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:14.5px;
+    padding:12px 20px;border-radius:10px;transition:filter .15s,transform .1s;display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--primary);color:#fff}
+  .btn-primary:hover{filter:brightness(1.08)}
+  .btn-wa{background:var(--wa);color:#053d28}
+  .btn-wa:hover{filter:brightness(1.05)}
+  .btn-ghost{background:var(--surface-2);color:var(--primary);border:1px solid var(--line)}
+
+  .info-strip{display:flex;flex-direction:column;gap:12px}
+  .info-row{display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--surface-2);border-radius:11px}
+  .info-row .ic{font-size:20px;line-height:1.2}
+  .info-row b{display:block;font-size:13.5px}
+  .info-row span{font-size:12.5px;color:var(--muted)}
+
+  .ok-box{
+    background:var(--ok-bg);border:1px solid #bfe0cd;border-radius:12px;padding:16px;
+    display:none;gap:12px;align-items:flex-start;
+  }
+  .ok-box.show{display:flex;animation:fade .3s}
+  .ok-box .tk{font-size:24px}
+  .ok-box b{color:var(--ok)}
+  .ok-box .num{font-weight:800;letter-spacing:.5px}
+
+  /* ---------- KPI ---------- */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+  .kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+  .kpi .lbl{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:9px}
+  .kpi .val{font-size:30px;font-weight:800;letter-spacing:-1px;line-height:1}
+  .kpi .val small{font-size:16px;font-weight:700;color:var(--muted)}
+  .kpi .trend{font-size:12px;margin-top:8px;display:flex;align-items:center;gap:5px;color:var(--ok);font-weight:600}
+  .kpi .trend.down{color:var(--ok)}
+  .spark{display:flex;align-items:flex-end;gap:2px;height:22px;margin-top:10px}
+  .spark i{flex:1;background:var(--primary-l);opacity:.35;border-radius:2px 2px 0 0}
+  .spark i:last-child{opacity:1;background:var(--primary)}
+
+  .grid-panel{display:grid;grid-template-columns:1.55fr 1fr;gap:18px}
+
+  /* ---------- Tabla ---------- */
+  .tbl-wrap{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+  thead th{
+    text-align:left;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;
+    color:var(--muted);padding:11px 14px;border-bottom:1px solid var(--line);white-space:nowrap;
+  }
+  tbody td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr.nuevo{background:linear-gradient(90deg,rgba(242,193,78,.16),transparent)}
+  .rc{font-weight:800;letter-spacing:.3px;white-space:nowrap}
+  .rc .nv{display:inline-block;background:var(--accent);color:var(--primary-d);font-size:9.5px;font-weight:800;
+    padding:1px 5px;border-radius:8px;margin-left:5px;vertical-align:middle;letter-spacing:.5px}
+  .desc{color:var(--ink)}
+  .zona{color:var(--muted);white-space:nowrap}
+  .pill{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap}
+  .pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+  .p-alta{color:var(--crit);background:var(--crit-bg)}
+  .p-media{color:var(--warn);background:var(--warn-bg)}
+  .p-baja{color:var(--muted);background:var(--surface-2)}
+  .s-nuevo{color:var(--info);background:var(--info-bg)}
+  .s-curso{color:var(--warn);background:var(--warn-bg)}
+  .s-deriv{color:#6b4fa0;background:#ece7f5}
+  .s-resuelto{color:var(--ok);background:var(--ok-bg)}
+  .asig{color:var(--muted);font-size:12.5px;white-space:nowrap}
+
+  /* ---------- Category bars ---------- */
+  .catbar{margin-bottom:13px}
+  .catbar .top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px}
+  .catbar .top b{font-weight:700}
+  .catbar .top span{color:var(--muted);font-weight:700}
+  .track{height:8px;background:var(--surface-2);border-radius:6px;overflow:hidden}
+  .track i{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--primary-l));border-radius:6px}
+
+  .feed{display:flex;flex-direction:column}
+  .fitem{display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .fitem:last-child{border-bottom:none}
+  .fitem .fic{width:30px;height:30px;border-radius:8px;background:var(--surface-2);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+  .fitem .fx{font-size:13px}
+  .fitem .fx b{font-weight:700}
+  .fitem .ft{font-size:11.5px;color:var(--muted);margin-top:1px}
+
+  /* ---------- 7 day chart ---------- */
+  .chart7{display:flex;align-items:flex-end;gap:10px;height:130px;padding-top:10px}
+  .c7col{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
+  .c7bars{width:100%;max-width:34px;display:flex;flex-direction:column;justify-content:flex-end;height:100%;border-radius:5px 5px 0 0;overflow:hidden}
+  .c7bars .wa{background:var(--wa)}
+  .c7bars .web{background:var(--primary-l)}
+  .c7bars .tel{background:var(--accent)}
+  .c7lbl{font-size:11px;color:var(--muted);font-weight:600}
+  .legend{display:flex;gap:16px;margin-top:14px;flex-wrap:wrap}
+  .legend span{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+  .legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+  /* ---------- WhatsApp simulator ---------- */
+  .wa-layout{display:grid;grid-template-columns:340px 1fr;gap:26px;align-items:start}
+  .phone{
+    background:#0b141a;border-radius:30px;padding:11px;box-shadow:0 18px 50px rgba(6,42,68,.3);
+    max-width:340px;margin:0 auto;
+  }
+  .phone-screen{background:#e5ddd5;border-radius:22px;overflow:hidden;height:560px;display:flex;flex-direction:column;
+    background-image:linear-gradient(rgba(229,221,213,.94),rgba(229,221,213,.94))}
+  .wa-head{background:var(--wa-d);color:#fff;padding:12px 14px;display:flex;align-items:center;gap:11px}
+  .wa-head .av{width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .wa-head b{font-size:14.5px;display:block;line-height:1.2}
+  .wa-head small{font-size:11.5px;opacity:.85}
+  .wa-body{flex:1;overflow-y:auto;padding:14px 12px;display:flex;flex-direction:column;gap:8px}
+  .bub{max-width:82%;padding:8px 11px;border-radius:9px;font-size:13.5px;line-height:1.42;box-shadow:0 1px 1px rgba(0,0,0,.08);white-space:pre-wrap;position:relative}
+  .bub.bot{background:#fff;align-self:flex-start;border-top-left-radius:2px}
+  .bub.me{background:#d9fdd3;align-self:flex-end;border-top-right-radius:2px}
+  .bub .tm{display:block;font-size:9.5px;color:#667;text-align:right;margin-top:2px}
+  .typing{align-self:flex-start;background:#fff;padding:11px 14px;border-radius:9px;border-top-left-radius:2px;display:none;gap:4px}
+  .typing.show{display:flex}
+  .typing i{width:7px;height:7px;border-radius:50%;background:#9aa;animation:blink 1.2s infinite}
+  .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+  @keyframes blink{0%,60%,100%{opacity:.3}30%{opacity:1}}
+  .wa-input{background:#f0f0f0;padding:9px 12px;display:flex;align-items:center;gap:9px}
+  .wa-input .box{flex:1;background:#fff;border-radius:20px;padding:8px 14px;font-size:13px;color:#8a8a8a}
+  .wa-input .snd{width:38px;height:38px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+  .wa-side h3{font-size:16px;font-weight:800;margin-bottom:5px}
+  .wa-side .lead{color:var(--muted);font-size:13.5px;margin-bottom:16px}
+  .qr-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--primary-l);margin-bottom:9px}
+  .quicks{display:flex;flex-direction:column;gap:9px;margin-bottom:20px}
+  .quick{
+    text-align:left;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;
+    background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:12px 14px;
+    display:flex;align-items:center;gap:10px;transition:border-color .15s,background .15s,transform .1s;box-shadow:var(--shadow);
+  }
+  .quick:hover:not(:disabled){border-color:var(--wa);background:#f2fbf5}
+  .quick:active{transform:translateY(1px)}
+  .quick:disabled{opacity:.5;cursor:default}
+  .quick .qi{font-size:18px}
+  .wa-note{background:var(--surface-2);border-radius:11px;padding:13px 15px;font-size:12.5px;color:var(--muted)}
+  .wa-note b{color:var(--ink)}
+
+  /* ---------- Toast ---------- */
+  .toast-wrap{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:200;display:flex;flex-direction:column;gap:10px;align-items:center;width:calc(100% - 32px);max-width:440px}
+  .toast{
+    background:var(--primary-d);color:#fff;border-radius:12px;padding:13px 16px;
+    box-shadow:0 12px 34px rgba(6,42,68,.32);display:flex;align-items:center;gap:11px;font-size:13.5px;
+    border-left:4px solid var(--accent);animation:tin .3s ease;width:100%;
+  }
+  .toast b{color:var(--accent)}
+  @keyframes tin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+  /* ---------- intro tip ---------- */
+  .tip{
+    background:#fff8e6;border:1px solid #f0dca0;border-radius:12px;padding:13px 16px;margin-bottom:20px;
+    display:flex;gap:12px;align-items:center;font-size:13.5px;color:#6a531a;
+  }
+  .tip .tclose{margin-left:auto;background:none;border:none;cursor:pointer;font-size:18px;color:#a58a3e;line-height:1;flex-shrink:0}
+  .tip b{color:#5a4410}
+
+  footer{max-width:1200px;margin:10px auto 30px;padding:20px;color:var(--muted);font-size:12.5px;text-align:center}
+  footer a{color:var(--primary);font-weight:700;text-decoration:none}
+
+  /* ---------- Login panel ---------- */
+  .login-wrap{display:flex;justify-content:center;padding:26px 0}
+  .login-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:30px 28px;max-width:380px;width:100%;text-align:center}
+  .lc-crest{width:52px;height:52px;margin:0 auto 14px;display:block}
+  .login-eyebrow{font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--primary-l);margin-bottom:6px}
+  .login-card h2{font-size:22px;font-weight:800;margin-bottom:3px}
+  .login-card>p{color:var(--muted);font-size:13px;margin-bottom:20px}
+  .login-card label.f{text-align:left}
+  .login-note{margin-top:16px;font-size:12px;color:var(--muted);background:var(--surface-2);border-radius:10px;padding:11px 13px;text-align:left;line-height:1.5}
+  .rolebar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:11px 15px;margin-bottom:18px;box-shadow:var(--shadow)}
+  .rolebar-lbl{font-size:12.5px;font-weight:800;color:var(--primary-d)}
+  .rolesel{font-family:inherit;font-size:14px;font-weight:700;color:var(--primary-d);background:var(--surface-2);border:1.5px solid var(--line);border-radius:9px;padding:7px 11px;cursor:pointer}
+  .rolesel:focus{outline:none;border-color:var(--primary-l)}
+  .rolebar-hint{font-size:12.5px;color:var(--muted)}
+  .rolebar-out{margin-left:auto;font-size:12.5px}
+  .rolebar-out a{color:var(--primary);font-weight:700;cursor:pointer;text-decoration:none}
+  .rolebar-out a:hover{text-decoration:underline}
+
+  /* ---------- Reservas y trámites ---------- */
+  .steplbl{font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--primary-l);margin:20px 0 11px}
+  .steplbl:first-child{margin-top:0}
+  .chip-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+  .chip-sel{font-family:inherit;text-align:left;cursor:pointer;background:var(--surface-2);border:1.5px solid var(--line);border-radius:11px;padding:12px 13px;font-size:14px;font-weight:600;transition:border-color .15s,background .15s,color .15s;display:flex;align-items:center;gap:9px;color:var(--ink)}
+  .chip-sel:hover{border-color:var(--primary-l)}
+  .chip-sel[aria-pressed="true"]{border-color:var(--primary);background:#e5eff5;color:var(--primary-d)}
+  .chip-sel .ci{font-size:17px}
+  .date-strip{display:flex;gap:8px;overflow-x:auto;padding-bottom:5px;scrollbar-width:thin}
+  .date-c{flex:0 0 auto;min-width:60px;cursor:pointer;background:var(--surface-2);border:1.5px solid var(--line);border-radius:11px;padding:9px 6px;transition:border-color .15s,background .15s,color .15s;font-family:inherit;color:var(--ink)}
+  .date-c:hover{border-color:var(--primary-l)}
+  .date-c[aria-pressed="true"]{border-color:var(--primary);background:var(--primary);color:#fff}
+  .date-c .dw{font-size:11px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;opacity:.85}
+  .date-c .dn{font-size:19px;font-weight:800;line-height:1.25}
+  .date-c .dm{font-size:10.5px;opacity:.85}
+  .slot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .slot{font-family:inherit;cursor:pointer;background:var(--surface-2);border:1.5px solid var(--line);border-radius:9px;padding:9px 4px;font-size:13.5px;font-weight:700;text-align:center;transition:border-color .15s,background .15s,color .15s;color:var(--ink)}
+  .slot:hover:not(:disabled){border-color:var(--primary-l)}
+  .slot[aria-pressed="true"]{border-color:var(--primary);background:var(--primary);color:#fff}
+  .slot:disabled{opacity:.4;cursor:not-allowed;text-decoration:line-through}
+  .two-in{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .tram-list{display:flex;flex-direction:column}
+  .tram-item{display:flex;align-items:center;gap:11px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .tram-item:last-child{border-bottom:none}
+  .tram-item .tinfo{flex:1;min-width:0}
+  .tram-item b{font-size:14px;font-weight:700;display:block}
+  .tram-item .tsub{font-size:12px;color:var(--muted)}
+  .tag{font-size:10.5px;font-weight:800;padding:2px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+  .tag-on{color:var(--ok);background:var(--ok-bg)}
+  .tag-turno{color:var(--info);background:var(--info-bg)}
+
+  /* ---------- Estadísticas ---------- */
+  .subtabs{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:4px;gap:4px;margin-bottom:18px}
+  .subtab{appearance:none;border:none;background:none;font-family:inherit;font-size:13.5px;font-weight:700;color:var(--muted);cursor:pointer;padding:8px 15px;border-radius:8px;transition:background .15s,color .15s}
+  .subtab:hover{color:var(--ink)}
+  .subtab[aria-selected="true"]{background:var(--surface);color:var(--primary-d);box-shadow:var(--shadow)}
+  .src-legend{display:flex;gap:18px;margin-bottom:16px;flex-wrap:wrap}
+  .src-legend span{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+  .src-legend i{width:10px;height:10px;border-radius:50%}
+  .src-legend i.own{background:var(--primary-l)}
+  .src-legend i.int{background:var(--info)}
+  .sdot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-left:6px;vertical-align:middle}
+  .sdot.own{background:var(--primary-l)}
+  .sdot.int{background:var(--info)}
+  .src-tag{font-size:10px;font-weight:800;padding:3px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+  .src-tag.int{color:var(--info);background:var(--info-bg)}
+  .src-tag.own{color:var(--primary-d);background:var(--surface-2)}
+  .mini-lbl{font-size:12px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--muted);margin-bottom:11px}
+  .barcol{display:flex;align-items:flex-end;gap:9px;height:120px;padding-top:6px}
+  .barcol .bc{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
+  .barcol .bc i{width:100%;max-width:30px;background:linear-gradient(180deg,#3f86bd,#6ea9cf);border-radius:5px 5px 0 0;display:block}
+  .barcol .bc i.hi{background:linear-gradient(180deg,var(--info),#4d90bf)}
+  .barcol .bc span{font-size:11px;color:var(--muted);font-weight:600}
+  .note-int{background:var(--info-bg);border:1px solid #bcd4e6;border-radius:12px;padding:15px 17px;font-size:13px;color:#27506b;line-height:1.6;margin-bottom:16px}
+  .note-int b{color:#173a4f}
+  .exp-btns{display:flex;gap:10px;flex-wrap:wrap}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:900px){
+    .section-grid,.grid-panel{grid-template-columns:1fr}
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .wa-layout{grid-template-columns:1fr;gap:20px}
+  }
+  @media(max-width:560px){
+    main{padding:14px}
+    .grid-actions{grid-template-columns:1fr 1fr;gap:10px}
+    .action{padding:14px}
+    .hero{padding:26px 20px}
+    .hero h2{font-size:22px}
+    h1.view-title{font-size:20px}
+    .kpi .val{font-size:26px}
+    .by{display:none}
+    .chip-grid{grid-template-columns:1fr}
+    .two-in{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand">
+      <svg class="crest" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#062a44"/><circle cx="16" cy="9" r="2.6" fill="none" stroke="#f2c14e" stroke-width="1.6"/><line x1="16" y1="11.5" x2="16" y2="25" stroke="#f2c14e" stroke-width="1.8"/><line x1="11" y1="15" x2="21" y2="15" stroke="#f2c14e" stroke-width="1.6"/><path d="M9 20c0 3.5 2.8 6 7 6.6M23 20c0 3.5-2.8 6-7 6.6" fill="none" stroke="#f2c14e" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <div class="brand-txt">
+        <b>Club Náutico El Delta</b>
+        <span>El Delta Conectado</span>
+      </div>
+    </div>
+    <span class="demo-chip">Demo</span>
+    <div class="spacer"></div>
+    <div class="by">Sistema desarrollado por <a href="https://www.arara.com.ar" target="_blank" rel="noopener">Arará Consultora</a></div>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Secciones del sistema">
+  <div class="tabs-in">
+    <button class="tab" role="tab" aria-selected="true" data-view="portal">⚓ Portal del Socio</button>
+    <button class="tab" role="tab" aria-selected="false" data-view="tramites">📅 Reservas y Trámites</button>
+    <button class="tab" role="tab" aria-selected="false" data-view="panel">📊 Panel de Gestión <span class="dot" id="panelDot">0</span></button>
+    <button class="tab" role="tab" aria-selected="false" data-view="wa">💬 Asistente WhatsApp</button>
+  </div>
+</nav>
+
+<main>
+
+  <div class="tip" id="introTip">
+    <span style="font-size:20px">👆</span>
+    <div>Demo interactivo. Probá cargar una novedad desde el <b>Asistente WhatsApp</b> y miralo aparecer al instante en el <b>Panel de Gestión</b> de la comisión directiva — el circuito completo, de punta a punta.</div>
+    <button class="tclose" onclick="document.getElementById('introTip').remove()" aria-label="Cerrar">×</button>
+  </div>
+
+  <!-- ============ PORTAL DEL SOCIO ============ -->
+  <section class="view active" id="view-portal" role="tabpanel">
+    <div class="hero">
+      <h2>Tu club, a un mensaje de distancia</h2>
+      <p>Reportá una novedad, reservá cancha o quincho, o consultá tu cuota social. Desde la web o por WhatsApp, sin pasar por secretaría.</p>
+      <div class="pill24">🟢 Atención automática <b>24/7</b> · te respondemos al instante</div>
+    </div>
+
+    <div class="grid-actions">
+      <button class="action" onclick="focusReport()"><div class="ico">⚓</div><b>Reportar una novedad</b><span>Amarra floja, muelle, guardería, pileta…</span></button>
+      <button class="action" onclick="toast('En el sistema real, acá el socio sigue el estado de sus solicitudes.')"><div class="ico">📍</div><b>Mis solicitudes</b><span>Seguí el estado en tiempo real</span></button>
+      <button class="action" onclick="go('tramites')"><div class="ico">📅</div><b>Reservar cancha o quincho</b><span>Pádel, tenis, pileta, eventos</span></button>
+      <button class="action" onclick="go('tramites')"><div class="ico">💳</div><b>Pagar cuota social</b><span>Cuota mensual y servicios</span></button>
+      <button class="action" onclick="go('tramites')"><div class="ico">📄</div><b>Trámites</b><span>Certificado de socio, carné náutico…</span></button>
+      <button class="action" onclick="go('wa')"><div class="ico">💬</div><b>Hablar por WhatsApp</b><span>Nuestro asistente te atiende ahora</span></button>
+    </div>
+
+    <div class="section-grid">
+      <div class="card" id="reportCard">
+        <div class="panel-h"><h3>Reportá una novedad en el club</h3></div>
+        <div class="panel-b">
+          <div class="field">
+            <label class="f" for="rcat">Tipo de novedad</label>
+            <select class="f" id="rcat">
+              <option>Amarras / Muelle</option>
+              <option>Guardería de embarcaciones</option>
+              <option>Pileta</option>
+              <option>Canchas deportivas</option>
+              <option>Sanitarios / Vestuarios</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="f" for="rdir">Sector o ubicación</label>
+            <input class="f" id="rdir" placeholder="Ej: Muelle B, puesto 14">
+          </div>
+          <div class="field">
+            <label class="f" for="rdesc">Contanos qué pasa</label>
+            <textarea class="f" id="rdesc" placeholder="Ej: La amarra del puesto 14 está floja desde ayer."></textarea>
+          </div>
+          <button class="btn btn-primary" onclick="submitReport()">Enviar novedad →</button>
+
+          <div class="ok-box" id="okBox" style="margin-top:16px">
+            <div class="tk">✅</div>
+            <div>
+              <b>¡Listo! Registramos tu novedad.</b><br>
+              Número <span class="num" id="okNum">RC-1043</span> · Te avisamos cuando el equipo la atienda.<br>
+              <span style="font-size:12.5px;color:var(--muted)">Ya está cargada en el panel de la comisión directiva. <a href="#" onclick="go('panel');return false" style="color:var(--primary);font-weight:700">Verlo en el panel →</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="panel-h"><h3>Tu club hoy</h3></div>
+        <div class="panel-b">
+          <div class="info-strip">
+            <div class="info-row"><div class="ic">⛵</div><div><b>Turnos de botadura</b><span>Guardería: hoy de 8 a 12 h, sector B</span></div></div>
+            <div class="info-row"><div class="ic">🏊</div><div><b>Escuela de vela y pileta</b><span>Clases hoy 17 h · Profe Martín</span></div></div>
+            <div class="info-row"><div class="ic">📢</div><div><b>Aviso del club</b><span>Corte de agua programado en vestuarios, jueves 9 a 13 h</span></div></div>
+            <div class="info-row"><div class="ic">🗓️</div><div><b>Vencimiento de cuota</b><span>Cuota social de julio: vence el 25</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESERVAS Y TRÁMITES ============ -->
+  <section class="view" id="view-tramites" role="tabpanel">
+    <div class="eyebrow">Atención al socio</div>
+    <h1 class="view-title">Reservas y Trámites</h1>
+    <p class="view-sub">Reservá cancha, pileta, quincho o turno de guardería sin filas ni esperas. Te lo recordamos por WhatsApp el día anterior.</p>
+
+    <div class="section-grid">
+      <div class="card" id="turnoCard">
+        <div class="panel-h"><h3>Hacer una reserva</h3></div>
+        <div class="panel-b">
+          <div class="steplbl">1 · Elegí qué reservar</div>
+          <div class="chip-grid" id="tramChips">
+            <button class="chip-sel" aria-pressed="false" data-t="Cancha de pádel"><span class="ci">🏓</span> Cancha de pádel</button>
+            <button class="chip-sel" aria-pressed="false" data-t="Cancha de tenis"><span class="ci">🎾</span> Cancha de tenis</button>
+            <button class="chip-sel" aria-pressed="false" data-t="Turno de pileta"><span class="ci">🏊</span> Turno de pileta</button>
+            <button class="chip-sel" aria-pressed="false" data-t="Quincho / Salón de eventos"><span class="ci">🎉</span> Quincho / Salón</button>
+            <button class="chip-sel" aria-pressed="false" data-t="Turno de botadura"><span class="ci">⚓</span> Turno de botadura</button>
+            <button class="chip-sel" aria-pressed="false" data-t="Curso de patrón / vela"><span class="ci">⛵</span> Curso de patrón / vela</button>
+          </div>
+
+          <div class="steplbl">2 · Elegí el día</div>
+          <div class="date-strip" id="dateStrip"></div>
+
+          <div class="steplbl">3 · Elegí el horario</div>
+          <div class="slot-grid" id="slotGrid">
+            <button class="slot" aria-pressed="false">08:00</button>
+            <button class="slot" aria-pressed="false">08:30</button>
+            <button class="slot" disabled>09:00</button>
+            <button class="slot" aria-pressed="false">09:30</button>
+            <button class="slot" aria-pressed="false">10:00</button>
+            <button class="slot" disabled>10:30</button>
+            <button class="slot" aria-pressed="false">11:00</button>
+            <button class="slot" aria-pressed="false">11:30</button>
+          </div>
+
+          <div class="steplbl">4 · Tus datos</div>
+          <div class="two-in">
+            <input class="f" id="tnom" placeholder="Nombre y apellido">
+            <input class="f" id="tdni" placeholder="N° de socio">
+          </div>
+
+          <button class="btn btn-primary" style="margin-top:16px" onclick="confirmTurno()">Confirmar reserva →</button>
+
+          <div class="ok-box" id="turnoOk" style="margin-top:16px">
+            <div class="tk">📅</div>
+            <div>
+              <b>¡Reserva confirmada!</b><br>
+              <span id="turnoResumen"></span><br>
+              <span style="font-size:12.5px;color:var(--muted)">Te lo recordamos por WhatsApp el día anterior · N° <span class="num" id="turnoNum"></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="panel-h"><h3>Trámites 100% online</h3></div>
+        <div class="panel-b">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Estos los resolvés sin venir al club:</p>
+          <div class="tram-list">
+            <div class="tram-item"><span style="font-size:20px">🧾</span><div class="tinfo"><b>Certificado de socio al día</b><span class="tsub">Al instante, con tu N° de socio</span></div><span class="tag tag-on">Online</span></div>
+            <div class="tram-item"><span style="font-size:20px">🛥️</span><div class="tinfo"><b>Constancia de guardería</b><span class="tsub">Lo generás y descargás</span></div><span class="tag tag-on">Online</span></div>
+            <div class="tram-item"><span style="font-size:20px">💳</span><div class="tinfo"><b>Pago de cuota social</b><span class="tsub">Tarjeta, débito o Mercado Pago</span></div><span class="tag tag-on">Online</span></div>
+            <div class="tram-item"><span style="font-size:20px">⛵</span><div class="tinfo"><b>Carné náutico</b><span class="tsub">Requiere turno presencial</span></div><span class="tag tag-turno">Con turno</span></div>
+            <div class="tram-item"><span style="font-size:20px">🎉</span><div class="tinfo"><b>Reserva de quincho grande</b><span class="tsub">Requiere turno presencial</span></div><span class="tag tag-turno">Con turno</span></div>
+          </div>
+          <button class="btn btn-ghost" style="margin-top:16px;width:100%;justify-content:center" onclick="toast('Certificado generado ✅ En el sistema real, el socio descarga el PDF al instante.')">Generar certificado de socio (demo)</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL DE GESTIÓN ============ -->
+  <section class="view" id="view-panel" role="tabpanel">
+
+    <div id="panelLogin" class="login-wrap">
+      <div class="login-card">
+        <svg class="lc-crest" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#062a44"/><circle cx="16" cy="9" r="2.6" fill="none" stroke="#f2c14e" stroke-width="1.6"/><line x1="16" y1="11.5" x2="16" y2="25" stroke="#f2c14e" stroke-width="1.8"/><line x1="11" y1="15" x2="21" y2="15" stroke="#f2c14e" stroke-width="1.6"/><path d="M9 20c0 3.5 2.8 6 7 6.6M23 20c0 3.5-2.8 6-7 6.6" fill="none" stroke="#f2c14e" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div class="login-eyebrow">Acceso para la comisión directiva</div>
+        <h2>Panel de Gestión</h2>
+        <p>Club Náutico El Delta · uso interno</p>
+        <div class="field"><label class="f" for="luser">Usuario</label><input class="f" id="luser" value="demo@clubeldelta.org.ar"></div>
+        <div class="field"><label class="f" for="lpass">Contraseña</label><input class="f" id="lpass" type="password" value="demo1234"></div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:4px" onclick="panelLogin()">Entrar como demo →</button>
+        <div class="login-note">🔒 Acceso restringido a la comisión directiva y el personal del club. En el sistema real, cada área entra con su usuario y ve solo lo que le corresponde.</div>
+      </div>
+    </div>
+
+    <div id="panelApp" style="display:none">
+    <div class="eyebrow">Comisión directiva · Uso interno</div>
+    <h1 class="view-title">Panel de Gestión</h1>
+    <p class="view-sub">Todo lo que entra por WhatsApp, web o teléfono llega a un solo lugar. La comisión directiva ve, asigna y resuelve — con datos en tiempo real.</p>
+
+    <div class="subtabs">
+      <button class="subtab" data-sub="op" aria-selected="true">📋 Operación</button>
+      <button class="subtab" data-sub="stats" aria-selected="false">📈 Estadísticas y Reportes</button>
+    </div>
+
+    <div id="sub-op">
+    <div class="rolebar">
+      <span class="rolebar-lbl">👤 Ver como</span>
+      <select id="roleSel" class="rolesel" aria-label="Rol del funcionario">
+        <option>Presidente</option>
+        <option>Secretaría / Recepción</option>
+        <option>Mantenimiento</option>
+        <option>Guardería</option>
+        <option>Deportes</option>
+      </select>
+      <span class="rolebar-hint" id="roleHint">Estás viendo todas las novedades del club.</span>
+      <span class="rolebar-out"><a onclick="panelLogout()">Cerrar sesión</a></span>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi"><div class="lbl">Consultas hoy</div><div class="val tnum" data-count="112">0</div><div class="trend">▲ 14% vs. ayer</div></div>
+      <div class="kpi"><div class="lbl">Resueltas por el asistente</div><div class="val tnum"><span data-count="89">0</span><small>%</small></div><div class="spark"><i style="height:40%"></i><i style="height:55%"></i><i style="height:50%"></i><i style="height:70%"></i><i style="height:75%"></i><i style="height:85%"></i><i style="height:89%"></i></div></div>
+      <div class="kpi"><div class="lbl">Novedades abiertas</div><div class="val tnum" id="kpiAbiertos" data-count="24">0</div><div class="trend down">▼ 5 resueltas hoy</div></div>
+      <div class="kpi"><div class="lbl">Tiempo medio de respuesta</div><div class="val tnum"><span data-count="5">0</span><small> min</small></div><div class="trend">antes: 2 h</div></div>
+    </div>
+
+    <div class="grid-panel">
+      <div class="card">
+        <div class="panel-h">
+          <h3>Novedades recientes</h3>
+          <span style="font-size:12px;color:var(--muted);font-weight:700" id="rcCount"></span>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>N°</th><th>Categoría</th><th>Detalle</th><th>Sector</th><th>Prioridad</th><th>Estado</th><th>Asignado</th></tr></thead>
+            <tbody id="rcBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div class="card">
+          <div class="panel-h"><h3>Novedades por categoría</h3></div>
+          <div class="panel-b">
+            <div class="catbar"><div class="top"><b>Amarras / Muelle</b><span>32%</span></div><div class="track"><i style="width:32%"></i></div></div>
+            <div class="catbar"><div class="top"><b>Guardería</b><span>24%</span></div><div class="track"><i style="width:24%"></i></div></div>
+            <div class="catbar"><div class="top"><b>Pileta</b><span>18%</span></div><div class="track"><i style="width:18%"></i></div></div>
+            <div class="catbar"><div class="top"><b>Canchas deportivas</b><span>14%</span></div><div class="track"><i style="width:14%"></i></div></div>
+            <div class="catbar"><div class="top"><b>Sanitarios</b><span>12%</span></div><div class="track"><i style="width:12%"></i></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="panel-h"><h3>Actividad del asistente</h3></div>
+          <div class="panel-b"><div class="feed" id="feed">
+            <div class="fitem"><div class="fic">💬</div><div class="fx"><b>Novedad cargada por WhatsApp</b> · Amarras, Muelle B<div class="ft">hace 6 min · automático</div></div></div>
+            <div class="fitem"><div class="fic">✅</div><div class="fx"><b>Novedad resuelta</b> · RC-1036, red de pádel rota<div class="ft">hace 22 min · Deportes</div></div></div>
+            <div class="fitem"><div class="fic">🧾</div><div class="fx"><b>Certificado emitido</b> · online, sin ir al club<div class="ft">hace 40 min · automático</div></div></div>
+            <div class="fitem"><div class="fic">📅</div><div class="fx"><b>Turno reservado</b> · Cancha de pádel<div class="ft">hace 1 h · web</div></div></div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <div class="panel-h"><h3>Consultas de los últimos 7 días</h3></div>
+      <div class="panel-b">
+        <div class="chart7" id="chart7"></div>
+        <div class="legend">
+          <span><i style="background:var(--wa)"></i> WhatsApp</span>
+          <span><i style="background:var(--primary-l)"></i> Web</span>
+          <span><i style="background:var(--accent)"></i> Teléfono</span>
+        </div>
+      </div>
+    </div>
+    </div><!-- /sub-op -->
+
+    <div id="sub-stats" style="display:none">
+      <div class="src-legend">
+        <span><i class="own"></i> Datos del sistema Arará (siempre disponibles)</span>
+        <span><i class="int"></i> Integrado con el sistema de cuotas del club</span>
+      </div>
+
+      <div class="kpis">
+        <div class="kpi"><div class="lbl">Recaudación del mes <span class="sdot int"></span></div><div class="val tnum">$8,6<small> M</small></div><div class="trend">▲ 11% vs. mes anterior</div></div>
+        <div class="kpi"><div class="lbl">Novedades resueltas (mes) <span class="sdot own"></span></div><div class="val tnum">201</div><div class="trend">▲ 17%</div></div>
+        <div class="kpi"><div class="lbl">Tiempo medio de resolución <span class="sdot own"></span></div><div class="val tnum">1,3<small> días</small></div><div class="trend down">▼ mejoró 0,5</div></div>
+        <div class="kpi"><div class="lbl">Cumplimiento de cuotas <span class="sdot int"></span></div><div class="val tnum">78<small>%</small></div><div class="trend">▲ 5 pts</div></div>
+      </div>
+
+      <div class="grid-panel">
+        <div class="card">
+          <div class="panel-h"><h3>Ingresos del club</h3><span class="src-tag int">Sistema de cuotas</span></div>
+          <div class="panel-b">
+            <div class="mini-lbl">Recaudación mensual · últimos 6 meses</div>
+            <div class="barcol">
+              <div class="bc"><i style="height:52%"></i><span>Feb</span></div>
+              <div class="bc"><i style="height:58%"></i><span>Mar</span></div>
+              <div class="bc"><i style="height:55%"></i><span>Abr</span></div>
+              <div class="bc"><i style="height:66%"></i><span>May</span></div>
+              <div class="bc"><i style="height:74%"></i><span>Jun</span></div>
+              <div class="bc"><i class="hi" style="height:88%"></i><span>Jul</span></div>
+            </div>
+            <div class="mini-lbl" style="margin-top:20px">Recaudación por tipo de ingreso</div>
+            <div class="catbar"><div class="top"><b>Cuota social</b><span>52%</span></div><div class="track"><i style="width:52%"></i></div></div>
+            <div class="catbar"><div class="top"><b>Guardería de embarcaciones</b><span>22%</span></div><div class="track"><i style="width:22%"></i></div></div>
+            <div class="catbar"><div class="top"><b>Quincho y eventos</b><span>12%</span></div><div class="track"><i style="width:12%"></i></div></div>
+            <div class="catbar"><div class="top"><b>Escuela de vela / pádel</b><span>9%</span></div><div class="track"><i style="width:9%"></i></div></div>
+            <div class="catbar"><div class="top"><b>Otros ingresos</b><span>5%</span></div><div class="track"><i style="width:5%"></i></div></div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div class="card">
+            <div class="panel-h"><h3>Novedades por sector</h3><span class="src-tag own">Arará</span></div>
+            <div class="panel-b">
+              <div class="catbar"><div class="top"><b>Muelle B</b><span>28%</span></div><div class="track"><i style="width:28%"></i></div></div>
+              <div class="catbar"><div class="top"><b>Guardería</b><span>24%</span></div><div class="track"><i style="width:24%"></i></div></div>
+              <div class="catbar"><div class="top"><b>Pileta</b><span>20%</span></div><div class="track"><i style="width:20%"></i></div></div>
+              <div class="catbar"><div class="top"><b>Canchas</b><span>16%</span></div><div class="track"><i style="width:16%"></i></div></div>
+              <div class="catbar"><div class="top"><b>Vestuarios</b><span>12%</span></div><div class="track"><i style="width:12%"></i></div></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="panel-h"><h3>Rendimiento por área</h3></div>
+            <div class="tbl-wrap">
+              <table>
+                <thead><tr><th>Área</th><th>Resueltos</th><th>Tiempo medio</th></tr></thead>
+                <tbody>
+                  <tr><td><b>Secretaría</b></td><td class="tnum">58</td><td><span class="pill s-resuelto">0,5 días</span></td></tr>
+                  <tr><td><b>Mantenimiento</b> · Muelles</td><td class="tnum">46</td><td><span class="pill s-resuelto">1,1 días</span></td></tr>
+                  <tr><td><b>Guardería</b></td><td class="tnum">33</td><td><span class="pill s-curso">1,4 días</span></td></tr>
+                  <tr><td><b>Deportes</b> · Pileta y canchas</td><td class="tnum">29</td><td><span class="pill s-resuelto">0,8 días</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <div class="panel-b">
+          <div class="note-int">📊 <b>Reportes a medida:</b> combinando los datos del sistema de Arará con los de tu sistema de cuotas o contable, armamos los reportes que tu comisión directiva necesite: <b>ingresos por cuota social y servicios</b>, morosidad, comparativo entre períodos, canales de atención más usados, rendimiento por área y más. Se actualizan solos y se exportan cuando los precisás.</div>
+          <div class="exp-btns">
+            <button class="btn btn-ghost" onclick="toast('📊 Reporte exportado a Excel (demo).')">⬇ Exportar a Excel</button>
+            <button class="btn btn-ghost" onclick="toast('📄 Reporte exportado a PDF (demo).')">⬇ Exportar a PDF</button>
+            <button class="btn btn-ghost" onclick="toast('📅 Reporte mensual programado: llega por email cada día 1 (demo).')">📧 Programar envío mensual</button>
+          </div>
+        </div>
+      </div>
+    </div><!-- /sub-stats -->
+    </div><!-- /panelApp -->
+  </section>
+
+  <!-- ============ ASISTENTE WHATSAPP ============ -->
+  <section class="view" id="view-wa" role="tabpanel">
+    <div class="eyebrow">Canal principal de atención</div>
+    <h1 class="view-title">Asistente de WhatsApp</h1>
+    <p class="view-sub">El mismo asistente que ya funciona en tu club, integrado al panel de gestión. Tocá una opción y mirá la conversación real.</p>
+
+    <div class="wa-layout">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="wa-head">
+            <div class="av">
+              <svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#062a44"/><circle cx="16" cy="9" r="2.6" fill="none" stroke="#f2c14e" stroke-width="1.6"/><line x1="16" y1="11.5" x2="16" y2="25" stroke="#f2c14e" stroke-width="1.8"/><line x1="11" y1="15" x2="21" y2="15" stroke="#f2c14e" stroke-width="1.6"/></svg>
+            </div>
+            <div><b>El Delta · Asistente</b><small>en línea · responde al instante</small></div>
+          </div>
+          <div class="wa-body" id="waBody">
+            <div class="bub bot">¡Hola! 👋 Soy el asistente del Club Náutico El Delta. Estoy las 24 horas para ayudarte.<span class="tm">9:15</span></div>
+            <div class="bub bot">Tocá una de las opciones de abajo para empezar 👇<span class="tm">9:15</span></div>
+            <div class="typing" id="typing"><i></i><i></i><i></i></div>
+          </div>
+          <div class="wa-input"><div class="box">Escribí un mensaje…</div><div class="snd"><svg width="18" height="18" viewBox="0 0 24 24" fill="#053d28"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></div></div>
+        </div>
+      </div>
+
+      <div class="wa-side">
+        <div class="qr-label">Probá el asistente</div>
+        <h3>Elegí qué querés hacer</h3>
+        <p class="lead">Estas son consultas reales de socios. La de la amarra carga una novedad de verdad en el panel de la comisión directiva.</p>
+        <div class="quicks" id="quicks">
+          <button class="quick" data-flow="amarra"><span class="qi">⚓</span> Reportar una amarra floja</button>
+          <button class="quick" data-flow="guarderia"><span class="qi">🛥️</span> Consultar turno de botadura</button>
+          <button class="quick" data-flow="cuota"><span class="qi">💳</span> Consultar mi cuota social</button>
+          <button class="quick" data-flow="estado"><span class="qi">📍</span> Estado de mi solicitud</button>
+        </div>
+        <div class="wa-note">💡 <b>El diferencial:</b> cuando el socio carga una novedad por acá, aparece automáticamente en el <b>Panel de Gestión</b> de la comisión directiva, lista para asignar. Es el circuito completo, sin papeles.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Demo interactivo · Club náutico ficticio "El Delta" · Sistema <b>Club Conectado</b> de <a href="https://www.arara.com.ar" target="_blank" rel="noopener">Arará Consultora</a> · Entre Ríos<br>
+  Los datos son de ejemplo. Adaptable a la identidad y los servicios de cada club.
+</footer>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- estado compartido ---------- */
+  var reclamos = [
+    {n:'RC-1042',cat:'Muelle/Amarras',desc:'Amarra floja en Muelle B, puesto 14',zona:'Muelle B',prio:'Media',estado:'En curso',asig:'Mantenimiento',nuevo:false},
+    {n:'RC-1041',cat:'Guardería',desc:'Rampa de botadura con desperfecto',zona:'Guardería',prio:'Alta',estado:'Nuevo',asig:'—',nuevo:false},
+    {n:'RC-1039',cat:'Pileta',desc:'Filtro de la pileta con pérdida',zona:'Sector Pileta',prio:'Media',estado:'Derivado',asig:'Mantenimiento',nuevo:false},
+    {n:'RC-1038',cat:'Sanitarios',desc:'Pérdida de agua en vestuarios',zona:'Vestuarios',prio:'Alta',estado:'En curso',asig:'Mantenimiento',nuevo:false},
+    {n:'RC-1036',cat:'Canchas',desc:'Red de la cancha de pádel rota',zona:'Canchas',prio:'Alta',estado:'Resuelto',asig:'Deportes',nuevo:false},
+    {n:'RC-1035',cat:'Muelle/Amarras',desc:'Luz del Muelle A apagada',zona:'Muelle A',prio:'Baja',estado:'Resuelto',asig:'Mantenimiento',nuevo:false}
+  ];
+  var nextNum = 1043;
+  var newCount = 0;
+  var roleFilter = null;
+  var loggedIn = false;
+  var roleMap = {
+    'Presidente':{f:null,h:'Estás viendo todas las novedades del club.'},
+    'Secretaría / Recepción':{f:null,h:'Secretaría recibe y deriva todas las novedades.'},
+    'Mantenimiento':{f:['Muelle/Amarras','Sanitarios'],h:'Mantenimiento ve muelles, amarras y sanitarios.'},
+    'Guardería':{f:['Guardería'],h:'Guardería ve solo las novedades de guardería de embarcaciones.'},
+    'Deportes':{f:['Pileta','Canchas'],h:'Deportes ve pileta y canchas.'}
+  };
+
+  var prioClass={'Alta':'p-alta','Media':'p-media','Baja':'p-baja'};
+  var estClass={'Nuevo':'s-nuevo','En curso':'s-curso','Derivado':'s-deriv','Resuelto':'s-resuelto'};
+
+  /* ---------- navegación ---------- */
+  var tabs=document.querySelectorAll('.tab');
+  function go(v){
+    tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.view===v?'true':'false');});
+    document.querySelectorAll('.view').forEach(function(s){s.classList.remove('active')});
+    document.getElementById('view-'+v).classList.add('active');
+    if(v==='panel'){
+      if(loggedIn){
+        document.getElementById('panelLogin').style.display='none';
+        document.getElementById('panelApp').style.display='block';
+        countUp();clearDot();
+      }else{
+        document.getElementById('panelLogin').style.display='flex';
+        document.getElementById('panelApp').style.display='none';
+      }
+    }
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){go(t.dataset.view)})});
+  window.go=go;
+  window.panelLogin=function(){loggedIn=true;go('panel');};
+  window.panelLogout=function(){loggedIn=false;go('panel');};
+
+  /* ---------- tabla panel ---------- */
+  function renderTabla(){
+    var b=document.getElementById('rcBody');
+    b.innerHTML='';
+    var list=roleFilter?reclamos.filter(function(r){return roleFilter.indexOf(r.cat)>-1}):reclamos;
+    list.forEach(function(r){
+      var tr=document.createElement('tr');
+      if(r.nuevo)tr.className='nuevo';
+      tr.innerHTML=
+        '<td><span class="rc">'+r.n+(r.nuevo?'<span class="nv">NUEVO</span>':'')+'</span></td>'+
+        '<td>'+r.cat+'</td>'+
+        '<td class="desc">'+r.desc+'</td>'+
+        '<td class="zona">'+r.zona+'</td>'+
+        '<td><span class="pill '+prioClass[r.prio]+'">'+r.prio+'</span></td>'+
+        '<td><span class="pill '+estClass[r.estado]+'">'+r.estado+'</span></td>'+
+        '<td class="asig">'+r.asig+'</td>';
+      b.appendChild(tr);
+    });
+    if(list.length===0){b.innerHTML='<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:26px">Sin novedades en tu área por ahora. 🎉</td></tr>';}
+    var abiertos=list.filter(function(r){return r.estado!=='Resuelto'}).length;
+    document.getElementById('rcCount').textContent=list.length+' en total · '+abiertos+' abiertos';
+  }
+
+  function addReclamo(cat,desc,zona,prio){
+    var r={n:'RC-'+(nextNum++),cat:cat,desc:desc,zona:zona||'Muelle B',prio:prio||'Media',estado:'Nuevo',asig:'—',nuevo:true};
+    reclamos.unshift(r);
+    renderTabla();
+    newCount++;
+    var dot=document.getElementById('panelDot');
+    dot.textContent=newCount;dot.classList.add('on');
+    // feed
+    var feed=document.getElementById('feed');
+    var fi=document.createElement('div');
+    fi.className='fitem';
+    fi.innerHTML='<div class="fic">💬</div><div class="fx"><b>Novedad cargada por WhatsApp</b> · '+cat+', '+r.zona+'<div class="ft">recién · automático</div></div>';
+    feed.insertBefore(fi,feed.firstChild);
+    return r;
+  }
+  function clearDot(){newCount=0;document.getElementById('panelDot').classList.remove('on');}
+
+  /* ---------- KPI count up ---------- */
+  var counted=false;
+  function countUp(){
+    if(counted)return;counted=true;
+    document.querySelectorAll('.val [data-count],.val[data-count]').forEach(function(el){
+      var target=+el.dataset.count,cur=0,step=Math.max(1,Math.round(target/28));
+      var iv=setInterval(function(){cur+=step;if(cur>=target){cur=target;clearInterval(iv);}el.textContent=cur;},22);
+    });
+  }
+
+  /* ---------- chart 7 dias ---------- */
+  var days=['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'];
+  var data=[[58,18,14],[66,24,15],[48,20,10],[74,28,13],[80,30,15],[95,34,18],[70,26,12]];
+  (function(){
+    var max=0;data.forEach(function(d){var s=d[0]+d[1]+d[2];if(s>max)max=s;});
+    var c=document.getElementById('chart7');
+    data.forEach(function(d,i){
+      var total=d[0]+d[1]+d[2];var h=Math.round(total/max*100);
+      var col=document.createElement('div');col.className='c7col';
+      col.innerHTML='<div class="c7bars" style="height:'+h+'%">'+
+        '<div class="tel" style="height:'+(d[2]/total*100)+'%"></div>'+
+        '<div class="web" style="height:'+(d[1]/total*100)+'%"></div>'+
+        '<div class="wa" style="height:'+(d[0]/total*100)+'%"></div>'+
+        '</div><div class="c7lbl">'+days[i]+'</div>';
+      c.appendChild(col);
+    });
+  })();
+
+  /* ---------- portal form ---------- */
+  window.focusReport=function(){document.getElementById('rdir').focus();document.getElementById('reportCard').scrollIntoView({behavior:'smooth',block:'center'});};
+  var catMap={'Amarras / Muelle':['Muelle/Amarras','Media'],'Guardería de embarcaciones':['Guardería','Alta'],'Pileta':['Pileta','Media'],'Canchas deportivas':['Canchas','Baja'],'Sanitarios / Vestuarios':['Sanitarios','Alta'],'Otro':['Otro','Media']};
+  window.submitReport=function(){
+    var sel=document.getElementById('rcat').value;
+    var dir=document.getElementById('rdir').value.trim()||'sector no especificado';
+    var desc=document.getElementById('rdesc').value.trim()||sel;
+    var m=catMap[sel]||['Otro','Media'];
+    var r=addReclamo(m[0],desc.charAt(0).toUpperCase()+desc.slice(1),'Muelle B',m[1]);
+    document.getElementById('okNum').textContent=r.n;
+    document.getElementById('okBox').classList.add('show');
+    toast('Novedad <b>'+r.n+'</b> cargada en el Panel de Gestión →');
+  };
+
+  /* ---------- toast ---------- */
+  window.toast=function(html){
+    var w=document.getElementById('toastWrap');
+    var t=document.createElement('div');t.className='toast';
+    t.innerHTML='<span style="font-size:16px">🔔</span><div>'+html+'</div>';
+    w.appendChild(t);
+    setTimeout(function(){t.style.transition='opacity .4s,transform .4s';t.style.opacity='0';t.style.transform='translateY(10px)';setTimeout(function(){t.remove()},400);},3600);
+  };
+
+  /* ---------- whatsapp simulator ---------- */
+  var waBody=document.getElementById('waBody'),typing=document.getElementById('typing');
+  var busy=false;
+  function nowT(){var d=new Date();return d.getHours()+':'+String(d.getMinutes()).padStart(2,'0');}
+  function addBub(who,text){
+    var b=document.createElement('div');b.className='bub '+who;
+    b.innerHTML=text.replace(/</g,'&lt;').replace(/\n/g,'<br>')+'<span class="tm">'+nowT()+'</span>';
+    waBody.insertBefore(b,typing);
+    waBody.scrollTop=waBody.scrollHeight;
+  }
+  function showTyping(on){typing.classList.toggle('show',on);waBody.scrollTop=waBody.scrollHeight;}
+
+  var flows={
+    amarra:[
+      {w:'me',t:'Hola, quiero reportar un problema en el muelle'},
+      {w:'bot',t:'¡Claro! ⚓ Te ayudo a cargar la novedad sin salir de WhatsApp. ¿En qué muelle o amarra está el problema?'},
+      {w:'me',t:'Muelle B, puesto 14'},
+      {w:'bot',t:'Perfecto 👍 ¿Qué le pasa? ¿Y hace cuánto lo notaste? (así le ponemos la prioridad correcta)'},
+      {w:'me',t:'La amarra está floja, desde ayer a la tarde'},
+      {w:'bot',t:'Gracias. Registré tu novedad ✅\n\n📄 N° RC-{NUM}\n⚓ Muelle B, puesto 14\n🔧 Amarras / Muelle\n\nMantenimiento ya lo tiene en su lista. Te aviso por acá cuando lo resuelvan. ¿Necesitás algo más?',act:'amarra'},
+      {w:'bot',t:'Podés seguir el estado escribiendo *Mis solicitudes* cuando quieras 🙌'}
+    ],
+    guarderia:[
+      {w:'me',t:'Quiero sacar mi lancha, ¿cuándo tengo turno de botadura?'},
+      {w:'bot',t:'Dale ⚓ Decime tu número de socio y te confirmo el próximo turno disponible.'},
+      {w:'me',t:'Socio 0452'},
+      {w:'bot',t:'Encontré tu embarcación ✅\n\n🛥️ Turno de botadura: viernes 9:00 h\n📍 Guardería, sector B\n\nAcercate 15 minutos antes. ¿Querés que te lo reprograme?'},
+      {w:'me',t:'No, así está perfecto, gracias'},
+      {w:'bot',t:'Genial 🙌 Te mando un recordatorio por acá el día anterior.'}
+    ],
+    cuota:[
+      {w:'me',t:'Quiero saber si estoy al día con la cuota social'},
+      {w:'bot',t:'Con gusto 💳 Pasame tu número de socio y te traigo el estado de cuenta.'},
+      {w:'me',t:'Socio 0452'},
+      {w:'bot',t:'Encontré tu cuenta ✅\n\n🧾 Cuota social — Socio 0452\n• Cuota vencida (junio): $9.500\n• Cuota actual (julio): $9.500\n• Total a pagar: *$19.000*\n\n¿Querés que te pase el link para pagar online o adherirte al débito automático?'},
+      {w:'me',t:'Mandame el link para pagar'},
+      {w:'bot',t:'Ahí va 👉 pagos.clubeldelta.org.ar/0452\n\nPodés pagar con tarjeta, débito o Mercado Pago. Una vez acreditado, te llega el comprobante por acá. 🙌'}
+    ],
+    estado:[
+      {w:'me',t:'Quiero saber el estado de mi reclamo'},
+      {w:'bot',t:'Pasame el número (empieza con RC) 📍'},
+      {w:'me',t:'RC-1038'},
+      {w:'bot',t:'Acá está 👇\n\n📄 RC-1038 · Pérdida de agua en vestuarios\n📍 Sector Pileta\n🔧 Estado: *En curso*\n👷 Asignado a: Mantenimiento\n🕒 Equipo en camino, estimado hoy antes de las 18 h.\n\nTe aviso por acá apenas quede resuelto. ¿Algo más?'}
+    ]
+  };
+
+  function runFlow(key){
+    if(busy)return;busy=true;
+    setQuicks(true);
+    var steps=flows[key].slice(),i=0;
+    function next(){
+      if(i>=steps.length){busy=false;setQuicks(false);return;}
+      var s=steps[i++];
+      if(s.w==='me'){
+        addBub('me',s.t);
+        setTimeout(next,650);
+      }else{
+        showTyping(true);
+        setTimeout(function(){
+          showTyping(false);
+          var txt=s.t;
+          if(txt.indexOf('{NUM}')>-1){
+            var r=addReclamo('Muelle/Amarras','Amarra floja en Muelle B, puesto 14','Muelle B','Media');
+            txt=txt.replace('{NUM}',r.n.replace('RC-',''));
+            setTimeout(function(){toast('Novedad <b>'+r.n+'</b> entró al Panel de Gestión →');},500);
+          }
+          addBub('bot',txt);
+          setTimeout(next,900);
+        },1100);
+      }
+    }
+    next();
+  }
+  function setQuicks(dis){document.querySelectorAll('.quick').forEach(function(q){q.disabled=dis;});}
+  document.querySelectorAll('.quick').forEach(function(q){
+    q.addEventListener('click',function(){runFlow(q.dataset.flow);});
+  });
+
+  /* ---------- reservas y turnos ---------- */
+  var selTram=null,selDate=null,selSlot=null,turnoN=4820;
+  function pick(container,el){container.querySelectorAll('[aria-pressed]').forEach(function(x){x.setAttribute('aria-pressed','false')});el.setAttribute('aria-pressed','true');}
+  (function initTurnos(){
+    var strip=document.getElementById('dateStrip');if(!strip)return;
+    var dw=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+    var mn=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+    var d=new Date(),added=0;
+    while(added<6){
+      d.setDate(d.getDate()+1);
+      if(d.getDay()===0)continue;
+      var b=document.createElement('button');b.className='date-c';b.setAttribute('aria-pressed','false');
+      b.dataset.date=dw[d.getDay()]+' '+d.getDate()+'/'+mn[d.getMonth()];
+      b.innerHTML='<div class="dw">'+dw[d.getDay()]+'</div><div class="dn">'+d.getDate()+'</div><div class="dm">'+mn[d.getMonth()]+'</div>';
+      strip.appendChild(b);added++;
+    }
+    strip.querySelectorAll('.date-c').forEach(function(el){el.addEventListener('click',function(){pick(strip,el);selDate=el.dataset.date;});});
+    var tc=document.getElementById('tramChips');
+    tc.querySelectorAll('.chip-sel').forEach(function(el){el.addEventListener('click',function(){pick(tc,el);selTram=el.dataset.t;});});
+    var sg=document.getElementById('slotGrid');
+    sg.querySelectorAll('.slot').forEach(function(el){if(el.disabled)return;el.addEventListener('click',function(){pick(sg,el);selSlot=el.textContent;});});
+  })();
+  window.confirmTurno=function(){
+    if(!selTram){toast('Elegí qué reservar primero 👆');return;}
+    if(!selDate){toast('Elegí un día para la reserva 📅');return;}
+    if(!selSlot){toast('Elegí un horario ⏰');return;}
+    var nom=document.getElementById('tnom').value.trim();
+    var num='TRN-'+(turnoN++);
+    document.getElementById('turnoResumen').innerHTML='<b>'+selTram+'</b> · '+selDate+' a las '+selSlot+(nom?' · '+nom:'');
+    document.getElementById('turnoNum').textContent=num;
+    document.getElementById('turnoOk').classList.add('show');
+    var feed=document.getElementById('feed');
+    if(feed){var fi=document.createElement('div');fi.className='fitem';fi.innerHTML='<div class="fic">📅</div><div class="fx"><b>Reserva confirmada</b> · '+selTram+'<div class="ft">recién · web</div></div>';feed.insertBefore(fi,feed.firstChild);}
+    toast('Reserva <b>'+num+'</b> confirmada · '+selSlot);
+  };
+
+  /* ---------- sub-pestañas panel ---------- */
+  document.querySelectorAll('.subtab').forEach(function(st){
+    st.addEventListener('click',function(){
+      document.querySelectorAll('.subtab').forEach(function(x){x.setAttribute('aria-selected','false')});
+      st.setAttribute('aria-selected','true');
+      var sub=st.dataset.sub;
+      document.getElementById('sub-op').style.display=(sub==='op')?'block':'none';
+      document.getElementById('sub-stats').style.display=(sub==='stats')?'block':'none';
+    });
+  });
+
+  /* ---------- roles ---------- */
+  var rs=document.getElementById('roleSel');
+  if(rs)rs.addEventListener('change',function(){
+    var m=roleMap[this.value];roleFilter=m.f;
+    document.getElementById('roleHint').textContent=m.h;
+    renderTabla();
+  });
+
+  /* ---------- init ---------- */
+  renderTabla();
+})();
+</script>
+</body>
+</html>

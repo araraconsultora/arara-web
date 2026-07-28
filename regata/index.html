@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0a1929">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a1929'/%3E%3Cpath d='M 4 46 Q 12 42 20 46 T 36 46 T 52 46 T 64 46 L 64 56 L 4 56 Z' fill='%231e3a5f'/%3E%3Cpath d='M 12 44 L 52 44 L 46 52 L 18 52 Z' fill='%23d4a574'/%3E%3Crect x='31' y='14' width='2' height='30' fill='%23e8eef7'/%3E%3Cpath d='M 33 16 L 33 42 L 48 42 Z' fill='%23ffffff'/%3E%3Cpath d='M 31 20 L 31 42 L 18 42 Z' fill='%23cbd5e1'/%3E%3C/svg%3E">
+  <title>Match Race — Clasificador</title>
+  <style>
+    :root {
+      --bg: #0a1929;
+      --card: #142640;
+      --card-2: #1c3050;
+      --border: #2a3f5f;
+      --text: #e8eef7;
+      --muted: #8a9bb5;
+      --accent: #d4a574;
+      --success: #4ade80;
+      --warning: #fbbf24;
+      --danger: #f87171;
+      --boat3: #60a5fa;
+      --boat4: #4ade80;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overscroll-behavior: none;
+    }
+    body { padding-bottom: 100px; padding-top: env(safe-area-inset-top); }
+
+    .header {
+      background: rgba(10, 25, 41, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 16px;
+      border-bottom: 2px solid var(--accent);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .header h1 { font-size: 1.15em; color: var(--accent); font-weight: 700; }
+    .header .subtitle { font-size: 0.72em; color: var(--muted); margin-top: 2px; }
+    .header-actions { display: flex; align-items: center; gap: 6px; }
+    .badge {
+      background: var(--accent);
+      color: var(--bg);
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 0.78em;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+    .badge.final { background: var(--success); }
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid var(--border);
+      font-size: 1.05em;
+      cursor: pointer;
+      color: var(--text);
+      font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+    .icon-btn:active { transform: scale(0.92); }
+    .icon-btn.admin-active {
+      background: var(--success);
+      border-color: var(--success);
+      color: var(--bg);
+    }
+
+    .container { padding: 12px; max-width: 600px; margin: 0 auto; }
+
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 0.78em;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .section-title .count { color: var(--muted); font-weight: 500; letter-spacing: 0.5px; }
+
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .progress-text strong { color: var(--text); }
+    .progress-bar {
+      height: 8px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--success) 100%);
+      transition: width 0.4s ease;
+    }
+
+    .standings { display: flex; flex-direction: column; }
+    .standing-row {
+      display: grid;
+      grid-template-columns: 32px 1fr auto auto;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .standing-row:last-child { border-bottom: none; }
+    .standing-pos { font-weight: 800; color: var(--accent); font-size: 1.1em; text-align: center; }
+    .standing-pos.gold { color: #ffd700; text-shadow: 0 0 8px rgba(255,215,0,0.3); }
+    .standing-pos.silver { color: #d1d5db; }
+    .standing-pos.bronze { color: #cd7f32; }
+    .standing-info .name { font-weight: 600; font-size: 0.95em; }
+    .standing-info .captain { font-size: 0.7em; color: var(--text); margin-top: 1px; }
+    .standing-info .crew { font-size: 0.65em; color: var(--muted); margin-top: 1px; }
+    .standing-info .fire { color: #ff6b35; }
+    .standing-record {
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      font-size: 0.95em;
+      min-width: 38px;
+      text-align: right;
+    }
+    .standing-pct {
+      font-variant-numeric: tabular-nums;
+      color: var(--muted);
+      font-size: 0.8em;
+      min-width: 38px;
+      text-align: right;
+    }
+
+    .prob-row {
+      margin-bottom: 10px;
+      padding: 6px 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .prob-row:last-child { border-bottom: none; margin-bottom: 0; }
+    .prob-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+    .prob-name { font-size: 0.92em; font-weight: 600; }
+    .prob-name .letter { color: var(--accent); font-weight: 700; }
+    .prob-captain {
+      font-size: 0.7em;
+      color: var(--text);
+      margin-top: 0;
+      margin-bottom: 1px;
+      font-weight: 500;
+    }
+    .prob-pct {
+      font-variant-numeric: tabular-nums;
+      font-weight: 800;
+      font-size: 0.95em;
+      color: var(--accent);
+    }
+    .prob-pct.high { color: var(--success); }
+    .prob-pct.mid { color: var(--accent); }
+    .prob-pct.low { color: var(--muted); }
+    .prob-bar {
+      height: 8px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+    .prob-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--success) 100%);
+      transition: width 0.5s ease;
+    }
+    .prob-fill.high { background: var(--success); }
+    .prob-fill.mid { background: var(--accent); }
+    .prob-fill.low { background: var(--muted); }
+    .prob-meta {
+      display: grid;
+      grid-template-columns: 38px 1fr 36px;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7em;
+      color: var(--muted);
+    }
+    .prob-meta-label { text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+    .prob-bar-small {
+      height: 4px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .prob-fill-small {
+      height: 100%;
+      background: var(--muted);
+      transition: width 0.5s ease;
+    }
+    .prob-fill-small.in { background: var(--success); }
+    .prob-meta-pct {
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      text-align: right;
+    }
+    .prob-meta-pct.in { color: var(--success); }
+    .prob-footer {
+      font-size: 0.7em;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    .next-card {
+      background: linear-gradient(135deg, #2a3f5f 0%, #142640 100%);
+      border: 2px solid var(--accent);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 20px rgba(212, 165, 116, 0.15);
+    }
+    .next-label {
+      font-size: 0.72em;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .next-teams {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .next-team {
+      text-align: center;
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 6px;
+    }
+    .next-team .letter { font-size: 1.7em; font-weight: 800; color: var(--accent); line-height: 1.1; }
+    .next-team .name { font-size: 0.78em; color: var(--text); margin-top: 2px; font-weight: 600; }
+    .next-team .captain { font-size: 0.7em; color: var(--text); margin-top: 3px; font-weight: 500; }
+    .next-team .crew { font-size: 0.62em; color: var(--muted); margin-top: 1px; font-weight: 400; }
+    .next-team .boat-badge { margin-top: 4px; }
+    .next-vs { color: var(--muted); font-size: 0.9em; font-weight: 600; align-self: center; }
+    .next-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .next-btn {
+      padding: 14px;
+      border: 1.5px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95em;
+      cursor: pointer;
+      font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+    }
+    .next-btn:active { transform: scale(0.97); background: rgba(212, 165, 116, 0.2); }
+
+    .match {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      transition: all 0.2s;
+    }
+    .match.done { background: rgba(74, 222, 128, 0.06); border-color: rgba(74, 222, 128, 0.25); }
+    .match.next { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 0 16px rgba(212, 165, 116, 0.15); }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.015); } }
+    .match.pulse { animation: pulse 0.4s ease; }
+    .match-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .match-num {
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 10px;
+      font-size: 0.72em;
+    }
+    .match-num.done { background: var(--success); }
+    .match-status {
+      font-size: 0.68em;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-weight: 600;
+    }
+    .match-status.next { color: var(--accent); }
+
+    /* Boat badge */
+    .boat-badge {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 8px;
+      font-size: 0.62em;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      vertical-align: middle;
+    }
+    .boat-badge.v3 {
+      background: rgba(96, 165, 250, 0.15);
+      color: var(--boat3);
+      border: 1px solid rgba(96, 165, 250, 0.4);
+    }
+    .boat-badge.v4 {
+      background: rgba(74, 222, 128, 0.15);
+      color: var(--boat4);
+      border: 1px solid rgba(74, 222, 128, 0.4);
+    }
+    .boat-label {
+      display: inline-block;
+      font-size: 0.6em;
+      color: var(--muted);
+      margin-right: 4px;
+      font-weight: 500;
+    }
+
+    /* Admin mode buttons */
+    .match-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .team-btn {
+      padding: 8px 6px;
+      border: 1.5px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s;
+      min-height: 100px;
+      -webkit-tap-highlight-color: transparent;
+      font-family: inherit;
+      text-align: center;
+    }
+    .team-btn:active { transform: scale(0.97); }
+    .team-btn .letter {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .team-btn .name { font-size: 0.72em; color: var(--text); font-weight: 600; margin-top: 2px; display: block; }
+    .team-btn .captain { font-size: 0.65em; color: var(--text); margin-top: 2px; font-weight: 500; display: block; }
+    .team-btn .crew { font-size: 0.58em; color: var(--muted); margin-top: 1px; font-weight: 400; display: block; }
+    .team-btn .boat-line { margin-top: 4px; }
+    .team-btn.winner { background: var(--success); border-color: var(--success); }
+    .team-btn.winner .letter,
+    .team-btn.winner .name,
+    .team-btn.winner .captain { color: var(--bg); }
+    .team-btn.winner .crew { color: var(--bg); opacity: 0.8; }
+    .team-btn.winner .boat-badge { background: rgba(10, 25, 41, 0.2); color: var(--bg); border-color: rgba(10, 25, 41, 0.4); }
+    .team-btn.winner .boat-label { color: var(--bg); opacity: 0.7; }
+
+    /* View mode display */
+    .match-display {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: stretch;
+      gap: 6px;
+    }
+    .team-display {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px 6px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      min-height: 100px;
+      text-align: center;
+    }
+    .team-display.winner {
+      background: rgba(74, 222, 128, 0.15);
+      border-color: var(--success);
+    }
+    .team-display .letter {
+      font-size: 1.3em;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .team-display.winner .letter { color: var(--success); }
+    .team-display .name { font-size: 0.72em; color: var(--text); font-weight: 600; margin-top: 2px; }
+    .team-display .captain { font-size: 0.65em; color: var(--text); margin-top: 2px; font-weight: 500; }
+    .team-display .crew { font-size: 0.58em; color: var(--muted); margin-top: 1px; }
+    .team-display .boat-line { margin-top: 4px; }
+    .team-display.winner .crew,
+    .team-display.winner .name { color: var(--bg); }
+    .team-display.winner .captain { color: var(--bg); }
+    .vs-small {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.7em;
+      text-align: center;
+      align-self: center;
+    }
+
+    .fab {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      font-size: 1.5em;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .fab:active { transform: scale(0.93); }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 200;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 16px;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .modal-backdrop.show { display: flex; }
+    .modal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+    .modal h3 { color: var(--accent); margin-bottom: 8px; font-size: 1.1em; }
+    .modal p { color: var(--muted); font-size: 0.85em; margin-bottom: 14px; }
+    .modal textarea {
+      width: 100%;
+      min-height: 240px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px;
+      border-radius: 8px;
+      font-family: ui-monospace, 'Cascadia Code', Menlo, monospace;
+      font-size: 0.78em;
+      resize: vertical;
+    }
+    .modal-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .modal-btn {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.95em;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .modal-btn:active { transform: scale(0.97); }
+    .modal-btn.primary { background: var(--accent); color: var(--bg); }
+    .modal-btn.secondary { background: var(--card-2); color: var(--text); border: 1px solid var(--border); }
+    .modal-btn.danger { background: var(--danger); color: var(--bg); }
+    .modal-btn.full { grid-column: 1 / -1; }
+
+    .final-card {
+      background: linear-gradient(135deg, #2a3f5f, #142640);
+      border: 2px solid var(--success);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .install-hint {
+      background: rgba(212, 165, 116, 0.1);
+      border: 1px solid rgba(212, 165, 116, 0.3);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      font-size: 0.8em;
+      color: var(--muted);
+    }
+    .install-hint strong { color: var(--accent); }
+
+    .empty {
+      text-align: center;
+      padding: 16px;
+      color: var(--muted);
+      font-style: italic;
+      font-size: 0.85em;
+    }
+
+    .mode-banner {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-bottom: 12px;
+      font-size: 0.8em;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .mode-banner.admin {
+      background: rgba(74, 222, 128, 0.1);
+      border-color: var(--success);
+      color: var(--success);
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVC3VZ5WD7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CVC3VZ5WD7');
+  </script>
+</head>
+<body>
+  <div class="header">
+    <div class="header-row">
+      <div>
+        <h1>⛵ Match Race</h1>
+        <div class="subtitle">Clasificador en vivo · Julio/Agosto 2026</div>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="mode-badge" onclick="promptAdmin()" title="Modo Admin">🔒</button>
+        <button class="badge" id="next-badge" onclick="scrollToNext()">▶ —</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="mode-banner" id="mode-banner">
+      👁️ <span>Modo lectura — solo podés ver la tabla. Pedile el PIN al admin para cargar resultados.</span>
+    </div>
+
+    <div class="install-hint">
+      💡 <strong>Tip:</strong> en Safari/Chrome tocá <em>Compartir → Agregar a pantalla de inicio</em> para usarla como app.
+    </div>
+
+    <div class="section">
+      <div class="section-title">
+        <span>📊 Posiciones</span>
+        <span class="count" id="count-badge">—/—</span>
+      </div>
+      <div class="progress-text" id="progress-text"></div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="standings" id="standings" style="margin-top: 12px;"></div>
+    </div>
+
+    <div id="next-section"></div>
+
+    <div class="section">
+      <div class="section-title">
+        <span>🎯 Probabilidades</span>
+        <span class="count" id="sim-count">—</span>
+      </div>
+      <div id="probabilities"></div>
+      <div class="prob-footer">
+        Cálculo exacto · todas las combinaciones posibles analizadas
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">
+        <span>🏁 Regatas</span>
+        <span class="count" id="matches-count"></span>
+      </div>
+      <div id="matches"></div>
+    </div>
+
+    <div class="section" style="padding: 10px;">
+      <button class="modal-btn primary full" onclick="showShare()">📤 Compartir para WhatsApp</button>
+      <button class="modal-btn danger full" id="reset-btn" onclick="confirmReset()" style="margin-top: 8px; display: none;">🔄 Resetear todo</button>
+    </div>
+  </div>
+
+  <button class="fab" onclick="scrollToNext()" title="Próxima regata">↓</button>
+
+  <div class="modal-backdrop" id="share-modal" onclick="if(event.target===this)closeShare()">
+    <div class="modal">
+      <h3>📤 Compartir en WhatsApp</h3>
+      <p>Copiá este texto y mandalo al grupo del club.</p>
+      <textarea id="share-text" readonly></textarea>
+      <div class="modal-actions">
+        <button class="modal-btn secondary" onclick="closeShare()">Cerrar</button>
+        <button class="modal-btn primary" id="copy-btn" onclick="copyShare()">📋 Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // === CONFIGURACIÓN ===
+    const ADMIN_PIN = 'regata2026';
+    const SESSION_KEY = 'matchrace_admin_session';
+    const STORAGE_KEY = 'matchrace_v5';
+
+    // Tripulantes: T = timonel/capitán, T1 y T2 = tripulantes
+    const TEAMS = {
+      A: { name: 'Alfa',    captain: 'Jerónimo Graff',  crew: ['Vanina Martinez', 'Juan Pablo Gomez'] },
+      B: { name: 'Beta',    captain: 'Eduardo Rico',    crew: ['Maximiliano Macchi', 'Valentina Aguirre'] },
+      C: { name: 'Charlie', captain: 'Sebastián Pauletti', crew: ['Laura Karina Sonzogni', 'Nazarena Guaita'] },
+      D: { name: 'Delta',   captain: 'Gervasio M. Lacabe', crew: ['Cristian Kaehler', 'Tomas Busso'] },
+      E: { name: 'Echo',    captain: 'Esteban Dorbessan', crew: ['Ariel Medina', 'Diego Todoni'] },
+      F: { name: 'Foxtrot', captain: 'Godoy Mariano',   crew: ['Soledad Petrilli', 'Julián Rossi'] },
+      G: { name: 'Golf',    captain: 'Javier Viola',    crew: ['Sergio Monzon', 'Ingrid Gerstner'] }
+    };
+
+    // boatA / boatB = 3 o 4 (los 2 veleros sorteados)
+    const MATCHES = [
+      { num: 1,  a: 'B', b: 'G', boatA: 4, boatB: 3 },
+      { num: 2,  a: 'C', b: 'F', boatA: 4, boatB: 3 },
+      { num: 3,  a: 'D', b: 'E', boatA: 3, boatB: 4 },
+      { num: 4,  a: 'A', b: 'G', boatA: 3, boatB: 4 },
+      { num: 5,  a: 'B', b: 'E', boatA: 4, boatB: 3 },
+      { num: 6,  a: 'C', b: 'D', boatA: 4, boatB: 3 },
+      { num: 7,  a: 'A', b: 'F', boatA: 3, boatB: 4 },
+      { num: 8,  a: 'G', b: 'E', boatA: 4, boatB: 3 },
+      { num: 9,  a: 'B', b: 'C', boatA: 3, boatB: 4 },
+      { num: 10, a: 'A', b: 'E', boatA: 3, boatB: 4 },
+      { num: 11, a: 'F', b: 'D', boatA: 3, boatB: 4 },
+      { num: 12, a: 'G', b: 'C', boatA: 4, boatB: 3 },
+      { num: 13, a: 'A', b: 'D', boatA: 4, boatB: 3 },
+      { num: 14, a: 'E', b: 'C', boatA: 4, boatB: 3 },
+      { num: 15, a: 'F', b: 'B', boatA: 3, boatB: 4 },
+      { num: 16, a: 'A', b: 'C', boatA: 3, boatB: 4 },
+      { num: 17, a: 'D', b: 'B', boatA: 4, boatB: 3 },
+      { num: 18, a: 'F', b: 'G', boatA: 4, boatB: 3 },
+      { num: 19, a: 'A', b: 'B', boatA: 4, boatB: 3 },
+      { num: 20, a: 'D', b: 'G', boatA: 4, boatB: 3 },
+      { num: 21, a: 'E', b: 'F', boatA: 4, boatB: 3 }
+    ];
+
+    const INITIAL = { 1:'B',2:'F',3:'E',4:'A',5:'B',6:'D',7:'F',8:'E',9:'B',10:'E' };
+
+    let state = loadState();
+
+    // === STATE / AUTH ===
+    function loadState() {
+      try {
+        const d = localStorage.getItem(STORAGE_KEY);
+        if (d) return JSON.parse(d);
+      } catch (e) {}
+      return { winners: { ...INITIAL } };
+    }
+
+    function saveState() {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+    }
+
+    function isAdmin() {
+      try { return sessionStorage.getItem(SESSION_KEY) === '1'; }
+      catch (e) { return false; }
+    }
+
+    function setAdmin(on) {
+      try {
+        if (on) sessionStorage.setItem(SESSION_KEY, '1');
+        else sessionStorage.removeItem(SESSION_KEY);
+      } catch (e) {}
+      render();
+    }
+
+    function promptAdmin() {
+      if (isAdmin()) {
+        if (confirm('¿Salir del modo admin?')) setAdmin(false);
+        return;
+      }
+      const pin = prompt('🔐 Ingresá el PIN de admin:');
+      if (pin === null) return;
+      if (pin === ADMIN_PIN) {
+        setAdmin(true);
+      } else {
+        alert('❌ PIN incorrecto');
+      }
+    }
+
+    // === HELPERS ===
+    // "Maximiliano Macchi" -> "M. Macchi"
+    // "Juan Pablo Gomez"   -> "J.P. Gomez"
+    // "Gervasio Martinez Lacabe" -> "G.M. Lacabe"
+    function shortName(fullName) {
+      const parts = fullName.trim().split(/\s+/);
+      if (parts.length === 1) return fullName;
+      const last = parts[parts.length - 1];
+      const initials = parts.slice(0, -1).map(p => p[0].toUpperCase() + '.').join('');
+      return `${initials} ${last}`;
+    }
+
+    function boatBadge(n) {
+      return `<span class="boat-badge v${n}">⛵ ${n}</span>`;
+    }
+
+    // === RACE LOGIC ===
+    function setWinner(num, team) {
+      if (!isAdmin()) {
+        alert('🔒 Solo el admin puede cargar resultados. Tocá el candado arriba a la derecha.');
+        return;
+      }
+      if (state.winners[num] === team) {
+        delete state.winners[num];
+      } else {
+        state.winners[num] = team;
+      }
+      saveState();
+      render();
+    }
+
+    function calculateStandings(winners) {
+      const stats = {};
+      for (const t of Object.keys(TEAMS)) {
+        stats[t] = { wins: 0, losses: 0, played: 0, h2h: {} };
+      }
+      for (const m of MATCHES) {
+        const w = winners[m.num];
+        if (w) {
+          const l = w === m.a ? m.b : m.a;
+          stats[w].wins++;
+          stats[w].played++;
+          stats[l].losses++;
+          stats[l].played++;
+          stats[w].h2h[l] = 'W';
+          stats[l].h2h[w] = 'L';
+        }
+      }
+      const arr = Object.entries(stats);
+      arr.sort(([a, sa], [b, sb]) => {
+        if (sb.wins !== sa.wins) return sb.wins - sa.wins;
+        const pa = sa.played > 0 ? sa.wins / sa.played : 0;
+        const pb = sb.played > 0 ? sb.wins / sb.played : 0;
+        if (pb !== pa) return pb - pa;
+        if (sa.h2h[b] === 'W') return -1;
+        if (sa.h2h[b] === 'L') return 1;
+        return 0;
+      });
+      return arr;
+    }
+
+    function calcStandings() { return calculateStandings(state.winners); }
+
+    function calculateProbabilities() {
+      const fixed = { ...state.winners };
+      const pending = MATCHES.filter(m => !fixed[m.num]);
+      const n = pending.length;
+      const winCounts = {};
+      const topFourCounts = {};
+      for (const t of Object.keys(TEAMS)) {
+        winCounts[t] = 0;
+        topFourCounts[t] = 0;
+      }
+      if (n === 0) {
+        const final = calculateStandings(fixed);
+        if (final[0]) winCounts[final[0][0]] = 1;
+        for (let j = 0; j < 4 && j < final.length; j++) {
+          topFourCounts[final[j][0]] = 1;
+        }
+        return { winCounts, topFourCounts, totalOutcomes: 1, exact: true };
+      }
+      const current = calculateStandings(fixed);
+      const ratings = {};
+      for (const [t, s] of current) {
+        ratings[t] = (s.wins + 0.5) / (s.played + 1);
+      }
+      const matchProbs = pending.map(m => ({
+        m,
+        pA: ratings[m.a] / (ratings[m.a] + ratings[m.b])
+      }));
+      const totalOutcomes = Math.pow(2, n);
+      for (let i = 0; i < totalOutcomes; i++) {
+        let prob = 1;
+        const simWinners = { ...fixed };
+        for (let j = 0; j < n; j++) {
+          const { m, pA } = matchProbs[j];
+          const aWins = (i >> j) & 1;
+          simWinners[m.num] = aWins ? m.a : m.b;
+          prob *= aWins ? pA : (1 - pA);
+        }
+        const final = calculateStandings(simWinners);
+        if (final[0]) winCounts[final[0][0]] += prob;
+        for (let j2 = 0; j2 < 4 && j2 < final.length; j2++) {
+          topFourCounts[final[j2][0]] += prob;
+        }
+      }
+      return { winCounts, topFourCounts, totalOutcomes, exact: true };
+    }
+
+    function getNextMatch() {
+      return MATCHES.find(m => !state.winners[m.num]);
+    }
+
+    // === RENDERING ===
+    function renderModeBanner() {
+      const admin = isAdmin();
+      const banner = document.getElementById('mode-banner');
+      const btn = document.getElementById('mode-badge');
+      const resetBtn = document.getElementById('reset-btn');
+      if (admin) {
+        banner.className = 'mode-banner admin';
+        banner.innerHTML = '🔓 <span>Modo admin activo — podés cargar resultados. Tocá el candado para salir.</span>';
+        btn.textContent = '🔓';
+        btn.classList.add('admin-active');
+        resetBtn.style.display = 'block';
+      } else {
+        banner.className = 'mode-banner';
+        banner.innerHTML = '👁️ <span>Modo lectura — solo podés ver la tabla. Pedile el PIN al admin para cargar resultados.</span>';
+        btn.textContent = '🔒';
+        btn.classList.remove('admin-active');
+        resetBtn.style.display = 'none';
+      }
+    }
+
+    function renderProgress() {
+      const done = Object.keys(state.winners).length;
+      const total = MATCHES.length;
+      const pct = Math.round((done / total) * 100);
+      document.getElementById('progress-text').innerHTML =
+        `<span><strong>${done}</strong> de ${total} regatas corridas</span><span>${pct}%</span>`;
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('count-badge').textContent = `${done}/${total}`;
+      const next = getNextMatch();
+      const badge = document.getElementById('next-badge');
+      if (next) {
+        badge.textContent = `▶ Regata ${next.num}`;
+        badge.classList.remove('final');
+      } else {
+        badge.textContent = '🏆 Final';
+        badge.classList.add('final');
+      }
+    }
+
+    function renderStandings() {
+      const sorted = calcStandings();
+      const rows = sorted.map(([t, s], i) => {
+        const pct = s.played > 0 ? Math.round((s.wins / s.played) * 100) : 0;
+        const unbeaten = s.wins > 0 && s.wins === s.played;
+        const posClass = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+        const fire = unbeaten ? '<span class="fire">🔥</span>' : '';
+        const record = s.played > 0 ? `${s.wins}-${s.losses}` : '—';
+        const team = TEAMS[t];
+        return `
+          <div class="standing-row">
+            <div class="standing-pos ${posClass}">${i + 1}°</div>
+            <div class="standing-info">
+              <div class="name">${team.name} <span style="color:var(--muted);font-size:0.85em;">(${t})</span> ${fire}</div>
+              <div class="captain">${team.captain}</div>
+              <div class="crew">${shortName(team.crew[0])} · ${shortName(team.crew[1])}</div>
+            </div>
+            <div class="standing-record">${record}</div>
+            <div class="standing-pct">${pct}%</div>
+          </div>
+        `;
+      }).join('');
+      document.getElementById('standings').innerHTML = rows;
+    }
+
+    function teamCardHtml(letter, showBoat, boatNum, large = false) {
+      const team = TEAMS[letter];
+      const boatHtml = showBoat ? `<div class="boat-line">${boatBadge(boatNum)}</div>` : '';
+      return `
+        <span class="letter">${letter}</span>
+        <span class="name">${team.name}</span>
+        <span class="captain">${team.captain}</span>
+        <span class="crew">${team.crew[0]}</span>
+        <span class="crew">${team.crew[1]}</span>
+        ${boatHtml}
+      `;
+    }
+
+    function renderNextMatch() {
+      const next = getNextMatch();
+      const section = document.getElementById('next-section');
+      const admin = isAdmin();
+      if (!next) {
+        section.innerHTML = `
+          <div class="final-card">
+            <div style="font-size: 2.4em; margin-bottom: 6px;">🏆</div>
+            <div style="color: var(--success); font-weight: 800; font-size: 1.1em;">¡Ronda completa!</div>
+            <div style="color: var(--muted); font-size: 0.85em; margin-top: 4px;">Todos los matches finalizados</div>
+          </div>
+        `;
+        return;
+      }
+      const teamsHtml = `
+        <div class="next-teams">
+          <div class="next-team">
+            ${teamCardHtml(next.a, true, next.boatA)}
+          </div>
+          <div class="next-vs">vs</div>
+          <div class="next-team">
+            ${teamCardHtml(next.b, true, next.boatB)}
+          </div>
+        </div>
+      `;
+      const actionsHtml = admin ? `
+        <div class="next-actions">
+          <button class="next-btn" onclick="setWinner(${next.num},'${next.a}')">Gana ${next.a}</button>
+          <button class="next-btn" onclick="setWinner(${next.num},'${next.b}')">Gana ${next.b}</button>
+        </div>
+      ` : `
+        <div style="text-align:center; font-size:0.78em; color:var(--muted); padding:8px; background:rgba(255,255,255,0.03); border-radius:8px;">
+          🔒 Esperando resultado · el admin lo carga al terminar
+        </div>
+      `;
+      section.innerHTML = `
+        <div class="next-card">
+          <div class="next-label">▶ Próxima regata · #${next.num}</div>
+          ${teamsHtml}
+          ${actionsHtml}
+        </div>
+      `;
+    }
+
+    function renderProbabilities() {
+      const done = Object.keys(state.winners).length;
+      const total = MATCHES.length;
+      const pending = total - done;
+      if (pending === 0) {
+        document.getElementById('probabilities').innerHTML =
+          '<div class="empty">No hay regatas pendientes · las posiciones son definitivas</div>';
+        document.getElementById('sim-count').textContent = 'ronda completa';
+        return;
+      }
+      const probs = calculateProbabilities();
+      const sorted = Object.keys(TEAMS).map(t => ({
+        t,
+        winPct: probs.winCounts[t] * 100,
+        top4Pct: probs.topFourCounts[t] * 100
+      })).sort((a, b) => b.winPct - a.winPct);
+      const maxWin = Math.max(...sorted.map(s => s.winPct), 1);
+      const rows = sorted.map(s => {
+        const cls = s.winPct > 25 ? 'high' : s.winPct > 5 ? 'mid' : 'low';
+        const inT4 = s.top4Pct >= 50;
+        const team = TEAMS[s.t];
+        return `
+          <div class="prob-row">
+            <div class="prob-header">
+              <span class="prob-name"><span class="letter">${s.t}</span> ${team.name}</span>
+              <span class="prob-pct ${cls}">${s.winPct.toFixed(1)}%</span>
+            </div>
+            <div class="prob-captain">${team.captain} · ${shortName(team.crew[0])} · ${shortName(team.crew[1])}</div>
+            <div class="prob-bar">
+              <div class="prob-fill ${cls}" style="width: ${(s.winPct / maxWin) * 100}%"></div>
+            </div>
+            <div class="prob-meta">
+              <span class="prob-meta-label">Top 4</span>
+              <div class="prob-bar-small">
+                <div class="prob-fill-small ${inT4 ? 'in' : ''}" style="width: ${s.top4Pct}%"></div>
+              </div>
+              <span class="prob-meta-pct ${inT4 ? 'in' : ''}">${s.top4Pct.toFixed(0)}%</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+      document.getElementById('probabilities').innerHTML = rows;
+      document.getElementById('sim-count').textContent =
+        `${probs.totalOutcomes.toLocaleString('es-AR')} comb. exactas`;
+    }
+
+    function renderMatchRow(m, w, isNext, admin) {
+      const done = !!w;
+      const statusText = done ? '✓ Finalizada' : isNext ? '▶ Próxima' : 'Pendiente';
+      const statusClass = done ? 'done' : isNext ? 'next' : '';
+
+      let bodyHtml;
+      if (admin) {
+        bodyHtml = `
+          <div class="match-buttons">
+            <button class="team-btn ${w===m.a?'winner':''}" onclick="setWinner(${m.num},'${m.a}')">
+              ${teamCardHtml(m.a, true, m.boatA)}
+            </button>
+            <button class="team-btn ${w===m.b?'winner':''}" onclick="setWinner(${m.num},'${m.b}')">
+              ${teamCardHtml(m.b, true, m.boatB)}
+            </button>
+          </div>
+        `;
+      } else {
+        bodyHtml = `
+          <div class="match-display">
+            <div class="team-display ${w===m.a?'winner':''}">
+              ${teamCardHtml(m.a, true, m.boatA)}
+            </div>
+            <div class="vs-small">vs</div>
+            <div class="team-display ${w===m.b?'winner':''}">
+              ${teamCardHtml(m.b, true, m.boatB)}
+            </div>
+          </div>
+        `;
+      }
+      return `
+        <div class="match ${done?'done':''} ${isNext?'next':''}" id="match-${m.num}">
+          <div class="match-header">
+            <span class="match-num ${done?'done':''}">Regata ${m.num}</span>
+            <span class="match-status ${statusClass}">${statusText}</span>
+          </div>
+          ${bodyHtml}
+        </div>
+      `;
+    }
+
+    function renderMatches() {
+      const admin = isAdmin();
+      const next = getNextMatch();
+      const nextNum = next ? next.num : -1;
+      const rows = MATCHES.map(m => {
+        const w = state.winners[m.num];
+        const isNext = m.num === nextNum;
+        return renderMatchRow(m, w, isNext, admin);
+      }).join('');
+      document.getElementById('matches').innerHTML = rows;
+      document.getElementById('matches-count').textContent = `${Object.keys(state.winners).length}/${MATCHES.length}`;
+    }
+
+    function render() {
+      renderModeBanner();
+      renderProgress();
+      renderStandings();
+      renderNextMatch();
+      renderProbabilities();
+      renderMatches();
+    }
+
+    function scrollToNext() {
+      const next = getNextMatch();
+      if (next) scrollToMatch(next.num);
+    }
+
+    function scrollToMatch(num) {
+      const el = document.getElementById(`match-${num}`);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('pulse');
+        setTimeout(() => el.classList.remove('pulse'), 500);
+      }
+    }
+
+    function confirmReset() {
+      if (!isAdmin()) return;
+      if (!confirm('¿Borrar todos los resultados?')) return;
+      if (!confirm('¿Seguro? Esta acción no se puede deshacer.')) return;
+      state = { winners: {} };
+      saveState();
+      render();
+    }
+
+    function showShare() {
+      const sorted = calcStandings();
+      const done = Object.keys(state.winners).length;
+      const next = getNextMatch();
+      let text = `⛵ *Match Race* — ${done}/${MATCHES.length} regatas\n`;
+      text += `📅 Julio/Agosto 2026 — SCV, CNP\n\n`;
+      text += `📊 *POSICIONES*\n\n`;
+      sorted.forEach(([t, s], i) => {
+        const pct = s.played > 0 ? Math.round((s.wins / s.played) * 100) : 0;
+        const rec = s.played > 0 ? `${s.wins}-${s.losses}` : '—';
+        const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '  ';
+        const fire = (s.wins > 0 && s.wins === s.played) ? ' 🔥' : '';
+        const team = TEAMS[t];
+        text += `${medal} *${team.name}* (${t}) — ${rec} · ${pct}%${fire}\n`;
+        text += `     T: ${team.captain} · ${shortName(team.crew[0])} · ${shortName(team.crew[1])}\n`;
+      });
+      if (next) {
+        text += `\n▶ *Próxima:* Regata ${next.num} — ${next.a} (${TEAMS[next.a].name}) vs ${next.b} (${TEAMS[next.b].name})\n`;
+        text += `     Velero ${next.boatA} vs Velero ${next.boatB}\n`;
+      } else {
+        text += `\n🏆 *Ronda completa*\n`;
+      }
+      const pending = MATCHES.length - done;
+      if (pending > 0) {
+        const probs_data = calculateProbabilities();
+        const probs = Object.keys(TEAMS).map(t => ({
+          t,
+          winPct: probs_data.winCounts[t] * 100,
+          top4Pct: probs_data.topFourCounts[t] * 100
+        })).sort((a, b) => b.winPct - a.winPct);
+        text += `\n🎯 *PROBABILIDADES* (cálculo exacto)\n\n`;
+        probs.forEach(p => {
+          text += `• *${p.t}* (${TEAMS[p.t].name}) — ganar *${p.winPct.toFixed(1)}%* · top 4 *${p.top4Pct.toFixed(0)}%*\n`;
+        });
+      }
+      document.getElementById('share-text').value = text;
+      document.getElementById('share-modal').classList.add('show');
+    }
+
+    function closeShare() {
+      document.getElementById('share-modal').classList.remove('show');
+    }
+
+    async function copyShare() {
+      const ta = document.getElementById('share-text');
+      const btn = document.getElementById('copy-btn');
+      try {
+        await navigator.clipboard.writeText(ta.value);
+        btn.textContent = '✅ Copiado!';
+      } catch (e) {
+        ta.select();
+        document.execCommand('copy');
+        btn.textContent = '✅ Copiado!';
+      }
+      setTimeout(() => btn.textContent = '📋 Copiar', 1500);
+    }
+
+    render();
+  </script>
+</body>
+</html>

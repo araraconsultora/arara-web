@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARARÁ | Pitch Municipios</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKZSURBVHhe7ZmxSu5AEIWtfQB7rWxEtNOLpSjYCGKpwu20sxE7QbDWxlKwESxsLKyshb/wDUS4bxI5lyyM8Wx2k53ZH9k9cEDH7Cb5kp3ZiTOzc4tNya4AWLAkVwAsWJIrABYsyRUAC5bkCoAFrb2wtNH82dz75rn5VXqstacC4OPzX9PV6fklPdba2QHgaTMBCjve2tkB3D88tbf8U1u7h3SMpbMCwNrv0/PLKx1n6awALq6u21v1C5DYWCtnA4AsHyNAYuOtnA3A/sFJe4th5SyJ2QCw0ucTYLE5LJwFgCx9f0/O2p/8epu803ksnAWAK32u1t/c3v3/vU+A1p3HwuYAZOlzuz3fZkgKkLpzWdgcgCx9ssThNQ8pRzI0BSBLH5aB/FtMVUC+kGMsbApA3mR3mxuzL8jRH5gCcKXPdyMxydC6PzADIBOdr9UN9QZQd+lo2wyAfLp9yQwNUEiW/YEJAPlkQ+UsJhlafiwxAYALdorZ0MSIjdOwCQApAAi57yOJk1V/oA4g5pUeI6uPJeoA5A4PFx3rmG7RIhmqAsDr7DT0w8by2nY70i+L/kAVgCx9Y57WNPoDNQCy9I3t56fRH6gBkKUvJWOHpN0fqAGQSnlNJUifNPsDFQDy1UVGZ8fEWi4ln1LPIZ0MoHvBGp+1Y7pEVBw2dqiTAKB0des3fk+t1zH/QIE0IAwGgJNinYa2r3hNcRyWRx8Q5As3J558zIZIyp1nLIzBAMYIF8jmgnHhWmLzhzwYAIgPdV9ZxDJiY8aYzR9ychL87a4AWLAkVwAsWJIrABbU8Nr6SnN8tK5mzMfOk2ozALjoyeOOmjEfO0+qKwAW1HDxAIrPAb/FFQALluQKgAVLcgXAgiW5AmDBcrzYfAHh7ldwm2MBdAAAAABJRU5ErkJggg==">
+
+  <!-- Vista previa para WhatsApp / redes (Open Graph) -->
+  <meta property="og:title" content="Arará Consultora — Automatización para Gobiernos Locales">
+  <meta property="og:description" content="Municipio Conectado, Observatorio Local y Compliance Municipal: soluciones de automatización para municipios de Entre Ríos.">
+  <meta property="og:image" content="https://www.arara.com.ar/og-image-arara-pitch.png">
+  <meta property="og:url" content="https://www.arara.com.ar/pitch-municipios.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arará Consultora — Automatización para Gobiernos Locales">
+  <meta name="twitter:description" content="Municipio Conectado, Observatorio Local y Compliance Municipal: soluciones de automatización para municipios de Entre Ríos.">
+  <meta name="twitter:image" content="https://www.arara.com.ar/og-image-arara-pitch.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .presentation {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      position: relative;
+    }
+
+    .slide {
+      width: 100%;
+      min-height: 100vh;
+      padding: 60px;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      animation: fadeIn 0.5s;
+      position: relative;
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Slide Backgrounds */
+    .slide-hero {
+      background: linear-gradient(135deg, #1a3a52 0%, #2d5f7d 100%);
+    }
+
+    .slide-content {
+      background: linear-gradient(135deg, #f5f4f0 0%, #fff 100%);
+      color: #1a3a52;
+    }
+
+    .slide-success {
+      background: linear-gradient(135deg, #0a4a2a 0%, #1a6f4a 100%);
+    }
+
+    .slide-warning {
+      background: linear-gradient(135deg, #4a3a1a 0%, #8b5f3a 100%);
+    }
+
+    .slide-accent {
+      background: linear-gradient(135deg, #3a2a5a 0%, #5a4a8a 100%);
+    }
+
+    /* Typography */
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 0.3em;
+      letter-spacing: -2px;
+    }
+
+    h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+    }
+
+    h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.3em;
+    }
+
+    .subtitle {
+      font-size: 1.8rem;
+      font-weight: 300;
+      opacity: 0.9;
+      margin-bottom: 2em;
+    }
+
+    .tagline {
+      font-size: 1.4rem;
+      font-weight: 400;
+      opacity: 0.95;
+      margin-bottom: 1em;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1em;
+      max-width: 900px;
+    }
+
+    /* Colors */
+    .accent-gold {
+      color: #c8a84b;
+    }
+
+    .accent-blue {
+      color: #64b5f6;
+    }
+
+    .text-white {
+      color: white;
+    }
+
+    /* Layout */
+    .content-box {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin: 2rem 0;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 8px;
+      border-left: 4px solid #c8a84b;
+      backdrop-filter: blur(10px);
+    }
+
+    .slide-content .card {
+      background: rgba(26, 58, 82, 0.1);
+      color: #1a3a52;
+      border-left: 4px solid #1a3a52;
+    }
+
+    .card h3 {
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .metric-label {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .metric-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #c8a84b;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #c8a84b;
+      color: #1a3a52;
+      padding: 0.4em 1em;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .slide-content .badge {
+      background: #1a3a52;
+      color: #c8a84b;
+    }
+
+    /* Numbers */
+    .big-number {
+      font-size: 4rem;
+      font-weight: 700;
+      color: #c8a84b;
+      margin-bottom: 0.2em;
+    }
+
+    .slide-content .big-number {
+      color: #1a3a52;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 1rem;
+      z-index: 100;
+    }
+
+    .nav button {
+      background: rgba(200, 168, 75, 0.2);
+      border: 2px solid #c8a84b;
+      color: #c8a84b;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav button:hover {
+      background: #c8a84b;
+      color: #1a3a52;
+      transform: scale(1.1);
+    }
+
+    .nav button:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .slide-counter {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      font-size: 1rem;
+      opacity: 0.6;
+    }
+
+    /* Lists */
+    ul {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .tick {
+      color: #c8a84b;
+      margin-right: 0.5rem;
+    }
+
+    /* Emphasis */
+    strong {
+      color: #c8a84b;
+      font-weight: 700;
+    }
+
+    .slide-content strong {
+      color: #1a3a52;
+    }
+
+    /* CTA */
+    .cta {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: #c8a84b;
+      color: #1a3a52;
+      border-radius: 8px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .cta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(200, 168, 75, 0.3);
+    }
+
+    .slide-hero .cta {
+      background: white;
+      color: #1a3a52;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .slide {
+        padding: 90px 20px 110px;
+        justify-content: flex-start;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        margin: 1rem 0;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      .logo {
+        font-size: 1rem;
+        top: 16px;
+        left: 16px;
+      }
+
+      .nav {
+        bottom: 16px;
+      }
+
+      .nav button {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+      }
+
+      .slide-counter {
+        bottom: 20px;
+        right: 16px;
+        font-size: 0.8rem;
+      }
+    }
+
+    .logo {
+      position: fixed;
+      top: 30px;
+      left: 40px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #c8a84b;
+      z-index: 50;
+    }
+
+    .slide-content .logo {
+      color: #1a3a52;
+    }
+  </style>
+</head>
+<body>
+
+<div class="logo">ARARÁ CONSULTORA</div>
+
+<div class="presentation">
+
+  <!-- SLIDE 1: Portada -->
+  <div class="slide slide-hero active">
+    <div class="content-box">
+      <h1>ARARÁ CONSULTORA</h1>
+      <p class="subtitle accent-gold">Automatización para Gobiernos Locales</p>
+      <p class="tagline">Municipios más eficientes, ciudadanos más felices</p>
+      <div style="margin-top: 4rem;">
+        <p style="font-size: 1.2rem; opacity: 0.8;">Entre Ríos • 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: El Desafío -->
+  <div class="slide slide-content">
+    <div class="content-box">
+      <h2>El Desafío de Hoy</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>📞 Comunicación Lenta</h3>
+          <p><strong>40% de consultas ciudadanas sin respuesta</strong></p>
+          <p>Ciudadanos esperando, funcionarios atrapados en emails/WhatsApp dispersos</p>
+        </div>
+        <div class="card">
+          <h3>📋 Procesos Manuales</h3>
+          <p><strong>Trámites en papel, datos dispersos</strong></p>
+          <p>Sin visibilidad real del estado, sin reportes automáticos</p>
+        </div>
+        <div class="card">
+          <h3>💰 Presupuesto Limitado</h3>
+          <p><strong>No pueden pagar desarrollos full-custom</strong></p>
+          <p>Necesitan soluciones escalables, no a medida</p>
+        </div>
+        <div class="card">
+          <h3>📊 Cero Datos</h3>
+          <p><strong>No saben cómo está la estructura productiva local</strong></p>
+          <p>Sin inteligencia para decisiones, sin transparencia para inversores</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: La Solución -->
+  <div class="slide slide-hero">
+    <div class="content-box">
+      <h2 style="font-size: 3.5rem;"><span class="accent-gold">ARARÁ CONSULTORA</span></h2>
+      <p class="tagline">Plataforma de Automatización Municipal para Entre Ríos</p>
+      <p style="font-size: 1.1rem; opacity: 0.85; margin-bottom: 2rem;">Transformamos municipios en gobiernos modernos, eficientes y conectados</p>
+      <div style="margin-top: 2rem;">
+        <div class="badge text-white">Municipio Conectado</div>
+        <div class="badge text-white">Observatorio Local</div>
+        <div class="badge text-white">Compliance Automático</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: Municipio Conectado -->
+  <div class="slide slide-content">
+    <div class="content-box">
+      <h2>Arará Consultora: Municipio Conectado</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem;"><strong>Bot WhatsApp 24/7 + Portal Ciudadano + CRM Interno</strong></p>
+
+      <div class="grid-2">
+        <div>
+          <h3>✓ Incluye</h3>
+          <ul>
+            <li><span class="tick">✓</span> Bot WhatsApp automático (respuestas 24/7)</li>
+            <li><span class="tick">✓</span> Portal ciudadano (seguimiento de trámites en vivo)</li>
+            <li><span class="tick">✓</span> CRM interno (centraliza todo)</li>
+            <li><span class="tick">✓</span> Dashboard de gestión municipal</li>
+            <li><span class="tick">✓</span> Capacitación completa del equipo</li>
+            <li><span class="tick">✓</span> Soporte permanente</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Resultados Esperados</h3>
+          <div class="metric">
+            <span class="metric-label">Consultas resueltas automáticamente:</span>
+            <span class="metric-value">95%</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Reducción de tiempo de respuesta:</span>
+            <span class="metric-value">-60%</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Satisfacción ciudadana:</span>
+            <span class="metric-value">↑ 40%</span>
+          </div>
+          <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.7;">Implementación: 2-4 semanas</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: Observatorio Local -->
+  <div class="slide slide-content">
+    <div class="content-box">
+      <h2>Arará Consultora: Observatorio Local</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem;"><strong>Mapas Interactivos + Indicadores Económicos + Análisis Automático</strong></p>
+
+      <div class="grid-2">
+        <div>
+          <h3>✓ Incluye</h3>
+          <ul>
+            <li><span class="tick">✓</span> Mapas interactivos del territorio</li>
+            <li><span class="tick">✓</span> Indicadores económicos por zona</li>
+            <li><span class="tick">✓</span> Análisis de estructura productiva local</li>
+            <li><span class="tick">✓</span> Alertas automáticas de cambios</li>
+            <li><span class="tick">✓</span> Portal público (transparencia + atracción inversores)</li>
+            <li><span class="tick">✓</span> Reportes periódicos automáticos</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Impacto Estratégico</h3>
+          <div class="metric">
+            <span class="metric-label">Decisiones basadas en datos:</span>
+            <span class="metric-value">100%</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Transparencia territorial:</span>
+            <span class="metric-value">↑ Máxima</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Atracción de inversión:</span>
+            <span class="metric-value">↑ Mejor posicionamiento</span>
+          </div>
+          <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.7;">Implementación: 3-6 semanas (requiere data local)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 6: Compliance -->
+  <div class="slide slide-content">
+    <div class="content-box">
+      <h2>Arará Consultora: Compliance Municipal</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem;"><strong>Reportería Automática + Auditoría + Alertas</strong></p>
+
+      <div class="grid-2">
+        <div>
+          <h3>✓ Incluye</h3>
+          <ul>
+            <li><span class="tick">✓</span> Reportes automáticos (ATER, ANSES, etc.)</li>
+            <li><span class="tick">✓</span> Checklist de normativa municipal</li>
+            <li><span class="tick">✓</span> Alertas automáticas por fecha crítica</li>
+            <li><span class="tick">✓</span> Auditoría interna permanente</li>
+            <li><span class="tick">✓</span> Cero atrasos en cumplimiento</li>
+            <li><span class="tick">✓</span> Reportes de compliancia para superiores</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Beneficios Clave</h3>
+          <div class="metric">
+            <span class="metric-label">Cumplimiento normativo:</span>
+            <span class="metric-value">100%</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Multas y sanciones:</span>
+            <span class="metric-value">0</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Automatización de procesos:</span>
+            <span class="metric-value">80%</span>
+          </div>
+          <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.7;">Implementación: 2-3 semanas</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7: Por qué Arará -->
+  <div class="slide slide-hero">
+    <div class="content-box">
+      <h2>¿Por qué <span class="accent-gold">ARARÁ CONSULTORA</span>?</h2>
+      <div style="margin-top: 3rem;">
+        <div class="card" style="margin-bottom: 2rem;">
+          <h3 style="color: #c8a84b;">🎯 Especialistas en Entre Ríos</h3>
+          <p>Conocemos el territorio, la estructura productiva local, los municipios de la región</p>
+        </div>
+        <div class="card" style="margin-bottom: 2rem;">
+          <h3 style="color: #c8a84b;">⚡ Implementación Rápida</h3>
+          <p>2-4 semanas de setup, no 3-6 meses de desarrollo custom</p>
+        </div>
+        <div class="card">
+          <h3 style="color: #c8a84b;">💪 Soporte Local</h3>
+          <p>Team en la región, respuesta rápida, ajustes según necesidad</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 8: Implementación -->
+  <div class="slide slide-content">
+    <div class="content-box">
+      <h2>¿Cómo Funciona?</h2>
+      <div style="margin-top: 3rem;">
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; margin-bottom: 2rem; align-items: start;">
+          <div style="background: #1a3a52; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">1</div>
+          <div>
+            <h3>Semana 1-2: Consulta</h3>
+            <p>Entendemos tu municipio, necesidades específicas, presupuesto</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; margin-bottom: 2rem; align-items: start;">
+          <div style="background: #1a3a52; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">2</div>
+          <div>
+            <h3>Semana 3-4: Setup</h3>
+            <p>Instalamos, configuramos, integramos con tus sistemas</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
+          <div style="background: #1a3a52; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;">3</div>
+          <div>
+            <h3>Semana 5: Go-Live</h3>
+            <p>Sistema en producción, tu equipo capacitado, soporte 24/7</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 9: Propuesta de Valor -->
+  <div class="slide slide-success">
+    <div class="content-box">
+      <h2>La Propuesta ARARÁ CONSULTORA</h2>
+      <div style="margin-top: 3rem;">
+        <div class="card" style="margin-bottom: 2rem; border-left-color: white;">
+          <h3 style="color: white;">📊 Soluciones Completas</h3>
+          <p style="color: white; opacity: 0.95;">Municipio Conectado, Observatorio Local, Compliance: elige qué necesitas, escalamos juntos</p>
+        </div>
+        <div class="card" style="margin-bottom: 2rem; border-left-color: white;">
+          <h3 style="color: white;">⚡ Implementación Rápida</h3>
+          <p style="color: white; opacity: 0.95;">2-4 semanas de setup y capacitación. Sin disrupciones, sin cambios drásticos en tus procesos</p>
+        </div>
+        <div class="card" style="margin-bottom: 2rem; border-left-color: white;">
+          <h3 style="color: white;">🤝 Partnership Local</h3>
+          <p style="color: white; opacity: 0.95;">Equipo en Entre Ríos, conocemos la región, respuesta rápida, ajustes según tu realidad</p>
+        </div>
+        <div class="card" style="border-left-color: white;">
+          <h3 style="color: white;">💪 Soporte Permanente</h3>
+          <p style="color: white; opacity: 0.95;">No es un software y adiós. Estamos para que funcione, crezcas, y escales cuando lo necesites</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 10: Casos de Éxito -->
+  <div class="slide slide-content">
+    <div class="content-box">
+      <h2>Casos de Éxito</h2>
+      <div class="grid-2" style="margin-top: 3rem;">
+        <div class="card">
+          <h3>Municipio Referencia</h3>
+          <p><strong>Antes:</strong> 40% consultas sin respuesta</p>
+          <p style="margin-top: 1rem;"><strong>Después (4 semanas):</strong></p>
+          <ul style="margin-top: 1rem;">
+            <li>✓ 95% consultas resueltas</li>
+            <li>✓ 1 FTE liberado</li>
+            <li>✓ Ciudadanos felices</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Impacto Medible</h3>
+          <p><strong>Satisfacción ciudadana:</strong> +40%</p>
+          <p style="margin-top: 1rem;"><strong>Tiempo resolución:</strong> -60%</p>
+          <p style="margin-top: 1rem;"><strong>Costo por trámite:</strong> -45%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 11: Próximos Pasos -->
+  <div class="slide slide-accent">
+    <div class="content-box">
+      <h2>¿Qué Sigue?</h2>
+      <div style="margin-top: 3rem;">
+        <div class="card" style="margin-bottom: 2rem; border-left-color: white;">
+          <h3 style="color: white;">Paso 1: Demo en Vivo</h3>
+          <p style="color: white; opacity: 0.95;">Te mostramos el sistema funcionando, exactamente como sería en tu municipio</p>
+        </div>
+        <div class="card" style="margin-bottom: 2rem; border-left-color: white;">
+          <h3 style="color: white;">Paso 2: Propuesta Personalizada</h3>
+          <p style="color: white; opacity: 0.95;">Plan específico para tu municipio, con números reales y timeline</p>
+        </div>
+        <div class="card" style="border-left-color: white;">
+          <h3 style="color: white;">Paso 3: Piloto 3 Meses</h3>
+          <p style="color: white; opacity: 0.95;">Implementación, capacitación, soporte. Sin compromiso a largo plazo.</p>
+        </div>
+      </div>
+      <div style="margin-top: 3rem; text-align: center;">
+        <p style="font-size: 1.3rem; color: white;"><strong>¿Agendamos una videollamada esta semana?</strong></p>
+        <p style="color: white; opacity: 0.8; margin-top: 1rem;">20 minutos • Sin costo • Sin compromiso</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 12: Contacto -->
+  <div class="slide slide-hero">
+    <div class="content-box">
+      <h1 class="accent-gold">Gracias</h1>
+      <p class="subtitle">Comenzamos esta semana</p>
+      <div style="margin-top: 4rem;">
+        <p style="font-size: 1.2rem;"><strong>Cristian Kaehler</strong> &middot; <strong>Matías Martínez</strong></p>
+        <p style="font-size: 1.1rem; opacity: 0.8;">Arará Consultora</p>
+        <p style="margin-top: 1rem; font-size: 1.1rem;">📧 info@arara.com.ar</p>
+        <p style="font-size: 1.1rem;">📱 343 4407339</p>
+      </div>
+      <a href="https://www.arara.com.ar/index.html" target="_blank" class="cta" style="display: inline-block; text-decoration: none; margin-top: 2.5rem; max-width: 320px; margin-left: auto; margin-right: auto;">
+        Visitar www.arara.com.ar →
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+  <button id="prev" onclick="changeSlide(-1)">← Anterior</button>
+  <button id="next" onclick="changeSlide(1)">Siguiente →</button>
+</div>
+
+<div class="slide-counter">
+  <span id="current-slide">1</span> / <span id="total-slides">12</span>
+</div>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+
+  document.getElementById('total-slides').textContent = totalSlides;
+
+  function showSlide(n) {
+    slides.forEach(slide => slide.classList.remove('active'));
+
+    if (n >= totalSlides) {
+      currentSlide = totalSlides - 1;
+    } else if (n < 0) {
+      currentSlide = 0;
+    } else {
+      currentSlide = n;
+    }
+
+    slides[currentSlide].classList.add('active');
+    document.getElementById('current-slide').textContent = currentSlide + 1;
+
+    // Update button states
+    document.getElementById('prev').disabled = currentSlide === 0;
+    document.getElementById('next').disabled = currentSlide === totalSlides - 1;
+  }
+
+  function changeSlide(n) {
+    showSlide(currentSlide + n);
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') changeSlide(-1);
+    if (e.key === 'ArrowRight') changeSlide(1);
+  });
+
+  // Initialize
+  showSlide(0);
+</script>
+
+</body>
+</html>

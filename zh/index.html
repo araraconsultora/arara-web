@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
 <meta charset="UTF-8">
@@ -115,6 +115,13 @@ footer{background:#060f1d;color:#aeb9c8;padding:54px 0 28px;font-size:14px;}
 .obs-feature .meta{font-family:'Inter',sans-serif;font-size:13px;color:var(--gray-mid);margin-top:18px;}
 .obs-feature-media{min-height:315px;background:#d9e0e8;}
 .obs-feature-media img{width:100%;height:100%;object-fit:cover;display:block;}
+.obs-solar-media{background:linear-gradient(135deg,#f7fbff 0%,#e7f1ef 100%);display:grid;align-content:center;gap:18px;padding:28px;position:relative;overflow:hidden;}
+.obs-solar-media::before{content:'';position:absolute;right:28px;top:26px;width:74px;height:74px;border-radius:50%;background:radial-gradient(circle,var(--gold-light) 0 32%,rgba(232,201,106,.22) 33% 60%,transparent 61%);box-shadow:0 0 34px rgba(232,201,106,.5);}
+.solar-mini-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:250px;transform:skewY(-7deg);}
+.solar-mini-grid span{height:34px;border-radius:6px;background:linear-gradient(145deg,#1a3a6b,#2557a7);border:1px solid rgba(255,255,255,.35);box-shadow:0 7px 14px rgba(10,22,40,.14);}
+.solar-mini-badge{position:relative;z-index:2;background:rgba(10,22,40,.92);color:#fff;border-left:5px solid var(--gold);padding:14px 16px;border-radius:10px;max-width:300px;}
+.solar-mini-badge b{display:block;font-size:25px;line-height:1;font-family:'Playfair Display',Georgia,serif;color:#fff;}
+.solar-mini-badge span{display:block;font-size:12px;color:#c3cedd;margin-top:5px;}
 .obs-cta{display:inline-flex;align-items:center;color:var(--blue-mid);font-weight:800;font-size:14px;margin-top:22px;}
 .obs-top{height:6px;background:linear-gradient(90deg,var(--gold),var(--red));}
 .obs-link-card{color:inherit;text-decoration:none;}
@@ -186,6 +193,7 @@ footer{background:#060f1d;color:#aeb9c8;padding:54px 0 28px;font-size:14px;}
     <nav class="nav-links">
       <a href="#servicios">服务</a>
       <a href="observatorio.html">观察站</a>
+      <a href="/digital/">Digital</a>
       <a href="#nosotros">关于我们</a>
       <a href="#contacto" class="nav-cta">联系我们</a>
       <a href="https://www.facebook.com/profile.php?id=61590969711155" class="nav-social" target="_blank" rel="noopener" aria-label="Facebook">
@@ -283,19 +291,37 @@ footer{background:#060f1d;color:#aeb9c8;padding:54px 0 28px;font-size:14px;}
       <h2>最新文章与报告</h2>
       <p>关于恩特雷里奥斯省生产发展的文章、地图和应用型报告。每个内容都可从首页直接打开，并在生产观察站中继续扩展。</p>
     </div>
-    <a class="obs-feature obs-link-card" href="/zh/modelado-viabilidad-obra-publica-nodal.html">
+    <a class="obs-feature obs-link-card" href="/zh/entre-rios-tres-territorios.html">
       <div class="obs-body">
-        <div class="obs-tag">基础设施 · 技术测算</div>
-        <h3>节点型公共工程的可行性建模与战略管理</h3>
-        <p>用于衡量节点型公共工程的生产影响、经济可行性和物流风险的咨询工具。</p>
-        <div class="meta">观察站新报告</div>
+        <div class="obs-tag">区域智能 · 恩特雷里奥斯省</div>
+        <h3>从内部看恩特雷里奥斯：三个区域，三种生产逻辑</h3>
+        <p>基于Arará生产观察站的卫星遥感与区域智能数据，对Feliciano、La Paz和Colón三个县进行比较分析。</p>
+        <div class="meta">观察站新文章</div>
         <span class="obs-cta">阅读报告</span>
       </div>
-      <div class="obs-feature-media">
-        <img src="/modelado-viabilidad-obra-publica-nodal.jpeg" alt="节点型公共工程测算与管理咨询工具">
+      <div class="obs-feature-media" aria-hidden="true">
+        <img src="/entre-rios-tres-territorios-cover.png" alt="">
       </div>
     </a>
     <div class="grid">
+      <a class="obs-mini obs-link-card" href="/zh/solar-distribuida-avicola-entre-rios.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">能源 · 禽业 · 区域</div>
+          <h3>恩特雷里奥斯省禽业设施分布式太阳能发电潜力</h3>
+          <p>一个用于衡量La Paz、Nogoyá和Colón既有禽业屋顶太阳能机会的区域模型。</p>
+          <div class="meta">观察站报告</div>
+        </div>
+      </a>
+      <a class="obs-mini obs-link-card" href="/zh/modelado-viabilidad-obra-publica-nodal.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">基础设施 · 技术测算</div>
+          <h3>节点型公共工程的可行性建模与战略管理</h3>
+          <p>关于节点型公共工程的生产影响、经济可行性和物流风险。</p>
+          <div class="meta">观察站报告</div>
+        </div>
+      </a>
       <a class="obs-mini obs-link-card" href="/zh/alianzas-con-valor.html">
         <div class="obs-top"></div>
         <div class="obs-body">
@@ -466,5 +492,7 @@ document.getElementById('burger').addEventListener('click',function(){
 </a>
 </body>
 </html>
+
+
 
 

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Potencial de generaci&oacute;n solar distribuida en establecimientos av&iacute;colas de Entre R&iacute;os &mdash; Arar&aacute;</title>
+<meta name="description" content="Informe t&eacute;cnico del Observatorio Productivo Arar&aacute; sobre generaci&oacute;n solar distribuida en establecimientos av&iacute;colas de Entre R&iacute;os.">
+<link rel="canonical" href="https://arara.com.ar/solar-distribuida-avicola-entre-rios.html">
+<link rel="alternate" hreflang="es" href="https://arara.com.ar/solar-distribuida-avicola-entre-rios.html">
+<link rel="alternate" hreflang="en" href="https://arara.com.ar/solar-distributed-poultry-entre-rios-en.html">
+<link rel="alternate" hreflang="zh" href="https://arara.com.ar/zh/solar-distribuida-avicola-entre-rios.html">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Arar&aacute;">
+<meta property="og:title" content="Potencial de generaci&oacute;n solar distribuida en establecimientos av&iacute;colas de Entre R&iacute;os">
+<meta property="og:description" content="238 hect&aacute;reas de techo av&iacute;cola relevado podr&iacute;an alojar 119 MWp de potencia solar instalada bajo un escenario conservador.">
+<meta property="og:url" content="https://arara.com.ar/solar-distribuida-avicola-entre-rios.html">
+<meta property="og:image" content="https://arara.com.ar/og-solar-avicola-v2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arara.com.ar/og-solar-avicola-v2.png">
+<meta property="og:locale" content="es_AR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CVC3VZ5WD7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CVC3VZ5WD7');
+</script>
+<style>
+:root{
+  --navy:#0a1628;--blue:#1a3a6b;--blue-mid:#2557a7;--gold:#c8a84b;--gold-light:#e8c96a;
+  --white:#fff;--off:#f6f8fb;--gray-line:#e4e9f0;--gray-mid:#8a97a8;--gray-text:#46546a;--ink:#0d1b2a;--green:#2d7a4d;--teal:#2e8b7d;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);line-height:1.65;background:var(--white);}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.2;font-weight:700;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+header{position:sticky;top:0;z-index:50;background:var(--navy);border-bottom:1px solid rgba(200,168,75,.28);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:92px;}
+.brand{display:flex;align-items:center;cursor:pointer;background:#fff;padding:7px 16px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.28);transition:transform .15s;}
+.brand:hover{transform:translateY(-1px);}
+.brand-logo{height:54px;width:auto;display:block;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-size:14.5px;font-weight:500;color:#cdd6e2;transition:color .2s;letter-spacing:.02em;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-light);}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:10px 20px;border-radius:6px;font-weight:700;font-size:14px;transition:background .2s;}
+.nav-cta:hover{background:var(--gold-light);}
+.language-switch{display:flex;align-items:center;gap:6px;margin-left:14px;}
+.language-switch a{font-size:12px;font-weight:800;letter-spacing:.04em;color:#cdd6e2;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px 9px;line-height:1;transition:background .2s,color .2s,border-color .2s;}
+.language-switch a:hover,.language-switch a.active{background:var(--gold);border-color:var(--gold);color:var(--navy);}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px;}
+.burger span{width:24px;height:2px;background:#fff;border-radius:2px;}
+.hero{background:linear-gradient(160deg,#071322 0%,#12315a 58%,#0a1628 100%);color:#fff;padding:70px 0 64px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 92% 80% at 24% 36%,#000 28%,transparent 76%);pointer-events:none;}
+.hero .wrap{position:relative;z-index:2;}
+.breadcrumb{font-size:13px;color:#aeb9c8;margin-bottom:22px;}
+.breadcrumb a{color:var(--gold-light);border-bottom:1px solid rgba(200,168,75,.45);}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:18px;display:flex;align-items:center;gap:14px;}
+.eyebrow::before{content:'';width:44px;height:2px;background:var(--gold);}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,450px);gap:42px;align-items:center;}
+.hero h1{font-size:47px;font-weight:800;margin-bottom:18px;letter-spacing:-.01em;max-width:900px;}
+.hero p{font-size:18px;color:#d3dcea;max-width:760px;line-height:1.65;}
+.article-meta{margin-top:22px;font-size:14px;color:#aeb9c8;}
+.article-meta strong{color:var(--gold-light);}
+.solar-visual{background:#fff;border:1px solid rgba(200,168,75,.32);border-radius:14px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,.22);}
+.solar-visual-top{min-height:310px;position:relative;overflow:hidden;background:#d9e4ed;}
+.solar-visual-top img{width:100%;height:100%;min-height:310px;display:block;object-fit:cover;}
+.solar-visual-top::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,15,29,0) 34%,rgba(6,15,29,.76) 100%);pointer-events:none;}
+.solar-caption{position:absolute;left:22px;right:22px;bottom:22px;z-index:2;background:rgba(10,22,40,.9);color:#fff;border-left:5px solid var(--gold);padding:16px 18px;border-radius:10px;max-width:340px;backdrop-filter:blur(4px);}
+.solar-caption b{display:block;font-size:28px;line-height:1;font-family:'Playfair Display',Georgia,serif;color:#fff;}
+.solar-caption span{display:block;font-size:13px;color:#c3cedd;margin-top:6px;}
+.solar-visual figcaption{font-size:12px;line-height:1.4;color:#6b7889;padding:13px 15px;background:#fff;}
+.metric-strip{margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.hero-metric{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:14px 12px;min-height:82px;}
+.hero-metric b{display:block;font-size:22px;color:#fff;line-height:1.1;margin-bottom:4px;font-family:'Playfair Display',Georgia,serif;}
+.hero-metric span{display:block;font-size:12px;color:#c3cedd;line-height:1.35;}
+.page{background:var(--off);padding:58px 0 82px;}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;align-items:start;}
+.article{background:#fff;border:1px solid var(--gray-line);border-radius:12px;padding:38px;}
+.article h2{font-size:30px;margin:34px 0 14px;color:var(--navy);}
+.article h2:first-child{margin-top:0;}
+.article h3{font-size:22px;margin:24px 0 10px;color:var(--blue);}
+.article p{font-size:16px;color:var(--gray-text);margin-bottom:18px;}
+.lead{font-size:18px!important;color:#26364d!important;line-height:1.75;}
+.callout{border-left:4px solid var(--gold);background:#fbfaf4;padding:18px 20px;margin:28px 0;color:#26364d;font-size:17px;}
+.article ul,.article ol{margin:0 0 22px 22px;color:var(--gray-text);}
+.article li{margin-bottom:9px;}
+.table-wrap{overflow-x:auto;margin:18px 0 28px;border:1px solid var(--gray-line);border-radius:10px;background:#fff;}
+table{width:100%;border-collapse:collapse;min-width:620px;}
+th,td{padding:12px 14px;border-bottom:1px solid var(--gray-line);text-align:left;font-size:14px;color:var(--gray-text);vertical-align:top;}
+th{background:#f0f4f9;color:var(--navy);font-weight:800;}
+tr:last-child td{border-bottom:0;}
+.district-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0 30px;}
+.district-card{background:#fff;border:1px solid var(--gray-line);border-radius:12px;padding:18px;}
+.district-card h4{font-family:'Inter',system-ui,sans-serif;font-size:15px;color:var(--navy);margin-bottom:10px;}
+.district-card ul{list-style:none;margin:0;color:var(--gray-text);}
+.district-card li{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--gray-line);padding:8px 0;margin:0;font-size:13.5px;}
+.district-card li:first-child{border-top:0;}
+.district-card b{color:var(--blue-mid);white-space:nowrap;}
+.map-panel{margin:22px 0 30px;background:#fff;border:1px solid var(--gray-line);border-radius:12px;overflow:hidden;}
+.map-panel-head{padding:20px 22px 16px;display:flex;justify-content:space-between;gap:18px;align-items:flex-end;border-bottom:1px solid var(--gray-line);}
+.map-panel-head h4{font-family:'Inter',system-ui,sans-serif;font-size:18px;color:var(--navy);margin-bottom:5px;}
+.map-panel-head p{font-size:14px;color:var(--gray-text);margin:0;max-width:720px;}
+.map-tabs{display:flex;gap:8px;flex-wrap:wrap;}
+.map-tab{border:1px solid #dbe4ef;background:#f5f8fc;color:var(--blue);border-radius:999px;padding:8px 12px;font:800 12px 'Inter',system-ui,sans-serif;cursor:pointer;transition:background .2s,color .2s,border-color .2s;}
+.map-tab.active{background:var(--blue-mid);color:#fff;border-color:var(--blue-mid);}
+#solar-map{height:560px;width:100%;background:#e8eef5;}
+.map-legend{display:flex;flex-wrap:wrap;gap:12px;padding:13px 18px;background:#fbfcfe;border-top:1px solid var(--gray-line);font-size:12px;color:var(--gray-text);}
+.legend-item{display:inline-flex;align-items:center;gap:7px;}
+.legend-swatch{width:24px;height:12px;border-radius:3px;border:1px solid rgba(10,22,40,.12);}
+.leaflet-popup-content{font-family:'Inter',system-ui,sans-serif;font-size:13px;line-height:1.45;}
+.popup-title{font-weight:800;color:#0a1628;margin-bottom:6px;}
+.popup-grid{display:grid;grid-template-columns:auto auto;gap:4px 12px;}
+.popup-grid span:nth-child(odd){color:#6b7889;}
+.popup-grid span:nth-child(even){font-weight:700;color:#0d1b2a;text-align:right;}
+.result-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 22px;}
+.result-pill{background:#f4f8fc;border:1px solid #dbe7f3;border-radius:10px;padding:13px 12px;}
+.result-pill b{display:block;color:var(--blue-mid);font-size:20px;font-family:'Playfair Display',Georgia,serif;line-height:1.1;margin-bottom:4px;}
+.result-pill span{display:block;font-size:12px;color:var(--gray-text);line-height:1.35;}
+.side{display:grid;gap:16px;}
+.panel{background:#fff;border:1px solid var(--gray-line);border-radius:12px;padding:24px;}
+.panel h3{font-size:22px;margin-bottom:14px;color:var(--navy);}
+.metric{padding:14px 0;border-top:1px solid var(--gray-line);}
+.metric:first-of-type{border-top:0;padding-top:0;}
+.metric b{display:block;font-size:26px;color:var(--blue-mid);line-height:1.1;font-family:'Playfair Display',Georgia,serif;}
+.metric span{font-size:13px;color:var(--gray-text);}
+.tag-list{display:flex;flex-wrap:wrap;gap:8px;}
+.tag{font-size:12px;font-weight:700;color:var(--blue-mid);background:#edf3fb;border:1px solid #d8e4f2;border-radius:999px;padding:6px 10px;}
+.cta{background:var(--navy);color:#fff;border-color:rgba(200,168,75,.35);}
+.cta p{color:#c3cedd;font-size:14px;margin-bottom:16px;}
+.cta a{display:inline-flex;background:var(--gold);color:var(--navy);padding:11px 15px;border-radius:8px;font-weight:800;font-size:13px;}
+footer{background:#060f1d;color:#aeb9c8;padding:54px 0 28px;font-size:14px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:36px;}
+.foot-brand .brand-name{font-size:22px;margin-bottom:12px;}
+.foot-brand p{max-width:340px;color:#8a97a8;}
+.foot-col h5{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:14px;font-weight:700;}
+.foot-col a{display:block;padding:5px 0;color:#aeb9c8;transition:color .2s;}
+.foot-col a:hover{color:var(--gold);}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#6b7889;font-size:13px;}
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .burger{display:flex;}
+  .nav{height:74px;}
+  .brand-logo{height:54px;}
+  .hero{padding:50px 0 46px;}
+  .hero-grid{grid-template-columns:1fr;gap:28px;}
+  .hero h1{font-size:34px;}
+  .hero p{font-size:16px;}
+  .metric-strip{grid-template-columns:1fr 1fr;}
+  .layout{grid-template-columns:1fr;}
+  .article{padding:28px;}
+  .district-grid,.result-summary{grid-template-columns:1fr;}
+  .map-panel-head{display:block;}
+  .map-tabs{margin-top:14px;}
+  #solar-map{height:480px;}
+  .foot-grid{grid-template-columns:1fr;gap:32px;}
+}
+@media(max-width:520px){
+  .metric-strip{grid-template-columns:1fr;}
+  .hero h1{font-size:31px;}
+  .solar-visual-top,.solar-visual-top img{min-height:260px;}
+  .solar-caption{left:16px;right:16px;bottom:16px;}
+}
+</style>
+<link rel="stylesheet" href="whatsapp-float.css">
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand" onclick="location.href='index.html'">
+      <img src="logo-header.png" alt="Arará — Consultoría" class="brand-logo">
+    </div>
+    <nav class="nav-links">
+      <a href="index.html#servicios">Servicios</a>
+      <a href="observatorio.html" class="active">Observatorio</a>
+      <a href="index.html#nosotros">Nosotros</a>
+      <a href="index.html#contacto" class="nav-cta">Contacto</a>
+    </nav>
+    <div class="language-switch" aria-label="Idiomas">
+      <a href="solar-distribuida-avicola-entre-rios.html" class="active">ES</a>
+      <a href="solar-distributed-poultry-entre-rios-en.html">EN</a>
+      <a href="zh/solar-distribuida-avicola-entre-rios.html">中文</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> / <a href="observatorio.html">Observatorio</a> / Energía solar avícola</div>
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Energía · Avicultura · Territorio</div>
+        <h1>Potencial de generación solar distribuida en establecimientos avícolas de Entre Ríos</h1>
+        <p>Un modelo territorial para dimensionar la oportunidad solar sobre techos avícolas ya construidos, combinando caso testigo, normativa vigente y relevamiento satelital.</p>
+        <div class="article-meta">Informe técnico del <strong>Observatorio Productivo Arará</strong></div>
+      </div>
+      <figure class="solar-visual">
+        <div class="solar-visual-top">
+          <img src="solar-avicola-paneles.jpg" alt="Paneles solares instalados sobre techo agroindustrial rural" loading="eager">
+          <div class="solar-caption">
+            <b>119 MWp</b>
+            <span>potencial conservador sobre 60% de techos avícolas relevados.</span>
+          </div>
+        </div>
+        <figcaption>Escenario realista de aprovechamiento solar distribuido sobre infraestructura avícola existente en La Paz, Nogoyá y Colón.</figcaption>
+      </figure>
+    </div>
+    <div class="metric-strip" aria-label="Indicadores principales">
+      <div class="hero-metric"><b>238 ha</b><span>de techo avícola relevado en tres departamentos.</span></div>
+      <div class="hero-metric"><b>USD 83,4 M</b><span>inversión potencial estimada en escenario realista.</span></div>
+      <div class="hero-metric"><b>136 GWh/año</b><span>generación eléctrica anual proyectada.</span></div>
+      <div class="hero-metric"><b>59.700 tCO₂</b><span>emisiones evitadas por año.</span></div>
+    </div>
+  </div>
+</section>
+
+<main class="page">
+  <div class="wrap layout">
+    <article class="article">
+      <h2>Resumen ejecutivo</h2>
+      <p class="lead">Entre Ríos atraviesa un momento favorable para la generación solar distribuida: marco normativo provincial consolidado, incentivos fiscales nacionales vigentes y un recurso solar entre los mejores del Litoral.</p>
+      <p>A partir de un caso real y auditado de instalación fotovoltaica en un establecimiento avícola entrerriano, se construyó un modelo de extrapolación territorial aplicado a la superficie de techo avícola relevada en tres departamentos: La Paz, Nogoyá y Colón.</p>
+      <p>El techo avícola ya construido en estos tres departamentos asciende a 238 hectáreas. Bajo un escenario de aprovechamiento conservador, usando el 60% del techo disponible como en el caso testigo real, esa superficie podría alojar aproximadamente 119 MWp de potencia solar instalada.</p>
+
+      <h2>Por qué este es el momento</h2>
+      <h3>Marco normativo activo</h3>
+      <p>Entre Ríos adhirió a la Ley Nacional 27.424 mediante la Ley Provincial 10.933, que fijó como meta provincial el 30% de energía sustentable para 2030 y elevó el límite de potencia instalable por usuario de 50 kW a 1 MW.</p>
+      <p>En abril de 2026 se aprobó la Resolución 120/2026 de la Secretaría de Energía, que reglamentó la Generación Distribuida Comunitaria y Remota, habilitando que varios productores se asocien en un esquema común de generación.</p>
+      <p>A nivel nacional, el RIMI 2026 habilita devolución de IVA y amortización acelerada para inversión en generación, almacenamiento o transporte de energía bajo el régimen de Generación Distribuida, bajando el costo de capital inicial para una PyME agropecuaria.</p>
+
+      <h3>El recurso solar es bueno, y mejor en el norte</h3>
+      <p>Según los mapas solares elaborados para la provincia, la radiación solar anual disponible en Entre Ríos varía entre 1.550 kWh/m²/año y 1.800 kWh/m²/año en el departamento Feliciano y el norte de Federación, el máximo de toda la provincia.</p>
+      <div class="callout">El departamento con mejor recurso solar de Entre Ríos no tiene actividad avícola relevada en este informe. Esa diferencia abre una oportunidad de política pública: incorporar el criterio energético a la localización de nueva infraestructura productiva.</div>
+
+      <h2>El caso testigo</h2>
+      <p>El modelo parte de un establecimiento avícola de engorde con operación continua, consumo eléctrico anual de 63.563 kWh, techo disponible de 1.200 m² y tarifa industrial T3.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parámetro</th><th>Valor</th></tr></thead>
+          <tbody>
+            <tr><td>Potencia instalada</td><td>60 kWp</td></tr>
+            <tr><td>Superficie ocupada</td><td>720 m², equivalente al 60% del techo disponible</td></tr>
+            <tr><td>Cobertura de consumo anual</td><td>107,77%</td></tr>
+            <tr><td>Inversión inicial</td><td>USD 39.000 - 42.000</td></tr>
+            <tr><td>Emisiones de CO₂ evitadas</td><td>751 toneladas en 25 años</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Resultado financiero</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Indicador</th><th>Capital propio</th><th>Con financiamiento verde CFI</th></tr></thead>
+          <tbody>
+            <tr><td>VAN</td><td>USD -1.925</td><td>USD 9.503</td></tr>
+            <tr><td>TIR</td><td>11,3%</td><td>18,3%</td></tr>
+            <tr><td>Repago simple</td><td>9 años</td><td>8 años</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>El proyecto, evaluado con capital 100% propio, da un Valor Actual Neto levemente negativo. Sólo se vuelve positivo accediendo a una línea de financiamiento blando, en este caso la línea verde del CFI.</p>
+      <p>Este matiz es clave: la generación solar distribuida en establecimientos avícolas de Entre Ríos es una inversión viable, pero condicionada al acceso a crédito subsidiado.</p>
+
+      <h2>Extrapolación territorial</h2>
+      <p>A partir del caso testigo se derivaron parámetros físicos y financieros reales, aplicados luego a la superficie de tinglado avícola relevada por Landbau mediante teledetección satelital en La Paz, Nogoyá y Colón.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parámetro derivado</th><th>Valor</th><th>Cálculo base</th></tr></thead>
+          <tbody>
+            <tr><td>Densidad de potencia</td><td>833 kWp/ha de techo</td><td>60 kWp / 720 m²</td></tr>
+            <tr><td>Costo de instalación</td><td>USD 700/kWp</td><td>USD 42.000 / 60 kWp</td></tr>
+            <tr><td>Generación específica</td><td>1.142 kWh/kWp/año</td><td>Consumo y cobertura del caso testigo</td></tr>
+            <tr><td>Emisiones evitadas</td><td>0,50 tCO₂/kWp/año</td><td>751 tCO₂ / 25 años / 60 kWp</td></tr>
+            <tr><td>Techo efectivamente usado</td><td>60%</td><td>720 m² / 1.200 m² disponibles</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Superficie de techo avícola relevada</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Departamento</th><th>Tinglado carne de ave</th><th>Tinglado huevo</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td>Colón</td><td>164,69 ha</td><td>3,92 ha</td><td>168,61 ha</td></tr>
+            <tr><td>Nogoyá</td><td>33,95 ha</td><td>8,31 ha</td><td>42,26 ha</td></tr>
+            <tr><td>La Paz</td><td>27,41 ha</td><td>-</td><td>27,41 ha</td></tr>
+            <tr><td>Feliciano</td><td>-</td><td>-</td><td>sin actividad avícola relevada</td></tr>
+            <tr><td><strong>Total 3 departamentos</strong></td><td></td><td></td><td><strong>238,28 ha</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Distribución por distrito</h3>
+      <p>La superficie de techo avícola no se distribuye de forma pareja dentro de cada departamento. En La Paz, Alcaraz 2° concentra el 62% del techo avícola departamental. En Nogoyá, Algarrobitos concentra el 73%. En Colón, el techo se reparte de forma más pareja entre cinco distritos.</p>
+      <section class="map-panel" aria-label="Mapa interactivo de techos avícolas por distrito">
+        <div class="map-panel-head">
+          <div>
+            <h4>Mapa interactivo por distrito</h4>
+            <p>Geometría real de los KML relevados. El color indica hectáreas de techo avícola por distrito; al hacer clic se abre el detalle territorial.</p>
+          </div>
+          <div class="map-tabs" aria-label="Filtrar departamento">
+            <button class="map-tab active" type="button" data-dept="Todos">Todos</button>
+            <button class="map-tab" type="button" data-dept="La Paz">La Paz</button>
+            <button class="map-tab" type="button" data-dept="Nogoyá">Nogoyá</button>
+            <button class="map-tab" type="button" data-dept="Colón">Colón</button>
+          </div>
+        </div>
+        <div id="solar-map"></div>
+        <div class="map-legend" aria-label="Escala de intensidad">
+          <span class="legend-item"><span class="legend-swatch" style="background:#eef3f8"></span>Sin actividad relevada</span>
+          <span class="legend-item"><span class="legend-swatch" style="background:#d7e6f5"></span>Baja</span>
+          <span class="legend-item"><span class="legend-swatch" style="background:#8fb6dc"></span>Media</span>
+          <span class="legend-item"><span class="legend-swatch" style="background:#2557a7"></span>Alta</span>
+        </div>
+      </section>
+      <div class="district-grid" aria-label="Distribución de tinglado avícola por distrito">
+        <section class="district-card">
+          <h4>La Paz · 27,41 ha relevadas</h4>
+          <ul>
+            <li><span>Alcaraz 2°</span><b>17,0 ha</b></li>
+            <li><span>Feliciano, distrito de La Paz</span><b>5,4 ha</b></li>
+            <li><span>Alcaraz 1°</span><b>3,7 ha</b></li>
+            <li><span>Yeso</span><b>1,3 ha</b></li>
+          </ul>
+        </section>
+        <section class="district-card">
+          <h4>Nogoyá · 42,26 ha relevadas</h4>
+          <ul>
+            <li><span>Algarrobitos</span><b>30,8 ha</b></li>
+            <li><span>Sauce</span><b>6,7 ha</b></li>
+            <li><span>Don Cristóbal</span><b>2,8 ha</b></li>
+            <li><span>Crucecitas</span><b>1,3 ha</b></li>
+            <li><span>Montoya</span><b>0,7 ha</b></li>
+          </ul>
+        </section>
+        <section class="district-card">
+          <h4>Colón · 168,61 ha relevadas</h4>
+          <ul>
+            <li><span>Distrito 1°</span><b>58,9 ha</b></li>
+            <li><span>Distrito 2°</span><b>51,0 ha</b></li>
+            <li><span>Distrito 3°</span><b>36,2 ha</b></li>
+            <li><span>Distrito 4°</span><b>11,3 ha</b></li>
+            <li><span>Distrito 6°</span><b>10,0 ha</b></li>
+          </ul>
+        </section>
+      </div>
+      <p>Esta lectura territorial permite identificar dónde un proyecto de generación comunitaria tendría mayor masa crítica con menos actores a coordinar, y dónde conviene pensar en esquemas asociativos más amplios.</p>
+
+      <h3>Resultados del escenario realista</h3>
+      <div class="result-summary" aria-label="Síntesis del escenario realista">
+        <div class="result-pill"><b>119,1 MWp</b><span>potencia solar total estimada.</span></div>
+        <div class="result-pill"><b>USD 83,4 M</b><span>inversión potencial proyectada.</span></div>
+        <div class="result-pill"><b>136,1 GWh/año</b><span>generación eléctrica anual.</span></div>
+        <div class="result-pill"><b>59.686 tn/año</b><span>CO₂ evitado por año.</span></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Departamento</th><th>Potencia</th><th>Inversión</th><th>Generación</th><th>CO₂ evitado</th></tr></thead>
+          <tbody>
+            <tr><td>Colón</td><td>84.302 kWp</td><td>USD 59,0 M</td><td>96,3 GWh/año</td><td>42.235 tn/año</td></tr>
+            <tr><td>Nogoyá</td><td>21.129 kWp</td><td>USD 14,8 M</td><td>24,1 GWh/año</td><td>10.586 tn/año</td></tr>
+            <tr><td>La Paz</td><td>13.702 kWp</td><td>USD 9,6 M</td><td>15,6 GWh/año</td><td>6.865 tn/año</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>119.133 kWp</strong></td><td><strong>USD 83,4 M</strong></td><td><strong>136,1 GWh/año</strong></td><td><strong>59.686 tn/año</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>La generación estimada cubre el 108% del consumo eléctrico implícito de la actividad avícola en los tres departamentos. El resultado es prácticamente idéntico al 107,77% de cobertura del caso testigo real, lo que confirma que el modelo escala de forma consistente.</p>
+
+      <h3>Escenario de techo físico completo</h3>
+      <p>Si se cubriera el 100% del techo avícola relevado, la capacidad física ascendería a 198,6 MWp, con una inversión teórica de USD 139 millones y una generación de 227 GWh/año.</p>
+      <p>Ese excedente debería inyectarse a la red bajo un esquema de remuneración distinto, por lo que el escenario de 60% es el de referencia para cualquier proyección de inversión inmediata. El techo físico completo sirve como referencia estructural de política pública de mediano plazo.</p>
+
+      <h2>Lectura por departamento</h2>
+      <p><strong>Colón</strong> concentra el 71% del potencial estructural relevado. Es, en términos de masa crítica, el candidato más claro para un proyecto piloto de generación comunitaria bajo la Resolución 120/2026.</p>
+      <p><strong>Nogoyá</strong> es el único de los tres departamentos con producción de huevo relevada en cantidad significativa, lo que sugiere una matriz avícola más diversificada entre engorde y postura.</p>
+      <p><strong>La Paz</strong> concentra su infraestructura en pocos establecimientos de alta escala, por lo que un esquema individual puede alcanzar una escala considerable por sitio.</p>
+      <p><strong>Feliciano</strong>, paradójicamente, no tiene desarrollo avícola relevado pese a contar con el mejor recurso solar provincial. Es un caso claro para pensar política de localización industrial con criterio energético.</p>
+
+      <h3>Establecimientos avícolas y concentración</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Departamento</th><th>EP avícolas</th><th>Potencia estimada</th><th>kWp por establecimiento</th></tr></thead>
+          <tbody>
+            <tr><td>La Paz</td><td>38</td><td>13.702 kWp</td><td>360,6 kWp/EP</td></tr>
+            <tr><td>Nogoyá</td><td>93</td><td>21.129 kWp</td><td>227,2 kWp/EP</td></tr>
+            <tr><td>Colón</td><td>395</td><td>84.302 kWp</td><td>213,4 kWp/EP</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>526</strong></td><td><strong>119.133 kWp</strong></td><td>-</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Conclusiones y recomendaciones</h2>
+      <ol>
+        <li>La oportunidad estructural es real y considerable: 238 hectáreas de techo avícola ya construido representan un activo físico subutilizado para generación de energía limpia.</li>
+        <li>El acceso a financiamiento blando es la variable que define la viabilidad, más que la tecnología o el recurso solar.</li>
+        <li>La Generación Distribuida Comunitaria abre una vía para escalar más allá del establecimiento individual, especialmente en Colón.</li>
+        <li>El gradiente de recurso solar provincial sugiere incorporar el criterio energético a la planificación territorial de nueva infraestructura productiva.</li>
+      </ol>
+
+      <h2>Nota metodológica y limitaciones</h2>
+      <ul>
+        <li>Los parámetros técnicos y financieros del caso testigo provienen de un informe del Programa Federal de Gestión Energética, CFI - Gobierno de Entre Ríos, abril de 2025.</li>
+        <li>La extrapolación aplica el ratio físico real del caso testigo a superficie de tinglado avícola relevada mediante teledetección satelital en La Paz, Nogoyá y Colón.</li>
+        <li>No se extrapola a otras actividades productivas por tratarse de tipologías constructivas de techo distintas.</li>
+        <li>El escenario de techo físico completo es una referencia de capacidad estructural, no una proyección de inversión.</li>
+        <li>Costos, generación y emisiones evitadas escalan linealmente desde un único caso testigo; variaciones de orientación, tecnología y financiamiento pueden modificar resultados reales.</li>
+      </ul>
+
+      <div class="callout">Informe elaborado por el Observatorio Productivo de Arará. Fuentes: CFI / Gobierno de Entre Ríos, Ley Provincial 10.933, Resolución 120/2026, Decreto 242/2026, Enersa, mapas de recurso solar provincial y relevamiento satelital Landbau.</div>
+    </article>
+
+    <aside class="side" aria-label="Síntesis del informe">
+      <section class="panel">
+        <h3>Indicadores clave</h3>
+        <div class="metric"><b>238,28 ha</b><span>de techos avícolas relevados.</span></div>
+        <div class="metric"><b>119,1 MWp</b><span>potencia solar en escenario realista.</span></div>
+        <div class="metric"><b>USD 83,4 M</b><span>inversión potencial estimada.</span></div>
+        <div class="metric"><b>136,1 GWh</b><span>generación anual proyectada.</span></div>
+      </section>
+
+      <section class="panel">
+        <h3>Territorios analizados</h3>
+        <div class="tag-list">
+          <span class="tag">Colón</span>
+          <span class="tag">Nogoyá</span>
+          <span class="tag">La Paz</span>
+          <span class="tag">Feliciano</span>
+          <span class="tag">Avicultura</span>
+          <span class="tag">Generación distribuida</span>
+        </div>
+      </section>
+
+      <section class="panel cta">
+        <h3>Consultoría energética</h3>
+        <p>Arará acompaña a municipios, instituciones y empresas en modelos de viabilidad, mapas productivos y estrategias de inversión territorial.</p>
+        <a href="index.html#contacto">Consultar</a>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand-name" style="color:#fff;">Arar<b style="color:var(--gold);">á</b></div>
+        <p>Consultora especializada en desarrollo productivo, industria, municipios, financiamiento e inteligencia territorial.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Servicios</h5>
+        <a href="index.html#servicios">Desarrollo productivo</a>
+        <a href="index.html#servicios">Municipios</a>
+        <a href="index.html#servicios">Industria</a>
+        <a href="index.html#servicios">Financiamiento</a>
+      </div>
+      <div class="foot-col">
+        <h5>Arará</h5>
+        <a href="observatorio.html">Observatorio Productivo</a>
+        <a href="index.html#nosotros">Nosotros</a>
+        <a href="index.html#contacto">Contacto</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Arará · Entre Ríos, Argentina</span>
+      <span>Desarrollo productivo · Estrategia · Territorio</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+document.getElementById('burger').addEventListener('click',function(){
+  var n=document.querySelector('.nav-links');
+  n.style.display = (n.style.display==='flex')?'none':'flex';
+  n.style.flexDirection='column';n.style.position='absolute';n.style.top='74px';n.style.right='0';
+  n.style.background='#0a1628';n.style.padding='18px 24px';n.style.gap='16px';n.style.width='100%';
+  n.style.borderTop='1px solid rgba(200,168,75,.25)';n.style.boxShadow='0 14px 28px rgba(0,0,0,.35)';
+});
+
+function solarColor(value){
+  if(!value) return '#eef3f8';
+  if(value >= 45) return '#2557a7';
+  if(value >= 15) return '#5d91c8';
+  if(value >= 5) return '#9dc2e3';
+  return '#d7e6f5';
+}
+function formatNumber(value, digits){
+  return Number(value || 0).toLocaleString('es-AR',{maximumFractionDigits:digits ?? 1});
+}
+function solarPopup(feature){
+  var p = feature.properties;
+  return '<div class="popup-title">'+p.distrito+' · '+p.departamento+'</div>' +
+    '<div class="popup-grid">' +
+    '<span>Techo avícola</span><span>'+formatNumber(p.techo_ha,1)+' ha</span>' +
+    '<span>EP avícolas depto.</span><span>'+formatNumber(p.ep,0)+'</span>' +
+    '<span>Potencia depto.</span><span>'+formatNumber(p.potencia_kwp/1000,1)+' MWp</span>' +
+    '<span>Generación depto.</span><span>'+formatNumber(p.generacion_gwh,1)+' GWh/año</span>' +
+    '<span>CO₂ evitado depto.</span><span>'+formatNumber(p.co2_tn,0)+' tn/año</span>' +
+    '</div>';
+}
+var solarMapEl = document.getElementById('solar-map');
+if(solarMapEl && window.L){
+  var solarMap = L.map('solar-map', {scrollWheelZoom:false});
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap'
+  }).addTo(solarMap);
+  var solarData;
+  var solarLayer;
+  function drawSolar(dept){
+    if(solarLayer) solarLayer.remove();
+    solarLayer = L.geoJSON(solarData, {
+      filter:function(feature){ return dept === 'Todos' || feature.properties.departamento === dept; },
+      style:function(feature){
+        return {
+          color:'#ffffff',
+          weight:1.5,
+          fillColor:solarColor(feature.properties.techo_ha),
+          fillOpacity:.78,
+          opacity:1
+        };
+      },
+      onEachFeature:function(feature, layer){
+        layer.bindPopup(solarPopup(feature));
+        layer.on({
+          mouseover:function(e){ e.target.setStyle({weight:2.5,color:'#0a1628',fillOpacity:.86}); },
+          mouseout:function(e){ solarLayer.resetStyle(e.target); }
+        });
+      }
+    }).addTo(solarMap);
+    if(solarLayer.getBounds().isValid()) solarMap.fitBounds(solarLayer.getBounds().pad(.08));
+  }
+  fetch('solar-avicola-distritos.geojson')
+    .then(function(response){ return response.json(); })
+    .then(function(data){
+      solarData = data;
+      drawSolar('Todos');
+      document.querySelectorAll('.map-tab').forEach(function(btn){
+        btn.addEventListener('click',function(){
+          document.querySelectorAll('.map-tab').forEach(function(other){ other.classList.remove('active'); });
+          btn.classList.add('active');
+          drawSolar(btn.dataset.dept);
+        });
+      });
+    })
+    .catch(function(){
+      solarMapEl.innerHTML = '<div style="padding:28px;color:#46546a">No se pudo cargar el mapa de distritos.</div>';
+    });
+}
+</script>
+<a class="whatsapp-float" href="https://wa.me/5493436212809?text=Hola%2C%20quiero%20hacer%20una%20consulta%20a%20ARARA%20Consultora" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M16.02 3.2c-7.05 0-12.78 5.7-12.78 12.73 0 2.24.59 4.43 1.7 6.36L3.14 28.8l6.68-1.75a12.8 12.8 0 0 0 6.2 1.58c7.04 0 12.77-5.7 12.77-12.72S23.06 3.2 16.02 3.2Zm0 23.28c-1.94 0-3.84-.52-5.5-1.5l-.39-.23-3.96 1.04 1.06-3.85-.25-.4a10.47 10.47 0 0 1-1.6-5.61c0-5.84 4.77-10.59 10.64-10.59 5.86 0 10.63 4.75 10.63 10.59 0 5.83-4.77 10.55-10.63 10.55Zm5.83-7.9c-.32-.16-1.9-.94-2.2-1.04-.3-.12-.52-.16-.74.16-.22.31-.85 1.04-1.04 1.25-.2.22-.39.24-.71.08-.32-.16-1.36-.5-2.58-1.59-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.5.14-.65.15-.14.32-.38.48-.57.16-.19.22-.32.32-.53.1-.22.05-.4-.03-.57-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.56-.74-.57h-.63c-.22 0-.57.08-.87.4-.3.32-1.14 1.12-1.14 2.72 0 1.6 1.17 3.15 1.33 3.37.16.22 2.3 3.5 5.56 4.9.78.34 1.39.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.14-.3-.22-.62-.38Z"/>
+  </svg>
+</a>
+</body>
+</html>

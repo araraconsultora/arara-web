@@ -37,7 +37,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);line-height:1.6;background:var(--white);}
-h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;line-height:1.2;font-weight:700;}
+h1,h2,h3,h4{font-family:'Playfair Display','Inter',system-ui,sans-serif;line-height:1.2;font-weight:700;}
 a{color:inherit;text-decoration:none;}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
 .accent{color:var(--gold);}
@@ -136,6 +136,13 @@ section{padding:84px 0;scroll-margin-top:74px;}
 .obs-feature-note .obs-body{background:linear-gradient(135deg,#fff 0%,#f8fafc 100%);border-left:4px solid var(--blue-mid);}
 .obs-feature-media{min-height:315px;background:#d9e0e8;}
 .obs-feature-media img{width:100%;height:100%;object-fit:cover;display:block;}
+.obs-solar-media{background:linear-gradient(135deg,#f7fbff 0%,#e7f1ef 100%);display:grid;align-content:center;gap:18px;padding:28px;position:relative;overflow:hidden;}
+.obs-solar-media::before{content:'';position:absolute;right:28px;top:26px;width:74px;height:74px;border-radius:50%;background:radial-gradient(circle,var(--gold-light) 0 32%,rgba(232,201,106,.22) 33% 60%,transparent 61%);box-shadow:0 0 34px rgba(232,201,106,.5);}
+.solar-mini-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:250px;transform:skewY(-7deg);}
+.solar-mini-grid span{height:34px;border-radius:6px;background:linear-gradient(145deg,#1a3a6b,#2557a7);border:1px solid rgba(255,255,255,.35);box-shadow:0 7px 14px rgba(10,22,40,.14);}
+.solar-mini-badge{position:relative;z-index:2;background:rgba(10,22,40,.92);color:#fff;border-left:5px solid var(--gold);padding:14px 16px;border-radius:10px;max-width:300px;}
+.solar-mini-badge b{display:block;font-size:25px;line-height:1;font-family:'Playfair Display',Georgia,serif;color:#fff;}
+.solar-mini-badge span{display:block;font-size:12px;color:#c3cedd;margin-top:5px;}
 .obs-feature-side{background:linear-gradient(160deg,var(--navy),var(--blue-mid));color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:26px;}
 .obs-feature-side .label{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);}
 .obs-feature-side .arrow{font-size:34px;line-height:1;color:var(--gold-light);align-self:flex-end;}
@@ -242,6 +249,7 @@ footer{background:#060f1d;color:#aeb9c8;padding:54px 0 28px;font-size:14px;}
     <nav class="nav-links">
       <a href="#servicios">Servicios</a>
       <a href="observatorio.html">Observatorio</a>
+      <a href="/digital/">Digital</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#contacto" class="nav-cta">Contacto</a>
       <a href="https://www.facebook.com/profile.php?id=61590969711155" class="nav-social" target="_blank" rel="noopener" aria-label="Facebook de Arará">
@@ -333,19 +341,37 @@ footer{background:#060f1d;color:#aeb9c8;padding:54px 0 28px;font-size:14px;}
       <h2>Notas e informes recientes</h2>
       <p>Una selección de artículos, mapas e informes aplicados al desarrollo productivo de Entre Ríos. Cada contenido se puede abrir desde la página principal y ampliar en el Observatorio.</p>
     </div>
-    <a class="obs-feature obs-feature-note obs-link-card" href="modelado-viabilidad-obra-publica-nodal.html">
+    <a class="obs-feature obs-feature-note obs-link-card" href="entre-rios-tres-territorios.html">
       <div class="obs-body">
-        <div class="obs-tag">Infraestructura &middot; Medici&oacute;n t&eacute;cnica</div>
-        <h3>Modelado de Viabilidad y Gesti&oacute;n Estrat&eacute;gica de Obra P&uacute;blica Nodal</h3>
-        <p>Una herramienta para medir impacto productivo, viabilidad econ&oacute;mica y riesgo log&iacute;stico en obras p&uacute;blicas nodales.</p>
-        <div class="meta">Nuevo informe del Observatorio</div>
+        <div class="obs-tag">Inteligencia territorial &middot; Entre R&iacute;os</div>
+        <h3>Entre R&iacute;os desde adentro: tres territorios, tres l&oacute;gicas productivas</h3>
+        <p>Un recorrido comparativo entre Feliciano, La Paz y Col&oacute;n a partir del relevamiento satelital del Observatorio Productivo de Arar&aacute;.</p>
+        <div class="meta">Nuevo art&iacute;culo del Observatorio</div>
         <span class="obs-cta">Leer informe</span>
       </div>
-      <div class="obs-feature-media">
-        <img src="modelado-viabilidad-obra-publica-nodal.jpeg" alt="Herramienta consultora para medici&oacute;n y gesti&oacute;n de obra p&uacute;blica nodal">
+      <div class="obs-feature-media" aria-hidden="true">
+        <img src="entre-rios-tres-territorios-cover.png" alt="">
       </div>
     </a>
     <div class="obs-mini-grid" aria-label="Informes recientes del Observatorio">
+      <a class="obs-mini obs-link-card" href="solar-distribuida-avicola-entre-rios.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">Energ&iacute;a &middot; Avicultura &middot; Territorio</div>
+          <h3>Potencial de generaci&oacute;n solar distribuida en establecimientos av&iacute;colas de Entre R&iacute;os</h3>
+          <p>Un modelo territorial para dimensionar la oportunidad solar sobre techos av&iacute;colas ya construidos en La Paz, Nogoy&aacute; y Col&oacute;n.</p>
+          <div class="meta">Informe del Observatorio</div>
+        </div>
+      </a>
+      <a class="obs-mini obs-link-card" href="modelado-viabilidad-obra-publica-nodal.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">Infraestructura &middot; Medici&oacute;n t&eacute;cnica</div>
+          <h3>Modelado de Viabilidad y Gesti&oacute;n Estrat&eacute;gica de Obra P&uacute;blica Nodal</h3>
+          <p>Impacto productivo, viabilidad econ&oacute;mica y riesgo log&iacute;stico en obras p&uacute;blicas nodales.</p>
+          <div class="meta">Informe del Observatorio</div>
+        </div>
+      </a>
       <a class="obs-mini obs-link-card" href="alianzas-con-valor.html">
         <div class="obs-top"></div>
         <div class="obs-body">

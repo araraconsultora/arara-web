@@ -136,6 +136,13 @@ section{padding:84px 0;scroll-margin-top:74px;}
 .obs-feature-note .obs-body{background:linear-gradient(135deg,#fff 0%,#f8fafc 100%);border-left:4px solid var(--blue-mid);}
 .obs-feature-media{min-height:315px;background:#d9e0e8;}
 .obs-feature-media img{width:100%;height:100%;object-fit:cover;display:block;}
+.obs-solar-media{background:linear-gradient(135deg,#f7fbff 0%,#e7f1ef 100%);display:grid;align-content:center;gap:18px;padding:28px;position:relative;overflow:hidden;}
+.obs-solar-media::before{content:'';position:absolute;right:28px;top:26px;width:74px;height:74px;border-radius:50%;background:radial-gradient(circle,var(--gold-light) 0 32%,rgba(232,201,106,.22) 33% 60%,transparent 61%);box-shadow:0 0 34px rgba(232,201,106,.5);}
+.solar-mini-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:250px;transform:skewY(-7deg);}
+.solar-mini-grid span{height:34px;border-radius:6px;background:linear-gradient(145deg,#1a3a6b,#2557a7);border:1px solid rgba(255,255,255,.35);box-shadow:0 7px 14px rgba(10,22,40,.14);}
+.solar-mini-badge{position:relative;z-index:2;background:rgba(10,22,40,.92);color:#fff;border-left:5px solid var(--gold);padding:14px 16px;border-radius:10px;max-width:300px;}
+.solar-mini-badge b{display:block;font-size:25px;line-height:1;font-family:'Playfair Display',Georgia,serif;color:#fff;}
+.solar-mini-badge span{display:block;font-size:12px;color:#c3cedd;margin-top:5px;}
 .obs-feature-side{background:linear-gradient(160deg,var(--navy),var(--blue-mid));color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:26px;}
 .obs-feature-side .label{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);}
 .obs-feature-side .arrow{font-size:34px;line-height:1;color:var(--gold-light);align-self:flex-end;}
@@ -238,6 +245,7 @@ footer{background:#060f1d;color:#aeb9c8;padding:54px 0 28px;font-size:14px;}
     <nav class="nav-links">
       <a href="#servicios">Services</a>
       <a href="observatorio-en.html">Observatory</a>
+      <a href="/digital/">Digital</a>
       <a href="#nosotros">About</a>
       <a href="#contacto" class="nav-cta">Contact</a>
       <a href="https://www.facebook.com/profile.php?id=61590969711155" class="nav-social" target="_blank" rel="noopener" aria-label="Arará on Facebook">
@@ -329,19 +337,37 @@ footer{background:#060f1d;color:#aeb9c8;padding:54px 0 28px;font-size:14px;}
       <h2>Recent notes and reports</h2>
       <p>A selection of articles, maps and applied reports on productive development in Entre Ríos. Each piece can be opened from the homepage and expanded in the Observatory.</p>
     </div>
-    <a class="obs-feature obs-feature-note obs-link-card" href="nodal-public-works-viability-modeling-en.html">
+    <a class="obs-feature obs-feature-note obs-link-card" href="entre-rios-from-within-three-territories-en.html">
       <div class="obs-body">
-        <div class="obs-tag">Infrastructure &middot; Technical measurement</div>
-        <h3>Viability Modeling and Strategic Management of Nodal Public Works</h3>
-        <p>A tool to measure productive impact, economic viability and logistics risk in nodal public works.</p>
-        <div class="meta">New Observatory report</div>
+        <div class="obs-tag">Territorial intelligence &middot; Entre R&iacute;os</div>
+        <h3>Entre R&iacute;os from within: three territories, three productive logics</h3>
+        <p>A comparative reading of Feliciano, La Paz and Col&oacute;n based on satellite-based territorial intelligence from Arar&aacute;'s Productive Observatory.</p>
+        <div class="meta">New Observatory article</div>
         <span class="obs-cta">Read report</span>
       </div>
-      <div class="obs-feature-media">
-        <img src="modelado-viabilidad-obra-publica-nodal.jpeg" alt="Consulting tool for measuring and managing nodal public works">
+      <div class="obs-feature-media" aria-hidden="true">
+        <img src="entre-rios-tres-territorios-cover.png" alt="">
       </div>
     </a>
     <div class="obs-mini-grid" aria-label="Recent reports from the Observatory">
+      <a class="obs-mini obs-link-card" href="solar-distributed-poultry-entre-rios-en.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">Energy &middot; Poultry &middot; Territory</div>
+          <h3>Distributed solar generation potential in poultry facilities in Entre R&iacute;os</h3>
+          <p>A territorial model to size the solar opportunity on existing poultry roofs in La Paz, Nogoy&aacute; and Col&oacute;n.</p>
+          <div class="meta">Observatory report</div>
+        </div>
+      </a>
+      <a class="obs-mini obs-link-card" href="nodal-public-works-viability-modeling-en.html">
+        <div class="obs-top"></div>
+        <div class="obs-body">
+          <div class="obs-tag">Infrastructure &middot; Technical measurement</div>
+          <h3>Viability Modeling and Strategic Management of Nodal Public Works</h3>
+          <p>Productive impact, economic viability and logistics risk in nodal public works.</p>
+          <div class="meta">Observatory report</div>
+        </div>
+      </a>
       <a class="obs-mini obs-link-card" href="alianzas-con-valor-en.html">
         <div class="obs-top"></div>
         <div class="obs-body">
